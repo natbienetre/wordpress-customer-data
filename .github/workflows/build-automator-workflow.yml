@@ -1,0 +1,65 @@
+name: Build Automator Workflow Archive
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'scripts/automator.workflow/**'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'scripts/automator.workflow/**'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag for the archive'
+        required: false
+        default: 'latest'
+
+jobs:
+  build-automator-workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup build environment
+        run: |
+          # Create build directory
+          mkdir -p build
+
+      - name: Generate version info
+        id: version
+        run: |
+          if [ "${{ github.event.inputs.version }}" != "" ]; then
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Automator workflow archive
+        run: |
+          tar -czvf 'build/automator-workflow-${{ steps.version.outputs.version }}.tar.gz' -C scripts automator.workflow
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: automator-workflow-${{ steps.version.outputs.version }}
+          path: 'build/automator-workflow-${{ steps.version.outputs.version }}.tar.gz'
+
+      - name: Create release (on push to main/master)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/automator-workflow-${{ steps.version.outputs.version }}.tar.gz
+          tag_name: automator-workflow-${{ steps.version.outputs.version }}
+          name: Automator Workflow v${{ steps.version.outputs.version }}
+          body: |
+            Automator workflow built from commit ${{ github.sha }}
+
+            ## Installation
+            1. Download the `.tar.gz` file and extract it
+            2. Move the `.workflow` file to the `~/Library/Services` folder
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

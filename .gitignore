@@ -1,15 +1,10 @@
 /vendor/
 composer.lock
-.DS_Store
-*.log
-.idea/
-.vscode/
-*.swp
-*.swo
 *.zip
 
-js/build/
 build/
 
-languages/vfs-*.json
-languages/vfs-*.php
+/languages/vfs-*.json
+/languages/vfs-*.php
+
+/scripts/automator.workflow/Contents/QuickLook/Preview.png
