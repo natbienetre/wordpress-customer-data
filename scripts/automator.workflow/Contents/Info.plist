@@ -14,7 +14,7 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Automator</string>
+				<string>automator</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runWorkflowAsService</string>
