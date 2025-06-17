@@ -1,0 +1,78 @@
+{
+	"apiVersion": 2,
+	"name": "vfs/file-upload-fileinfo",
+	"title": "Block representing a single uploaded file",
+	"description": "Display file information",
+	"category": "media",
+	"icon": "list-view",
+	"supports": {
+		"background": {
+			"backgroundImage": true,
+			"backgroundSize": true
+		},
+		"color": {
+			"text": true,
+			"background": true,
+			"gradients": true,
+			"link": false,
+			"button": true
+		},
+		"dimensions": {
+			"minHeight": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": true
+		},
+		"layout": {
+			"allowSwitching": true,
+			"allowInheriting": true,
+			"allowJustification": true,
+			"allowSizingOnChildren": true,
+			"allowVerticalAlignment": true,
+			"default": {
+				"type": "flex",
+				"flexWrap": "nowrap"
+			}
+		},
+		"shadow": true,
+		"__experimentalBorder": {
+			"radius": true,
+			"color": true,
+			"width": true,
+			"style": true
+		},
+		"interactivity": {
+			"clientNavigation": true
+		}
+	},
+	"attributes": {
+		"layout": {
+			"type": "object",
+			"default": {
+				"type": "flex",
+				"flexWrap": "nowrap",
+				"selfStretch": "fill",
+				"justifyContent": "stretch"
+			}
+		},
+		"destination": {
+			"type": "string",
+			"default": ""
+		},
+		"pageSpace": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"blockHooks": {
+		"vfs/file-upload": "after"
+	},
+	"editorScript": "file:./admin.js",
+	"editorStyle": "file:./admin.css",
+	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
+	"viewScript": [ "vfs-blocks-lib", "wp-util", "file:./frontend.js", "wp-hooks" ],
+	"viewStyle": [ "file:./frontend.css" ],
+	"textdomain": "vfs"
+}

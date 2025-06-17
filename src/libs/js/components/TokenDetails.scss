@@ -1,0 +1,22 @@
+@use "~@wordpress/base-styles/colors.native" as colors;
+
+.vfs-token-details {
+
+	.vfs-token-validation-granted-method {
+		color: colors.$alert-green;
+	}
+
+	.vfs-token-validation-denied-method {
+		color: colors.$alert-red;
+		text-decoration: line-through;
+	}
+
+	.vfs-token-details-row:not(:last-child) {
+		border-bottom: 1px solid colors.$light-gray-500;
+	}
+
+	.vfs-token-details-row-value-user-firstname,
+	.vfs-token-details-row-value-user-lastname {
+		text-transform: capitalize;
+	}
+}

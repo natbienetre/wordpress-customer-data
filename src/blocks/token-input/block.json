@@ -1,0 +1,62 @@
+{
+	"apiVersion": 2,
+	"name": "vfs/token-input",
+	"title": "Token Input",
+	"description": "Input a token",
+	"category": "media",
+	"icon": "cloud-upload",
+	"supports": {
+		"anchor": true,
+		"background": {
+			"backgroundImage": true,
+			"backgroundSize": true
+		},
+		"color": {
+			"text": true,
+			"background": true,
+			"gradients": true,
+			"link": false,
+			"button": false
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"position": {
+			"sticky": true
+		},
+		"__experimentalBorder": {
+			"radius": true,
+			"color": true,
+			"width": true,
+			"style": true
+		},
+		"shadow": true,
+		"interactivity": {
+			"clientNavigation": true
+		}
+	},
+	"attributes": {
+		"placeholder": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "input",
+			"attribute": "placeholder"
+		},
+		"autopopulate": {
+			"type": "boolean",
+			"default": true
+		},
+		"type": {
+			"enum": [ "text", "password" ],
+			"default": "text",
+			"source": "attribute",
+			"selector": "input",
+			"attribute": "type"
+		}
+	},
+	"editorScript": "file:./admin.js",
+	"editorStyle": "file:./admin.css",
+	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
+	"textdomain": "vfs"
+}

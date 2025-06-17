@@ -1,0 +1,48 @@
+{
+	"apiVersion": 2,
+	"name": "vfs/file-upload-delete",
+	"title": "Delete uploaded file",
+	"description": "Button to delete the uploaded file",
+	"category": "media",
+	"icon": "trash",
+	"ancestor": [ "vfs/file-upload-fileinfo" ],
+	"supports": {
+		"color": {
+			"text": false,
+			"background": false,
+			"button": true,
+			"link": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"__experimentalBorder": {
+			"radius": false,
+			"color": true,
+			"width": true,
+			"style": true
+		},
+		"interactive": {
+			"clientNavigation": true
+		}
+	},
+	"attributes": {
+		"useIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"confirmationDialog": {
+			"type": "boolean",
+			"default": false
+		},
+		"linkStyle": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"editorScript": "file:./admin.js",
+	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
+	"viewScript": "file:./frontend.js",
+	"textdomain": "vfs"
+}

@@ -1,0 +1,34 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"lib": [ "dom", "dom.iterable", "esnext" ],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"jsx": "react-jsx",
+		"typeRoots": [ "./node_modules/@types", "./types.d.ts" ],
+		"baseUrl": ".",
+		"paths": {
+			"*": [ "src/libs/js/types/*" ],
+			"@wordpress/dataviews/wp": [ "node_modules/@wordpress/dataviews/build-types/index.d.ts" ]
+		}
+	},
+	"ts-node": {
+		"compilerOptions": {
+			"module": "CommonJS"
+		},
+		"esm": true,
+		"experimentalSpecifierResolution": "node"
+	},
+	"include": [ "src/**/*", "webpack.config.ts", "types.d.ts" ],
+	"exclude": [ "node_modules", "build" ]
+}

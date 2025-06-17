@@ -1,0 +1,1213 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Visitor FileSystem 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-customer-data\n"
+"Last-Translator: Pierre PÉRONNET <pierre.peronnet+vfs@gmail.com>\n"
+"Language-Team: fr-FR <pierre.peronnet+vfs@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-04-02 13:50:27+00:00\n"
+"PO-Revision-Date: 2025-04-02 13:50:27+00:00\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-Country: France\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: classes/class-settings-page.php:124
+#: build/admin-settings/editor.js:77333
+msgid "Settings"
+msgstr "Paramètres"
+
+#: classes/class-settings-page.php:222
+#: classes/class-settings-page.php:223
+#: classes/class-tools-page.php:121
+#: classes/class-tools-page.php:122
+msgid "Visitor Filesystem"
+msgstr "Système de fichiers visiteur"
+
+#: classes/class-settings-page.php:251
+msgid "Visitor Filesystem settings"
+msgstr "Paramètres du système de fichiers visiteur"
+
+#: classes/class-settings-page.php:317
+msgid "Swift provider"
+msgstr "Fournisseur Swift"
+
+#: classes/class-settings-page.php:501
+msgid "Swift signature algo"
+msgstr "Algorithme de signature Swift"
+
+#: classes/class-settings-page.php:451
+msgid "Swift base URL"
+msgstr "URL de base Swift"
+
+#: classes/class-settings-page.php:420
+msgid "Swift container"
+msgstr "Conteneur Swift"
+
+#: classes/class-settings-page.php:432
+msgid "Swift additional prefix"
+msgstr "Préfixe additionnel Swift"
+
+#: classes/class-settings-page.php:591
+#: classes/class-settings-page.php:716
+msgid "These settings are used to interact with the Swift provider."
+msgstr "Ces paramètres sont utilisés pour interagir avec le fournisseur Swift."
+
+#: classes/class-editor.php:233
+msgid "Temporary URL subpath"
+msgstr "Sous-chemin d'URL temporaire"
+
+#: classes/class-editor.php:235
+msgid "The path to append to the temporary URL. The generated URL will be the concatenation of the Swift account URL, the Swift container, the subpath, and the file destination."
+msgstr "Le chemin à ajouter à l'URL temporaire. L'URL générée sera la concaténation de l'URL du compte Swift, du conteneur Swift, du sous-chemin et de la destination du fichier."
+
+#. Plugin Name of the plugin
+#: vfs.php
+msgid "Visitor FileSystem"
+msgstr "Système de fichiers visiteur"
+
+#. Plugin URI of the plugin
+#: vfs.php
+msgid "https://github.com/natbienetre/wordpress-visitor-filesystem"
+msgstr "https://github.com/natbienetre/wordpress-visitor-filesystem"
+
+#. Description of the plugin
+#: vfs.php
+msgid "Helps visitor to upload files and manage them."
+msgstr "Aide les visiteurs à télécharger et gérer leurs fichiers."
+
+#. Author of the plugin
+#: vfs.php
+msgid "@holyhope"
+msgstr "@holyhope"
+
+#. Author URI of the plugin
+#: vfs.php
+msgid "https://github.com/holyhope"
+msgstr "https://github.com/holyhope"
+
+#: build/blocks/file-upload-delete/block.json
+msgctxt "block title"
+msgid "Delete uploaded file"
+msgstr "Supprimer le fichier téléversé"
+
+#: build/blocks/file-upload-delete/block.json
+msgctxt "block description"
+msgid "Button to delete the uploaded file"
+msgstr "Bouton pour supprimer le fichier téléversé"
+
+#: build/blocks/file-upload-download/block.json
+msgctxt "block title"
+msgid "Download uploaded file"
+msgstr "Télécharger le fichier téléversé"
+
+#: build/blocks/file-upload-download/block.json
+msgctxt "block description"
+msgid "Button to download the uploaded file"
+msgstr "Bouton pour télécharger le fichier téléversé"
+
+#: build/blocks/file-upload-filename/block.json
+msgctxt "block title"
+msgid "File Upload Filename"
+msgstr "Nom du fichier téléversé"
+
+#: build/blocks/file-upload-filename/block.json
+msgctxt "block description"
+msgid "Filename of the uploaded file"
+msgstr "Nom du fichier téléversé"
+
+#: build/blocks/file-upload-preview/block.json
+msgctxt "block title"
+msgid "File Upload Preview"
+msgstr "Aperçu du fichier téléversé"
+
+#: build/blocks/file-upload-preview/block.json
+msgctxt "block description"
+msgid "Preview of the uploaded file"
+msgstr "Aperçu du fichier téléversé"
+
+#: build/blocks/file-upload/block.json
+msgctxt "block title"
+msgid "File Upload"
+msgstr "Téléversement de fichier"
+
+#: build/blocks/file-upload/block.json
+msgctxt "block description"
+msgid "Upload a file or multiple files"
+msgstr "Téléverser un ou plusieurs fichiers"
+
+#: build/admin-settings/editor.js:78718
+msgid "Upload destination folder"
+msgstr "Dossier de destination du téléversement"
+
+#: build/admin-settings/editor.js:78721
+msgid "Enter destination"
+msgstr "Saisir la destination"
+
+#: build/admin-settings/editor.js:78664
+msgid "Copy to clipboard"
+msgstr "Copier dans le presse-papiers"
+
+#: build/blocks/file-upload-delete/admin.js:11200
+#: build/blocks/file-upload-download/admin.js:11200
+#: build/blocks/file-upload-fileinfo/admin.js:11143
+#: build/blocks/file-upload-preview/admin.js:11225
+#: build/blocks/file-upload/admin.js:11294
+msgid "File upload settings"
+msgid_plural "Files upload settings"
+msgstr[0] "Paramètres de téléversement de fichier"
+msgstr[1] "Paramètres de téléversement de fichiers"
+
+#: build/blocks/file-upload-delete/admin.js:11204
+#: build/blocks/file-upload-download/admin.js:11205
+msgid "Use Icon"
+msgstr "Utiliser une icône"
+
+#: build/admin-settings/editor.js:77932
+#: build/admin-settings/editor.js:79166
+#: build/blocks/file-upload-download/admin.js:11242
+#: build/blocks/file-upload-download/admin.js:11305
+msgid "Download"
+msgstr "Télécharger"
+
+#: build/blocks/file-upload-filename/admin.js:11178
+msgctxt "File upload filename block"
+msgid "File upload settings"
+msgstr "Paramètres de téléversement de fichier"
+
+#: build/blocks/file-upload-filename/admin.js:11168
+msgctxt "Default file name"
+msgid "filename.png"
+msgstr "nomfichier.png"
+
+#: build/blocks/file-upload-filename/admin.js:11173
+msgctxt "Default file name without extension"
+msgid "filename"
+msgstr "nomfichier"
+
+#: build/admin-settings/editor.js:77775
+#: build/blocks/token-input/admin.js:11150
+msgid "Type"
+msgstr "Type"
+
+#: build/admin-settings/editor.js:77781
+msgid "Size"
+msgstr "Taille"
+
+#: build/blocks/file-upload-preview/admin.js:11229
+msgid "Use image preview (if possible)"
+msgid_plural "Use image previews (if possible)"
+msgstr[0] "Utiliser l'aperçu d'image (si possible)"
+msgstr[1] "Utiliser les aperçus d'images (si possible)"
+
+#: build/blocks/file-upload-preview/admin.js:11242
+msgid "Image preview"
+msgstr "Aperçu de l'image"
+
+#: build/blocks/file-upload/admin.js:11300
+msgid "Number of files to upload"
+msgstr "Nombre de fichiers à téléverser"
+
+#: build/blocks/file-upload/admin.js:11341
+msgid "Destination File Name"
+msgid_plural "Destination directory"
+msgstr[0] "Nom du fichier de destination"
+msgstr[1] "Répertoire de destination"
+
+#: build/blocks/file-upload/admin.js:11356
+msgid "Enter the name of the file where the uploaded file will be saved."
+msgid_plural "Enter the name of the directory where the uploaded files will be saved."
+msgstr[0] "Saisissez le nom du fichier où le fichier téléversé sera enregistré."
+msgstr[1] "Saisissez le nom du répertoire où les fichiers téléversés seront enregistrés."
+
+#: build/blocks/file-upload/admin.js:11369
+msgid "Allowed file types"
+msgstr "Types de fichiers autorisés"
+
+#: classes/class-settings-page.php:324
+msgid "Swift auth URL"
+msgstr "URL d'authentification Swift"
+
+#: classes/class-settings-page.php:336
+msgid "Swift identity API version"
+msgstr "Version de l'API d'identité Swift"
+
+#: classes/class-settings-page.php:348
+msgid "Swift user domain name"
+msgstr "Nom de domaine utilisateur Swift"
+
+#: classes/class-settings-page.php:372
+msgid "Swift tenant ID"
+msgstr "ID du tenant Swift"
+
+#: classes/class-settings-page.php:384
+msgid "Swift tenant name"
+msgstr "Nom du tenant Swift"
+
+#: classes/class-settings-page.php:396
+msgid "Swift user"
+msgstr "Utilisateur Swift"
+
+#: classes/class-settings-page.php:408
+msgid "Swift password"
+msgstr "Mot de passe Swift"
+
+#: classes/class-settings-page.php:444
+msgid "Advanced"
+msgstr "Avancé"
+
+#: classes/class-settings-page.php:617
+msgctxt "The openstack identity API version"
+msgid "v3"
+msgstr "v3"
+
+#: classes/class-settings-page.php:618
+msgctxt "The openstack identity API version"
+msgid "v2"
+msgstr "v2"
+
+#: build/admin-settings/editor.js:77314
+msgid "Users spaces"
+msgstr "Espaces utilisateurs"
+
+#. translators: %d is the number of blocks
+#: build/admin-settings/editor.js:79044
+msgid "%d block found"
+msgid_plural "%d blocks found"
+msgstr[0] "%d bloc trouvé"
+msgstr[1] "%d blocs trouvés"
+
+#: build/admin-settings/editor.js:77350
+msgid "Create a new space"
+msgstr "Créer un nouvel espace"
+
+#: build/admin-settings/editor.js:77339
+msgid "Files"
+msgstr "Fichiers"
+
+#: build/admin-settings/editor.js:78653
+msgid "Generated URL"
+msgstr "URL générée"
+
+#. translators: %d is the number of files
+#: build/admin-settings/editor.js:79165
+msgid "Download %d file"
+msgid_plural "Download %d files"
+msgstr[0] "Télécharger %d fichier"
+msgstr[1] "Télécharger %d fichiers"
+
+#: classes/class-keyset.php:328
+#: build/admin-settings/editor.js:77943
+#: build/admin-settings/editor.js:78048
+#: build/blocks/file-upload-delete/admin.js:11240
+#: build/blocks/file-upload-delete/admin.js:11301
+#: build/blocks/file-upload-delete/admin.js:11305
+msgid "Delete"
+msgstr "Supprimer"
+
+#: build/blocks/file-upload-download/admin.js:11228
+msgid "Use JavaScript download"
+msgstr "Utiliser le téléchargement JavaScript"
+
+#. translators: %s: Key ID
+#: classes/class-options.php:731
+msgid "Main key %s not found"
+msgstr "Clé principale %s non trouvée"
+
+#: classes/class-settings-page.php:513
+msgid "Key management"
+msgstr "Gestion des clés"
+
+#: classes/class-settings-page.php:544
+msgid "JWKS URL"
+msgstr "URL JWKS"
+
+#: classes/class-settings-page.php:836
+msgid "This section allows you to manage the key management."
+msgstr "Cette section vous permet de gérer la gestion des clés."
+
+#: classes/class-keyset.php:161
+#: classes/class-keyset.php:213
+#: classes/class-keyset.php:520
+msgid "No key provided"
+msgstr "Aucune clé fournie"
+
+#. translators: %s: Key ID
+#: classes/class-keyset.php:532
+msgid "Key not found: %s"
+msgstr "Clé non trouvée : %s"
+
+#: classes/class-keyset.php:563
+#: classes/class-keyset.php:589
+msgid "No keys found"
+msgstr "Aucune clé trouvée"
+
+#: classes/class-keyset.php:600
+msgid "No valid key found"
+msgstr "Aucune clé valide trouvée"
+
+#. translators: %s: Key ID
+#: classes/class-keyset.php:610
+msgid "No key found for %s"
+msgstr "Aucune clé trouvée pour %s"
+
+#: classes/class-keyset.php:621
+msgid "No payload provided"
+msgstr "Aucune charge utile fournie"
+
+#: build/admin-settings/editor.js:78524
+msgid "Failed to generate temporary URL"
+msgstr "Échec de la génération de l'URL temporaire"
+
+#: build/admin-settings/editor.js:76694
+#: build/admin-settings/editor.js:77353
+#: build/admin-settings/editor.js:77892
+msgid "Temporary URL"
+msgstr "URL temporaire"
+
+#: classes/class-tool-create-token.php:230
+#: build/admin-settings/editor.js:78597
+msgid "Email"
+msgstr "E-mail"
+
+#: build/admin-settings/editor.js:78614
+msgid "Identifier"
+msgstr "Identifiant"
+
+#: build/admin-settings/editor.js:77927
+#: build/admin-settings/editor.js:78630
+msgid "Generate temporary URL"
+msgstr "Générer une URL temporaire"
+
+#. translators: %1$s is the key ID, %2$s is the error message.
+#: build/admin-settings/editor.js:78013
+msgid "Failed to delete key %1$s: %2$s"
+msgstr "Échec de la suppression de la clé %1$s : %2$s"
+
+#: build/admin-settings/editor.js:78023
+msgid "Are you sure you want to delete this key?"
+msgstr "Êtes-vous sûr de vouloir supprimer cette clé ?"
+
+#: build/admin-settings/editor.js:78409
+msgid "Untrusted token, did you delete the key?"
+msgstr "Jeton non fiable, avez-vous supprimé la clé ?"
+
+#: build/admin-settings/editor.js:78411
+msgid "Invalid token format"
+msgstr "Format de jeton invalide"
+
+#. translators: %s is the error code.
+#: build/admin-settings/editor.js:78415
+msgid "Invalid token: code %s"
+msgstr "Jeton invalide : code %s"
+
+#: classes/class-tool-inspect-token.php:217
+#: build/admin-settings/editor.js:78145
+msgid "Version"
+msgstr "Version"
+
+#: classes/class-tool-create-token.php:310
+#: build/admin-settings/editor.js:78157
+msgid "User ID"
+msgstr "ID utilisateur"
+
+#. translators: %s is the error message
+#: build/admin-settings/editor.js:81289
+msgid "An unknown error occurred: %s"
+msgstr "Une erreur inconnue est survenue : %s"
+
+#. translators: %s is the error message
+#: build/admin-settings/editor.js:79139
+msgid "Failed to zip files: %s"
+msgstr "Échec de la compression des fichiers : %s"
+
+#: build/admin-settings/editor.js:78025
+msgid "This action cannot be undone."
+msgstr "Cette action ne peut pas être annulée."
+
+#: build/admin-settings/editor.js:78027
+msgid "This action will delete the key from the server and invalidate all tokens signed with it."
+msgstr "Cette action supprimera la clé du serveur et invalidera tous les jetons signés avec elle."
+
+#: classes/class-settings-page.php:360
+msgid "Swift region"
+msgstr "Région Swift"
+
+#: classes/class-options.php:412
+msgid "Invalid OpenStack credentials"
+msgstr "Identifiants OpenStack invalides"
+
+#: classes/class-options.php:506
+msgid "Failed to get object-store URL from the OpenStack catalog"
+msgstr "Échec de récupération de l'URL object-store depuis le catalogue OpenStack"
+
+#: classes/class-options.php:515
+msgid "Swift account URL not found in the catalog."
+msgstr "URL du compte Swift non trouvée dans le catalogue."
+
+#: classes/class-options.php:572
+msgid "Failed to get container metadata."
+msgstr "Échec de récupération des métadonnées du conteneur."
+
+#: classes/class-options.php:582
+msgid "Failed to get Swift info."
+msgstr "Échec de récupération des informations Swift."
+
+#: classes/class-options.php:744
+msgid "JWKS URL is not a valid URL."
+msgstr "L'URL JWKS n'est pas une URL valide."
+
+#: classes/class-options.php:755
+msgid "Swift region is not set."
+msgstr "La région Swift n'est pas définie."
+
+#. translators: %s: Swift region
+#: classes/class-options.php:769
+msgid "Swift region %s is not available."
+msgstr "La région Swift %s n'est pas disponible."
+
+#: classes/class-options.php:781
+msgid "Swift account URL is not set, and not found in the catalog."
+msgstr "L'URL du compte Swift n'est pas définie et n'a pas été trouvée dans le catalogue."
+
+#. translators: %s: Swift account URL from the catalog
+#: classes/class-options.php:796
+msgid "Swift account URL does not match the catalog URL. The catalog URL is %s."
+msgstr "L'URL du compte Swift ne correspond pas à l'URL du catalogue. L'URL du catalogue est %s."
+
+#: classes/class-options.php:807
+msgid "Invalid temp-url-key location."
+msgstr "Emplacement de la clé temp-url invalide."
+
+#. translators: %s: Error message
+#: classes/class-options.php:817
+msgid "Invalid container configuration: %s"
+msgstr "Configuration du conteneur invalide : %s"
+
+#: classes/class-options.php:825
+msgid "Signature key not found in the metadatas"
+msgstr "Clé de signature non trouvée dans les métadonnées"
+
+#. translators: %1$s: selected algorithm, %2$s: supported algorithms list.
+#: classes/class-options.php:843
+msgid "Algorithm %1$s is not supported. The only supported algorithm is: %2$s."
+msgid_plural "Algorithm %1$s is not supported. The supported algorithms are: %2$s."
+msgstr[0] "L'algorithme %1$s n'est pas pris en charge. Le seul algorithme pris en charge est : %2$s."
+msgstr[1] "L'algorithme %1$s n'est pas pris en charge. Les algorithmes pris en charge sont : %2$s."
+
+#: classes/class-options.php:845
+msgctxt "list separator"
+msgid ", "
+msgstr ", "
+
+#: classes/class-swift-api.php:116
+#: classes/class-swift-api.php:134
+msgid "Invalid Swift account URL"
+msgstr "URL du compte Swift invalide"
+
+#: classes/class-swift-api.php:200
+msgid "Invalid method"
+msgstr "Méthode invalide"
+
+#: classes/class-swift-api.php:156
+msgid "Path or path prefix is required"
+msgstr "Le chemin ou le préfixe du chemin est requis"
+
+#: classes/class-swift-api.php:163
+msgid "Path and path prefix cannot both be set"
+msgstr "Le chemin et le préfixe du chemin ne peuvent pas être définis simultanément"
+
+#: classes/class-swift-api.php:207
+msgid "Invalid expiration date"
+msgstr "Date d'expiration invalide"
+
+#: classes/class-swift-api.php:211
+msgid "Expiration date cannot be in the past"
+msgstr "La date d'expiration ne peut pas être dans le passé"
+
+#: classes/class-token-loader.php:137
+msgid "Invalid configuration"
+msgstr "Configuration invalide"
+
+#: classes/class-token-loader.php:169
+#: classes/class-token-loader.php:179
+msgid "Invalid token"
+msgstr "Jeton invalide"
+
+#: build/admin-settings/editor.js:78193
+msgid "Page space"
+msgstr "Espace de page"
+
+#: classes/class-tool-create-token.php:255
+#: build/admin-settings/editor.js:78205
+msgid "Expires at"
+msgstr "Expire le"
+
+#: build/admin-settings/editor.js:78217
+msgid "Signatures"
+msgstr "Signatures"
+
+#: build/admin-settings/editor.js:76880
+msgid "Visibility settings"
+msgstr "Paramètres de visibilité"
+
+#: build/blocks/token-input/admin.js:11119
+msgid "Token input settings"
+msgstr "Paramètres de saisie du jeton"
+
+#: build/blocks/token-input/admin.js:11125
+msgid "Placeholder"
+msgstr "Texte indicatif"
+
+#: build/blocks/token-input/admin.js:11128
+msgid "The placeholder text for the input."
+msgstr "Le texte indicatif pour le champ de saisie."
+
+#: build/blocks/token-input/admin.js:11138
+msgid "Autopopulate"
+msgstr "Remplissage automatique"
+
+#: build/blocks/token-input/admin.js:11154
+msgid "Text"
+msgstr "Texte"
+
+#: build/blocks/token-input/admin.js:11157
+msgid "Password"
+msgstr "Mot de passe"
+
+#: build/blocks/token-input/block.json
+msgctxt "block description"
+msgid "Input a token"
+msgstr "Saisir un jeton"
+
+#: build/blocks/token-input/block.json
+msgctxt "block title"
+msgid "Token Input"
+msgstr "Saisie de jeton"
+
+#: build/blocks/file-upload/admin.js:11341
+msgid "Destination directory"
+msgstr "Répertoire de destination"
+
+#: build/blocks/file-upload/admin.js:11393
+msgid "Automatically extract archive"
+msgstr "Extraire automatiquement l'archive"
+
+#: build/admin-settings/editor.js:78899
+msgid "ID"
+msgstr "ID"
+
+#: build/admin-settings/editor.js:78904
+msgid "User"
+msgstr "Utilisateur"
+
+#: build/admin-settings/editor.js:78936
+msgid "Browse"
+msgstr "Parcourir"
+
+#: build/admin-settings/editor.js:78953
+msgid "User files"
+msgstr "Fichiers utilisateur"
+
+#: build/admin-settings/editor.js:77741
+msgid "Icon"
+msgstr "Icône"
+
+#: build/admin-settings/editor.js:77755
+msgid "Name"
+msgstr "Nom"
+
+#: build/admin-settings/editor.js:77768
+msgid "Remote path"
+msgstr "Chemin distant"
+
+#: build/admin-settings/editor.js:77791
+msgid "Date"
+msgstr "Date"
+
+#: build/admin-settings/editor.js:77550
+msgid "File type"
+msgstr "Type de fichier"
+
+#: build/admin-settings/editor.js:79039
+msgid "No VFS blocks found, please insert a VFS block"
+msgstr "Aucun bloc VFS trouvé, veuillez insérer un bloc VFS"
+
+#: build/blocks/file-upload-date/admin.js:309
+msgid "File upload date"
+msgstr "Date de téléchargement du fichier"
+
+#: build/blocks/file-upload-date/admin.js:316
+msgid "Relative date"
+msgstr "Date relative"
+
+#: build/blocks/file-upload-preview/admin.js:11307
+msgid "Preview"
+msgstr "Aperçu"
+
+#: build/blocks/file-upload-date/block.json
+msgctxt "block title"
+msgid "File Upload Date"
+msgstr "Date de téléchargement du fichier"
+
+#: build/blocks/file-upload-date/block.json
+msgctxt "block description"
+msgid "Date of the uploaded file"
+msgstr "Date du fichier téléchargé"
+
+#: build/blocks/file-upload-size/block.json
+msgctxt "block title"
+msgid "File Upload Size"
+msgstr "Taille du fichier téléchargé"
+
+#: build/blocks/file-upload-size/block.json
+msgctxt "block description"
+msgid "Size of the uploaded file"
+msgstr "Taille du fichier téléchargé"
+
+#: build/blocks/file-upload-type/block.json
+msgctxt "block title"
+msgid "File Type"
+msgstr "Type de fichier"
+
+#: build/blocks/file-upload-type/block.json
+msgctxt "block description"
+msgid "Type of the uploaded file"
+msgstr "Type du fichier téléchargé"
+
+#: build/blocks/token-input/admin.js:11170
+msgid "The token from the query"
+msgstr "Le jeton de la requête"
+
+#: build/blocks/file-upload-delete/admin.js:11215
+#: build/blocks/file-upload-download/admin.js:11216
+msgid "Link Style"
+msgstr "Style de lien"
+
+#: build/blocks/file-upload-fileinfo/admin.js:11149
+msgid "Destination"
+msgstr "Destination"
+
+#: build/blocks/file-upload-fileinfo/admin.js:11157
+msgid "Enter the name where the file(s) are saved."
+msgstr "Saisissez le nom où les fichiers sont enregistrés."
+
+#: build/blocks/file-upload-filename/admin.js:11182
+msgid "Show file(s) extension"
+msgstr "Afficher l'extension des fichiers"
+
+#: build/blocks/file-upload/admin.js:11236
+msgid "Unlimited uploads"
+msgstr "Téléchargements illimités"
+
+#: build/blocks/file-upload/admin.js:11238
+msgid "Single upload"
+msgstr "Téléchargement unique"
+
+#. translators: %s is the number of files
+#: build/blocks/file-upload/admin.js:11242
+msgid "%s uploads"
+msgstr "%s téléchargements"
+
+#. translators: %s is the destination
+#: build/blocks/file-upload/admin.js:11249
+msgid "Unlimited uploads to %s"
+msgstr "Téléchargements illimités vers %s"
+
+#. translators: %s is the destination
+#: build/blocks/file-upload/admin.js:11253
+msgid "Single upload to %s"
+msgstr "Téléchargement unique vers %s"
+
+#. translators: %1$s is the number of files, %2$s is the destination
+#: build/blocks/file-upload/admin.js:11257
+msgid "%1$s uploads to %2$s"
+msgstr "%1$s téléchargements vers %2$s"
+
+#: build/blocks/file-upload/admin.js:11329
+msgid "Link style"
+msgstr "Style de lien"
+
+#: build/blocks/file-upload/admin.js:11420
+msgid "Add files"
+msgstr "Ajouter des fichiers"
+
+#: build/blocks/file-upload/admin.js:11420
+msgid "Select file"
+msgid_plural "Select files"
+msgstr[0] "Sélectionner un fichier"
+msgstr[1] "Sélectionner des fichiers"
+
+#: build/blocks/file-upload-fileinfo/block.json
+msgctxt "block title"
+msgid "Block representing a single uploaded file"
+msgstr "Bloc représentant un fichier téléchargé"
+
+#: build/blocks/file-upload-fileinfo/block.json
+msgctxt "block description"
+msgid "Display file information"
+msgstr "Afficher les informations du fichier"
+
+#: build/blocks/file-upload-filename/admin.js:11194
+msgid "Link to download the file"
+msgstr "Lien pour télécharger le fichier"
+
+#: build/blocks/file-upload-filename/admin.js:11196
+msgid "If enabled, the name of the file will be a link to download the file."
+msgstr "Si activé, le nom du fichier sera un lien pour télécharger le fichier."
+
+#: build/blocks/file-upload-download/admin.js:11296
+#: build/blocks/file-upload-filename/admin.js:11290
+msgid "Download the file"
+msgstr "Télécharger le fichier"
+
+#: build/blocks/file-upload-delete/admin.js:11205
+#: build/blocks/file-upload-download/admin.js:11207
+msgid "If checked, the button will display an icon."
+msgstr "Si coché, le bouton affichera une icône."
+
+#: build/blocks/file-upload-delete/admin.js:11216
+#: build/blocks/file-upload-download/admin.js:11218
+msgid "If checked, the button will be styled as a link."
+msgstr "Si coché, le bouton sera stylisé comme un lien."
+
+#: build/blocks/file-upload-delete/admin.js:11226
+msgid "Confirmation Dialog"
+msgstr "Boîte de dialogue de confirmation"
+
+#: build/blocks/file-upload-delete/admin.js:11227
+msgid "If checked, the button will display a confirmation dialog."
+msgstr "Si coché, le bouton affichera une boîte de dialogue de confirmation."
+
+#: build/blocks/file-upload-preview/admin.js:11244
+msgid "image/preview"
+msgstr "image/aperçu"
+
+#. translators: %s is the name of the file.
+#: build/blocks/file-upload-download/frontend-interactivity.js:89
+#: build/blocks/file-upload-filename/frontend-interactivity.js:89
+msgid "Download %s"
+msgstr "Télécharger %s"
+
+#. translators: %s is the name of the file.
+#: build/blocks/file-upload-delete/frontend-interactivity.js:5199
+#: build/blocks/file-upload-delete/frontend.js:20
+msgid "Delete %s"
+msgstr "Supprimer %s"
+
+#: build/blocks/token-input/admin.js:11418
+msgid "Paste your token here"
+msgstr "Collez votre jeton ici"
+
+#: build/admin-settings/editor.js:76887
+#: build/admin-settings/editor.js:76953
+msgid "Display if the token is valid"
+msgstr "Afficher si le jeton est valide"
+
+#: build/admin-settings/editor.js:76891
+#: build/admin-settings/editor.js:76961
+msgid "Display if the token is invalid"
+msgstr "Afficher si le jeton est invalide"
+
+#: build/admin-settings/editor.js:76895
+#: build/admin-settings/editor.js:76969
+msgid "Display if the token is loading"
+msgstr "Afficher si le jeton est en cours de chargement"
+
+#. translators: %s is the name of the file.
+#: build/blocks/file-upload-delete/frontend-interactivity.js:5204
+#: build/blocks/file-upload-delete/frontend.js:25
+msgid "Are you sure you want to delete %s?"
+msgstr "Êtes-vous sûr de vouloir supprimer %s ?"
+
+#: build/admin-settings/editor.js:79050
+msgid "Select the next block"
+msgstr "Sélectionner le bloc suivant"
+
+#: build/blocks/file-upload-date/admin.js:318
+msgid "Display the date relative to the current time"
+msgstr "Afficher la date par rapport à l'heure actuelle"
+
+#: build/blocks/file-upload/admin.js:11303
+msgid "The number of files that can be uploaded."
+msgstr "Le nombre de fichiers qui peuvent être téléchargés."
+
+#: build/blocks/file-upload/admin.js:11304
+msgid "0 means unlimited."
+msgstr "0 signifie illimité."
+
+#: build/admin-settings/editor.js:77318
+msgid "Accessibility"
+msgstr "Accessibilité"
+
+#: build/admin-settings/editor.js:77324
+msgid "Block visibility helper"
+msgstr "Aide à la visibilité des blocs"
+
+#: build/blocks/file-upload-preview/admin.js:11315
+msgid "Error"
+msgstr "Erreur"
+
+#: build/blocks/file-upload-preview/admin.js:11318
+msgid "In progress"
+msgstr "En cours"
+
+#: build/admin-settings/editor.js:76509
+msgid "JSON Web Key Set list"
+msgstr "Liste des clés Web JSON"
+
+#: build/admin-settings/editor.js:76516
+msgid "Generate a key"
+msgstr "Générer une clé"
+
+#: build/admin-settings/editor.js:76765
+#: build/admin-settings/editor.js:76781
+msgid "Inspect a token"
+msgstr "Inspecter un jeton"
+
+#: build/admin-settings/editor.js:78382
+msgid "Token details will appear here."
+msgstr "Les détails du jeton apparaîtront ici."
+
+#: build/admin-settings/editor.js:78259
+msgid "Validating token…"
+msgstr "Validation du jeton…"
+
+#: build/admin-settings/editor.js:78372
+msgid "Token to inspect"
+msgstr "Jeton à inspecter"
+
+#: build/admin-settings/editor.js:78376
+msgctxt "Token placeholder"
+msgid "xxxxxheaderxxxxx.yyyyypayloadyyyyyy.zzzzzsignaturezzzzz"
+msgstr "xxxxxen-têtexxxxx.yyyyydonnéesyyyyyy.zzzzzsignaturezzzzz"
+
+#: build/admin-settings/editor.js:78377
+msgid "Enter the token to inspect."
+msgstr "Saisissez le jeton à inspecter."
+
+#: build/admin-settings/editor.js:76670
+msgid "Create a token"
+msgstr "Créer un jeton"
+
+#: build/admin-settings/editor.js:76671
+msgid "Generate a token"
+msgstr "Générer un jeton"
+
+#: build/admin-settings/editor.js:78551
+msgid "Go back"
+msgstr "Retour"
+
+#: classes/class-tool-create-token.php:267
+#: build/admin-settings/editor.js:78562
+msgid "Scope"
+msgstr "Portée"
+
+#: classes/class-settings-page.php:298
+msgid "General"
+msgstr "Général"
+
+#: classes/class-settings-page.php:305
+msgid "Allow scoped tokens"
+msgstr "Autoriser les jetons à portée limitée"
+
+#: classes/class-settings-page.php:520
+msgid "Enable key management"
+msgstr "Activer la gestion des clés"
+
+#: classes/class-settings-page.php:563
+msgid "This section allows you to manage the general settings."
+msgstr "Cette section vous permet de gérer les paramètres généraux."
+
+#: classes/class-options.php:654
+msgid "Failed to get signature keys from Swift."
+msgstr "Échec de la récupération des clés de signature depuis Swift."
+
+#: classes/class-temp-keys.php:39
+#: classes/class-temp-keys.php:81
+msgctxt "temp keys table header"
+msgid "Key"
+msgstr "Clé"
+
+#: classes/class-temp-keys.php:40
+msgctxt "temp keys table header"
+msgid "Keys"
+msgstr "Clés"
+
+#: classes/class-temp-keys.php:79
+msgctxt "temp keys table header"
+msgid "Context"
+msgstr "Contexte"
+
+#: classes/class-temp-keys.php:80
+msgctxt "temp keys table header"
+msgid "Metadata Key"
+msgstr "Clé de métadonnées"
+
+#: classes/class-temp-keys.php:179
+msgctxt "temp keys table cell"
+msgid "Container"
+msgstr "Conteneur"
+
+#: classes/class-temp-keys.php:179
+msgctxt "temp keys table cell"
+msgid "Account"
+msgstr "Compte"
+
+#: classes/class-temp-keys.php:180
+msgctxt "temp keys table cell"
+msgid "Key 1"
+msgstr "Clé 1"
+
+#: classes/class-temp-keys.php:180
+msgctxt "temp keys table cell"
+msgid "Key 2"
+msgstr "Clé 2"
+
+#: classes/class-settings-page.php:463
+msgid "Static value?"
+msgstr "Valeur statique ?"
+
+#: classes/class-settings-page.php:475
+msgid "Value"
+msgstr "Valeur"
+
+#: classes/class-settings-page.php:489
+msgid "Signature key"
+msgid_plural "Signature keys"
+msgstr[0] "Clé de signature"
+msgstr[1] "Clés de signature"
+
+#: classes/class-settings-page.php:532
+msgid "Keys set"
+msgstr "Jeu de clés"
+
+#: classes/class-keyset.php:101
+msgctxt "keyset table header"
+msgid "Key"
+msgstr "Clé"
+
+#: classes/class-keyset.php:102
+msgctxt "keyset table header"
+msgid "Keys"
+msgstr "Clés"
+
+#: classes/class-keyset.php:111
+msgctxt "keyset table header"
+msgid "Key ID"
+msgstr "ID de clé"
+
+#: classes/class-keyset.php:112
+msgctxt "keyset table header"
+msgid "Public Key"
+msgstr "Clé publique"
+
+#: classes/class-keyset.php:113
+msgctxt "keyset table header"
+msgid "Algorithm"
+msgstr "Algorithme"
+
+#: classes/class-keyset.php:114
+msgctxt "keyset table header"
+msgid "Curve"
+msgstr "Courbe"
+
+#: classes/class-keyset.php:115
+msgctxt "keyset table header"
+msgid "Key Type"
+msgstr "Type de clé"
+
+#: classes/class-keyset.php:156
+#: classes/class-keyset.php:183
+#: classes/class-keyset.php:203
+#: classes/class-temp-keys.php:109
+msgid "Invalid nonce"
+msgstr "Nonce invalide"
+
+#: classes/class-keyset.php:253
+msgid "No keys found. Please create your first key."
+msgstr "Aucune clé trouvée. Veuillez créer votre première clé."
+
+#: classes/class-keyset.php:313
+#: classes/class-temp-keys.php:214
+msgid "Set Main"
+msgstr "Définir comme principale"
+
+#: classes/class-options.php:445
+msgid "All VFS options registered in this site."
+msgstr "Toutes les options VFS enregistrées sur ce site."
+
+#: classes/class-options.php:446
+msgid "VFS options"
+msgstr "Options VFS"
+
+#: classes/class-temp-keys.php:78
+msgctxt "temp keys table header"
+msgid "Location"
+msgstr "Emplacement"
+
+#: classes/class-temp-keys.php:114
+msgid "Invalid key location"
+msgstr "Emplacement de clé invalide"
+
+#: classes/class-temp-keys.php:156
+msgctxt "placeholder for temp key value"
+msgid "********"
+msgstr "********"
+
+#: classes/class-temp-keys.php:239
+msgid "No keys found. Please add a key to the container or account and refresh the page."
+msgstr "Aucune clé trouvée. Veuillez ajouter une clé au conteneur ou au compte et actualiser la page."
+
+#: classes/class-settings-page.php:263
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: classes/class-tool-create-token.php:111
+msgid "Invalid nonce. Please try again."
+msgstr "Nonce invalide. Veuillez réessayer."
+
+#: classes/class-tool-create-token.php:211
+msgid "Token creation"
+msgstr "Création de jeton"
+
+#: classes/class-tool-create-token.php:213
+msgid "VCard file"
+msgstr "Fichier VCard"
+
+#: classes/class-tool-create-token.php:246
+msgid "Expiration"
+msgstr "Expiration"
+
+#: classes/class-tool-create-token.php:248
+msgid "Never expires"
+msgstr "N'expire jamais"
+
+#: classes/class-tool-create-token.php:277
+msgid "Permissions"
+msgstr "Permissions"
+
+#: classes/class-tool-create-token.php:285
+msgid "Read"
+msgstr "Lecture"
+
+#: classes/class-tool-create-token.php:294
+msgid "Write"
+msgstr "Écriture"
+
+#: classes/class-tool-create-token.php:298
+#: build/admin-settings/editor.js:78582
+msgid "Display name"
+msgstr "Nom d'affichage"
+
+#: classes/class-tool-create-token.php:323
+#: build/admin-settings/tool-create-token-interactivity.js:615
+msgid "Automatically computed"
+msgstr "Calculé automatiquement"
+
+#: classes/class-tool-create-token.php:330
+#: build/admin-settings/tool-create-token-interactivity.js:704
+msgid "Create"
+msgstr "Créer"
+
+#: classes/class-tool-create-token.php:380
+msgid "The token for <i>%s</i> has been created successfully."
+msgstr "Le jeton pour <i>%s</i> a été créé avec succès."
+
+#: classes/class-tool-create-token.php:382
+#: build/admin-settings/tool-create-token.js:120
+msgid "Copy"
+msgstr "Copier"
+
+#: classes/class-tool-inspect-token.php:165
+msgid "Token inspection"
+msgstr "Inspection de jeton"
+
+#: classes/class-tool-inspect-token.php:175
+msgid "xxxxxheaderxxxxx.yyyyypayloadyyyyyy.zzzzzsignaturezzzzz"
+msgstr "xxxxxen-têtexxxxx.yyyyydonnéesyyyyyy.zzzzzsignaturezzzzz"
+
+#: classes/class-tool-inspect-token.php:179
+msgid "Inspect"
+msgstr "Inspecter"
+
+#: classes/class-tool-inspect-token.php:234
+msgid "Expires at "
+msgstr "Expire le "
+
+#: classes/class-tool-inspect-token.php:241
+msgid "Scope:"
+msgstr "Portée :"
+
+#: classes/class-tool-inspect-token.php:243
+msgid "Unscoped"
+msgstr "Sans portée"
+
+#: classes/class-tool-inspect-token.php:245
+msgid "Methods:"
+msgstr "Méthodes :"
+
+#. translators: %s is the error message.
+#. translators: %s is the error message
+#: classes/class-tool-inspect-token.php:289
+#: build/admin-settings/tool-inspect-token-interactivity.js:5400
+msgid "Invalid token: %s"
+msgstr "Jeton invalide : %s"
+
+#: classes/class-tool-inspect-token.php:334
+msgid "Invalid signature"
+msgstr "Signature invalide"
+
+#: classes/class-tool-inspect-token.php:348
+msgid "Token type not supported"
+msgstr "Type de jeton non pris en charge"
+
+#: classes/class-tools-page.php:137
+msgid "Visitor Filesystem tools"
+msgstr "Outils du système de fichiers visiteur"
+
+#. translators: %1$s: URL to create a read token, %2$s: URL to create a write token, %3$s: URL to create a full token.
+#: classes/class-users-page.php:163
+msgid "New <a href=\"%1$s\">read</a>, <a href=\"%2$s\">write</a> or <a href=\"%3$s\">full token</a>"
+msgstr "Nouveau <a href=\"%1$s\">jeton de lecture</a>, <a href=\"%2$s\">jeton d'écriture</a> ou <a href=\"%3$s\">jeton complet</a>"
+
+#: build/admin-settings/tool-create-token-interactivity.js:632
+msgid "Contacts API not supported"
+msgstr "API Contacts non prise en charge"
+
+#: classes/class-keyset.php:366
+msgid "Create a new key"
+msgstr "Créer une nouvelle clé"
+
+#. translators: %s: Container name
+#: classes/class-temp-keys.php:59
+msgid "Container %s does not exist."
+msgstr "Le conteneur %s n'existe pas."
+
+#: classes/class-tool-create-token.php:116
+msgid "You are not allowed to create tokens."
+msgstr "Vous n'êtes pas autorisé à créer des jetons."
+
+#: classes/class-users-page.php:88
+msgid "Invalid nonce for action %s"
+msgstr "Nonce invalide pour l'action %s"
+
+#: build/admin-settings/tool-create-token-interactivity.js:677
+msgid "Creating…"
+msgstr "Création…"
+
+#: build/admin-settings/tool-create-token.js:112
+msgid "Copying…"
+msgstr "Copie…"
+
+#: build/admin-settings/tool-create-token.js:116
+msgid "Copied!"
+msgstr "Copié !"

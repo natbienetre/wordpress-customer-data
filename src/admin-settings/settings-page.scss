@@ -1,0 +1,77 @@
+@use "~@wordpress/base-styles/colors.native" as colors;
+
+#vfs-swift-provider-openrc-loader {
+	float: right;
+
+	input[type="file"] {
+		border: 1px solid #ccc;
+		padding: 10px 20px;
+
+		&::file-selector-button {
+			display: none;
+		}
+	}
+}
+
+#vfs-temp-keys-list,
+#vfs-key-management-list {
+
+	th {
+		// restore expected padding
+		padding: 8px 10px;
+	}
+
+	.column-selector {
+		width: min-content;
+	}
+}
+
+.vfs-secret {
+	display: flex;
+	flex-direction: row;
+	gap: 2px;
+	align-items: center;
+
+	&:not(:hover) .value {
+		display: none;
+	}
+
+	&:hover {
+
+		.placeholder {
+			display: none;
+		}
+	}
+
+	.placeholder,
+	.value {
+
+		&:not(.dashicons) {
+			overflow: auto;
+		}
+	}
+}
+
+.vfs-hidden {
+	display: none;
+}
+
+.updated input,
+.updated select {
+	border-color: colors.$alert-green;
+}
+
+.updated {
+	animation: FadeOut 9s ease-in-out;
+}
+
+@keyframes FadeOut {
+
+	from {
+		background-color: colors.$alert-green;
+	}
+
+	to {
+		background-color: initial;
+	}
+}

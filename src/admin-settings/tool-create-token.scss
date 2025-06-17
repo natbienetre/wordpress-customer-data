@@ -1,0 +1,73 @@
+#vfs-token-creation-container {
+
+	.vfs-token-creation-form-rows {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.vfs-token-creation-form-row {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+	}
+
+	.vfs-token-creation-header {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+	}
+
+	legend {
+		display: contents;
+	}
+
+	#vfs-token-creation-never-expires {
+		margin-left: 25px;
+	}
+
+	#vfs-token-creation-never-expires:checked ~ label {
+		display: none;
+	}
+
+	.vfs-token-creation-form-row-expiration {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 10px;
+
+		min-height: 30px;
+	}
+}
+
+.vfs-token-creation-success {
+
+	.generated-token {
+		max-width: 100%;
+		max-height: 100px;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.token-result-container {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+	}
+}
+
+.no-js {
+
+	.vfs-token-creation-vcard-label,
+	.vfs-token-creation-success .copy-button {
+		display: none;
+	}
+}

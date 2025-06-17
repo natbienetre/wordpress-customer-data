@@ -1,0 +1,60 @@
+@use "~@wordpress/base-styles/colors.native" as colors;
+
+.vfs-token-visibility-icon {
+
+	&.is-valid {
+		color: colors.$alert-green;
+		fill: colors.$alert-green;
+	}
+
+	&.is-invalid {
+		color: colors.$alert-red;
+		fill: colors.$alert-red;
+	}
+
+	&.is-loading {
+		color: colors.$alert-yellow;
+		fill: colors.$alert-yellow;
+	}
+}
+
+
+.vfs-block-visibility-helper {
+	$border-width: 2px;
+	$border-style: dotted;
+
+	.vfs-token-visibility-valid::before {
+		border: $border-width $border-style colors.$alert-green;
+
+		content: " ";
+		display: block;
+		position: absolute;
+		top: $border-width;
+		left: $border-width;
+		right: $border-width;
+		bottom: $border-width;
+	}
+
+	.vfs-token-visibility-invalid {
+		border: $border-width $border-style colors.$alert-red;
+	}
+
+	.vfs-token-visibility-loading::after {
+		border: $border-width $border-style colors.$alert-yellow;
+
+		content: " ";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	// ensure the children blocks are always visible
+	.vfs-token-visibility-valid > *,
+	.vfs-token-visibility-invalid > *,
+	.vfs-token-visibility-loading > * {
+		z-index: 1;
+	}
+}

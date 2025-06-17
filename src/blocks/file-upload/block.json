@@ -1,0 +1,75 @@
+{
+	"apiVersion": 2,
+	"name": "vfs/file-upload",
+	"title": "File Upload",
+	"description": "Upload a file or multiple files",
+	"category": "media",
+	"icon": "cloud-upload",
+	"supports": {
+		"anchor": true,
+		"align": true,
+		"ariaLabel": true,
+		"color": {
+			"text": true,
+			"background": true
+		},
+		"spacing": {
+			"margin": true
+		},
+		"position": {
+			"sticky": true
+		},
+		"shadow": true,
+		"typography": {
+			"fontSize": true,
+			"textAlign": true
+		},
+		"__experimentalBorder": {
+			"radius": false,
+			"color": true,
+			"width": true,
+			"style": true
+		},
+		"interactivity": true
+	},
+	"attributes": {
+		"destination": {
+			"type": "string",
+			"default": ""
+		},
+		"accept": {
+			"type": "array",
+			"default": [ "*" ]
+		},
+		"nbFiles": {
+			"type": "number",
+			"default": 0
+		},
+		"linkStyle": {
+			"type": "boolean",
+			"default": false
+		},
+		"pageSpace": {
+			"type": "string",
+			"default": ""
+		},
+		"extractArchive": {
+			"type": "boolean",
+			"default": true
+		},
+		"label": {
+			"type": "string",
+			"default": ""
+		},
+		"fontSize": {
+			"type": "string",
+			"default": "1rem"
+		}
+	},
+	"editorScript": "file:./admin.js",
+	"editorStyle": "file:./admin.css",
+	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
+	"viewScript": [ "vfs-blocks-lib", "file:./frontend.js", "wp-util", "wp-hooks" ],
+	"viewStyle": [ "file:./frontend.css" ],
+	"textdomain": "vfs"
+}

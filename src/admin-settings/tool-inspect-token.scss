@@ -1,0 +1,68 @@
+@use "~@wordpress/base-styles/colors.native" as colors;
+
+.vfs-admin-settings-check-options {
+	display: inline-flex;
+	margin-left: 10px;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.vfs-token-inspection-result {
+
+	&.vfs-token-inspection-result-success {
+		color: colors.$alert-green;
+	}
+
+	&.vfs-token-inspection-result-error {
+		color: colors.$alert-red;
+	}
+
+	&.vfs-token-inspection-result-empty {
+		display: none;
+	}
+}
+
+.vfs-token-inspection-result-method-item {
+	display: inline-block;
+	padding: 2px 4px;
+	border-radius: 4px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+
+	&.vfs-allowed-method {
+		color: colors.$alert-green;
+	}
+
+	&.vfs-denied-method {
+		color: colors.$alert-red;
+		text-decoration: line-through;
+	}
+}
+
+.vfs-token-inspection-result-user {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.vfs-token-inspection-result-expiry-date {
+
+	&.expired {
+		color: colors.$alert-red;
+	}
+
+	&:not(.expired) {
+		color: colors.$alert-green;
+	}
+}
+
+.vfs-token-inspection-result-user-email {
+	font-style: italic;
+}
+
+.key-management-key {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}

@@ -1,0 +1,116 @@
+/**
+ * File Upload Block Styles
+ *
+ * @package VFS
+ * @version 1.0.0
+ * @author Pierre Peronnet <pierre.peronnet@gmail.com>
+ * @license GPL-2.0-or-later
+ * @description Styles for the file upload block.
+ */
+
+@use "sass:map";
+@use "frontend";
+
+.with-scroll-bar .block-editor-inner-blocks {
+	overflow-y: scroll;
+}
+
+// Inspector Controls styles
+.components-panel__body {
+
+	.components-form-token-field__token-text {
+		display: flex;
+		align-items: center;
+	}
+
+	.components-form-token-field__token {
+		%dashicon-shared {
+			font-family: dashicons, sans-serif;
+			display: inline-block;
+			line-height: 1;
+			font-weight: 400;
+			font-style: normal;
+			speak: never;
+			text-decoration: inherit;
+			text-transform: none;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			width: 20px;
+			height: 20px;
+			font-size: 20px;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		// Map of file types to their dashicon codes
+		$file-type-icons: (
+			"document": (
+				"types": ("PDF", "DOC", "DOCX"),
+				"icon": "\f497",
+				"margin-right": 0
+			),
+			"spreadsheet": (
+				"types": ("XLS", "XLSX", "CSV"),
+				"icon": "\f495",
+				"margin-right": 0
+			),
+			"image": (
+				"types": ("Image", "JPG", "JPEG", "PNG", "GIF", "BMP"),
+				"icon": "\f128",
+				"margin-right": 4px
+			),
+			"audio": (
+				"types": ("Audio", "MP3", "WAV", "OGG", "M4A"),
+				"icon": "\f500",
+				"margin-right": 0
+			),
+			"video": (
+				"types": ("Video", "MP4", "AVI", "MOV", "WMV", "FLV", "MPEG"),
+				"icon": "\f490",
+				"margin-right": 0
+			)
+		);
+
+		// Generate selectors for each file type
+		@each $category, $data in $file-type-icons {
+			$types: map.get($data, "types");
+			$icon: map.get($data, "icon");
+
+			$selector: "";
+
+			@each $type in $types {
+				$selector: if($selector == "", '&[title="#{$type}"]', '#{$selector}, &[title="#{$type}"]');
+			}
+
+			#{$selector} {
+
+				.components-form-token-field__token-text::before {
+
+					@extend %dashicon-shared;
+					content: $icon;
+					margin-right: map.get($data, "margin-right");
+				}
+			}
+		}
+
+		// Default icon - generate :not() selectors dynamically
+		$not-selector: "";
+
+		@each $category, $data in $file-type-icons {
+
+			@each $type in map.get($data, "types") {
+				$not-selector: '#{$not-selector}:not([title="#{$type}"])';
+			}
+		}
+
+		&#{$not-selector} {
+
+			.components-form-token-field__token-text::before {
+
+				@extend %dashicon-shared;
+				content: "\f498";
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+/**
+ * PDF Upload Block Styles
+ *
+ * @package VFS
+ * @version 1.0.0
+ * @author Pierre Peronnet <pierre.peronnet@gmail.com>
+ * @license GPL-2.0-or-later
+ * @description Styles for the PDF upload block.
+ */
+
+.wp-block-vfs-file-upload {
+	position: relative;
+
+	input[type="file"] {
+		opacity: 0;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		cursor: inherit;
+	}
+}

@@ -1,0 +1,63 @@
+/**
+ * File Upload Info Block Frontend Styles
+ *
+ * @package VFS
+ * @version 1.0.0
+ * @author Pierre Peronnet <pierre.peronnet@gmail.com>
+ * @license GPL-2.0-or-later
+ * @description Frontend styles for the file upload info block.
+ */
+
+@use "~@wordpress/base-styles/colors.native" as colors;
+
+.vfs-upload-success .wp-block-vfs-file-upload-preview {
+
+	img {
+		// For alt text
+		text-align: center;
+		text-overflow: ellipsis;
+		overflow: hidden;
+
+		max-width: 100%;
+		max-height: 100%;
+		vertical-align: middle;
+	}
+
+	* {
+		vertical-align: middle;
+	}
+}
+
+@keyframes rotating {
+
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.wp-block-vfs-file-upload-preview {
+
+	.preview {
+		display: none;
+	}
+
+	.error-preview {
+		color: colors.$alert-red;
+	}
+
+	.in-progress-preview {
+		color: colors.$alert-yellow;
+		-webkit-animation: rotating 1.5s linear infinite;
+		animation: rotating 1.5s linear infinite;
+	}
+}
+
+.vfs-upload-success .wp-block-vfs-file-upload-preview .success-preview,
+.vfs-upload-error .wp-block-vfs-file-upload-preview .error-preview,
+.vfs-upload-in-progress .wp-block-vfs-file-upload-preview .in-progress-preview {
+	display: block;
+}

@@ -1,0 +1,47 @@
+{
+	"apiVersion": 2,
+	"name": "vfs/file-upload-download",
+	"title": "Download uploaded file",
+	"description": "Button to download the uploaded file",
+	"category": "media",
+	"icon": "download",
+	"ancestor": [ "vfs/file-upload-fileinfo" ],
+	"supports": {
+		"color": {
+			"text": false,
+			"background": false,
+			"button": true,
+			"link": true
+		},
+		"spacing": {
+			"margin": false,
+			"padding": true
+		},
+		"__experimentalBorder": {
+			"radius": false,
+			"color": true,
+			"width": true,
+			"style": true
+		},
+		"interactive": {
+			"clientNavigation": true
+		}
+	},
+	"attributes": {
+		"useIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"linkStyle": {
+			"type": "boolean",
+			"default": true
+		},
+		"javascriptDownload": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"editorScript": "file:./admin.js",
+	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
+	"textdomain": "vfs"
+}

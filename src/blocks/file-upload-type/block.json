@@ -1,0 +1,29 @@
+{
+	"apiVersion": 2,
+	"name": "vfs/file-upload-type",
+	"title": "File Type",
+	"description": "Type of the uploaded file",
+	"category": "media",
+	"icon": "tag",
+	"ancestor": [ "vfs/file-upload-fileinfo" ],
+	"supports": {
+		"color": {
+			"text": true,
+			"background": false
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": false,
+			"textAlign": true
+		}
+	},
+	"attributes": {
+		"fontSize": {
+			"type": "string",
+			"default": "small"
+		}
+	},
+	"editorScript": "file:./admin.js",
+	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
+	"textdomain": "vfs"
+}

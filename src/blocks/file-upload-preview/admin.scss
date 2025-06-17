@@ -1,0 +1,16 @@
+/**
+ * File Upload Info Block Admin Styles
+ *
+ * @package VFS
+ * @version 1.0.0
+ * @author Pierre Peronnet <pierre.peronnet@gmail.com>
+ * @license GPL-2.0-or-later
+ * @description Admin styles for the file upload info block.
+ */
+
+@use "frontend";
+
+.wp-block-vfs-file-upload-preview.has-warning {
+	aspect-ratio: unset !important;
+	flex-basis: auto;
+}
