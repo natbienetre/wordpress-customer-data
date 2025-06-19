@@ -5,8 +5,8 @@ import warning from '@wordpress/warning';
 import {
 	OpenStackAdminOptions,
 	SwiftAdmin,
-	VfsAdminConfiguration,
-	VfsAdminOptions,
+	CustomerDataAdminConfiguration,
+	CustomerDataAdminOptions,
 } from '../file-management';
 import {
 	HTTPStatusError,
@@ -14,7 +14,7 @@ import {
 	SwiftFile,
 	VisitorUploadedFileClass,
 } from '../file-upload';
-import { OpenStackOptions, VfsConfiguration, VfsOptions } from '../options';
+import { OpenStackOptions, CustomerDataConfiguration, CustomerDataOptions } from '../options';
 import wordpressUrl from '../wordpress/url';
 import apiFetch from '../wordpress/api-fetch';
 
@@ -55,28 +55,28 @@ const getNoticeContent = (
 	if ( result === true ) {
 		switch ( type ) {
 			case 'read':
-				return __( 'Read access granted.', 'vfs' );
+				return __( 'Read access granted.', 'customer-data' );
 			case 'write':
-				return __( 'Write access granted.', 'vfs' );
+				return __( 'Write access granted.', 'customer-data' );
 			case 'delete':
-				return __( 'Delete access granted.', 'vfs' );
+				return __( 'Delete access granted.', 'customer-data' );
 		}
 	}
 	if ( result === undefined ) {
 		switch ( type ) {
 			case 'read':
-				return __( 'Did not check read access.', 'vfs' );
+				return __( 'Did not check read access.', 'customer-data' );
 			case 'write':
-				return __( 'Did not check write access.', 'vfs' );
+				return __( 'Did not check write access.', 'customer-data' );
 			case 'delete':
-				return __( 'Did not check delete access.', 'vfs' );
+				return __( 'Did not check delete access.', 'customer-data' );
 		}
 	}
 	switch ( type ) {
 		case 'read':
 			return sprintf(
 				// translators: %s is the error message.
-				__( 'An error occurred while checking read access: %s', 'vfs' ),
+				__( 'An error occurred while checking read access: %s', 'customer-data' ),
 				result
 			);
 		case 'write':
@@ -84,7 +84,7 @@ const getNoticeContent = (
 				// translators: %s is the error message.
 				__(
 					'An error occurred while checking write access: %s',
-					'vfs'
+					'customer-data'
 				),
 				result
 			);
@@ -93,7 +93,7 @@ const getNoticeContent = (
 				// translators: %s is the error message.
 				__(
 					'An error occurred while checking delete access: %s',
-					'vfs'
+					'customer-data'
 				),
 				result
 			);
@@ -151,7 +151,7 @@ export const CheckOptions: React.FC< {
 	const jwkManagementEnabled = jwkManagementEnabledInput.checked;
 	const jwksUrl = jwksUrlInput.value;
 
-	const vfsOptions = useMemo(
+	const customerDataOptions = useMemo(
 		() =>
 			( {
 				accountUrl: swiftBaseURL ?? '',
@@ -159,9 +159,9 @@ export const CheckOptions: React.FC< {
 				additionalPrefix: prefix ?? '',
 				pageSpace,
 				user,
-				vfsToken: '',
+				customerDataToken: '',
 				signatureHmacAlgo: hmacAlgo ?? '',
-			} ) as VfsOptions,
+			} ) as CustomerDataOptions,
 		[ swiftBaseURL, swiftContainer, prefix, pageSpace, user, hmacAlgo ]
 	);
 
@@ -196,30 +196,30 @@ export const CheckOptions: React.FC< {
 		]
 	);
 
-	const vfsAdminOptions = useMemo(
+	const customerDataAdminOptions = useMemo(
 		() =>
 			( {
-				...vfsOptions,
+				...customerDataOptions,
 				...osOptions,
 				...osAdminOptions,
-			} ) as VfsAdminOptions,
-		[ vfsOptions, osOptions, osAdminOptions ]
+			} ) as CustomerDataAdminOptions,
+		[ customerDataOptions, osOptions, osAdminOptions ]
 	);
 
 	const swiftAdmin = useMemo(
 		() =>
 			new SwiftAdmin(
-				new VfsAdminConfiguration(
+				new CustomerDataAdminConfiguration(
 					{
-						options: vfsAdminOptions,
+						options: customerDataAdminOptions,
 						keyManagement: {
 							enabled: jwkManagementEnabled,
 							jwksUrl: jwksUrl ?? '',
 							mainKey:
-								window.vfsAdminConfig?.keyManagement.mainKey ??
+								window.customerDataAdminConfig?.keyManagement.mainKey ??
 								'',
 						},
-						keys: window.vfsAdminConfig?.keys ?? [],
+						keys: window.customerDataAdminConfig?.keys ?? [],
 						allowScopedTokens: false,
 					},
 					wordpressUrl
@@ -227,7 +227,7 @@ export const CheckOptions: React.FC< {
 				wordpressUrl,
 				apiFetch
 			),
-		[ vfsAdminOptions, jwkManagementEnabled, jwksUrl ]
+		[ customerDataAdminOptions, jwkManagementEnabled, jwksUrl ]
 	);
 
 	const swiftApi = useCallback(
@@ -245,14 +245,14 @@ export const CheckOptions: React.FC< {
 				.then(
 					( token ) =>
 						new SwiftFile(
-							new VfsConfiguration(
+							new CustomerDataConfiguration(
 								token,
-								vfsAdminOptions as OpenStackOptions
+								customerDataAdminOptions as OpenStackOptions
 							),
 							wordpressUrl
 						)
 				),
-		[ swiftAdmin, user, tempUrlExpiration, vfsAdminOptions ]
+		[ swiftAdmin, user, tempUrlExpiration, customerDataAdminOptions ]
 	);
 
 	const resetResults = useCallback( () => {
@@ -262,7 +262,7 @@ export const CheckOptions: React.FC< {
 	}, [] );
 
 	const objectName = useMemo(
-		() => 'vfs-test-' + new Date().getTime() + '.txt',
+		() => 'customer-data-test-' + new Date().getTime() + '.txt',
 		[]
 	);
 
@@ -282,7 +282,7 @@ export const CheckOptions: React.FC< {
 					}
 
 					if ( err instanceof NetworkError ) {
-						setReadResult( __( 'Network error occurred.', 'vfs' ) );
+						setReadResult( __( 'Network error occurred.', 'customer-data' ) );
 						throw err;
 					}
 
@@ -291,7 +291,7 @@ export const CheckOptions: React.FC< {
 							// translators: %s is the error message.
 							__(
 								'An error occurred while checking read access: %s',
-								'vfs'
+								'customer-data'
 							),
 							err.message
 						)
@@ -314,7 +314,7 @@ export const CheckOptions: React.FC< {
 						filePath,
 						new File(
 							[
-								'Testing write access from VFS plugin at ' +
+								'Testing write access from CustomerData plugin at ' +
 									new Date().toISOString(),
 							],
 							filePath,
@@ -326,7 +326,7 @@ export const CheckOptions: React.FC< {
 				.catch( ( err: Error ) => {
 					if ( err instanceof NetworkError ) {
 						setWriteResult(
-							__( 'Network error occurred.', 'vfs' )
+							__( 'Network error occurred.', 'customer-data' )
 						);
 						throw err;
 					}
@@ -336,7 +336,7 @@ export const CheckOptions: React.FC< {
 							// translators: %s is the error message.
 							__(
 								'An error occurred while checking write access: %s',
-								'vfs'
+								'customer-data'
 							),
 							err.message
 						)
@@ -345,7 +345,7 @@ export const CheckOptions: React.FC< {
 					throw err;
 				} )
 				.then( ( file ) => {
-					warning( __( 'File uploaded', 'vfs' ) );
+					warning( __( 'File uploaded', 'customer-data' ) );
 					setWriteResult( true );
 					return file;
 				} ),
@@ -361,7 +361,7 @@ export const CheckOptions: React.FC< {
 				.catch( ( err: Error ) => {
 					if ( err instanceof NetworkError ) {
 						setDeleteResult(
-							__( 'Network error occurred.', 'vfs' )
+							__( 'Network error occurred.', 'customer-data' )
 						);
 						throw err;
 					}
@@ -371,7 +371,7 @@ export const CheckOptions: React.FC< {
 							// translators: %s is the error message.
 							__(
 								'An error occurred while checking delete access: %s',
-								'vfs'
+								'customer-data'
 							),
 							err.message
 						)
@@ -400,7 +400,7 @@ export const CheckOptions: React.FC< {
 									.finally( () => setIsChecking( false ) );
 							} }
 						>
-							{ __( 'Check options', 'vfs' ) }
+							{ __( 'Check options', 'customer-data' ) }
 						</Button>
 					</FlexItem>
 					<FlexItem>
@@ -408,7 +408,7 @@ export const CheckOptions: React.FC< {
 							undefined !== writeResult ||
 							undefined !== deleteResult ) && (
 							<Button variant="primary" onClick={ resetResults }>
-								{ __( 'Clear results', 'vfs' ) }
+								{ __( 'Clear results', 'customer-data' ) }
 							</Button>
 						) }
 					</FlexItem>
@@ -431,7 +431,7 @@ export const CheckOptions: React.FC< {
 									),
 									actions: [
 										{
-											label: __( 'Check options', 'vfs' ),
+											label: __( 'Check options', 'customer-data' ),
 											onClick: () => {
 												setIsChecking( true );
 												setDeleteResult( undefined );
@@ -454,7 +454,7 @@ export const CheckOptions: React.FC< {
 									),
 									actions: [
 										{
-											label: __( 'Check options', 'vfs' ),
+											label: __( 'Check options', 'customer-data' ),
 											onClick: () => {
 												setIsChecking( true );
 												setReadResult( undefined );
@@ -477,7 +477,7 @@ export const CheckOptions: React.FC< {
 									),
 									actions: [
 										{
-											label: __( 'Check options', 'vfs' ),
+											label: __( 'Check options', 'customer-data' ),
 											onClick: () => {
 												setIsChecking( true );
 												setWriteResult( undefined );

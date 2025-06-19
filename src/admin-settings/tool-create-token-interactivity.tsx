@@ -1,5 +1,5 @@
 /**
- * VFS Upload Handler
+ * CustomerData Upload Handler
  *
  * @package
  * @version 1.0.0
@@ -21,7 +21,7 @@ import { generateUserToken } from '../libs/js/token-admin';
 import type { HttpMethod } from 'token';
 import { parse as parseVCard } from 'vcard-parser';
 
-type VfsAdminToolsTokenCreationContext = {
+type CustomerDataAdminToolsTokenCreationContext = {
 	user: {
 		id: string;
 		displayName: string;
@@ -31,10 +31,10 @@ type VfsAdminToolsTokenCreationContext = {
 	token?: string;
 };
 
-const { state } = store( 'vfs-admin-tools-token-creation', {
+const { state } = store( 'customer-data-admin-tools-token-creation', {
 	state: {
 		userId() {
-			const context = getContext() as VfsAdminToolsTokenCreationContext;
+			const context = getContext() as CustomerDataAdminToolsTokenCreationContext;
 			if ( context.user.email ) {
 				return context.user.email;
 			}
@@ -45,7 +45,7 @@ const { state } = store( 'vfs-admin-tools-token-creation', {
 					.toLowerCase();
 			}
 
-			return __( 'Automatically computed', 'vfs' );
+			return __( 'Automatically computed', 'customer-data' );
 		},
 		contactsAccept() {
 			return 'contacts' in navigator
@@ -58,17 +58,17 @@ const { state } = store( 'vfs-admin-tools-token-creation', {
 			const input = getElement().ref as HTMLInputElement | null;
 			if ( input ) {
 				const context =
-					getContext() as VfsAdminToolsTokenCreationContext;
+					getContext() as CustomerDataAdminToolsTokenCreationContext;
 				context.user[
 					input.dataset
-						.userAttribute as keyof VfsAdminToolsTokenCreationContext[ 'user' ]
+						.userAttribute as keyof CustomerDataAdminToolsTokenCreationContext[ 'user' ]
 				] = input.value;
 			}
 		},
 		*pickContacts( event: Event ) {
 			if ( ! ( 'contacts' in navigator ) ) {
 				// eslint-disable-next-line no-console
-				console.debug( __( 'Contacts API not supported', 'vfs' ) );
+				console.debug( __( 'Contacts API not supported', 'customer-data' ) );
 				return;
 			}
 
@@ -94,11 +94,11 @@ const { state } = store( 'vfs-admin-tools-token-creation', {
 
 						contacts.forEach( ( contact ) => {
 							setStringValue(
-								'[name="vfs-token-creation-email"]',
+								'[name="customer-data-token-creation-email"]',
 								contact.email.shift()
 							);
 							setStringValue(
-								'[name="vfs-token-creation-display-name"]',
+								'[name="customer-data-token-creation-display-name"]',
 								contact.name
 									.map( ( n ) => n.trim() )
 									.filter( Boolean )
@@ -123,14 +123,14 @@ const { state } = store( 'vfs-admin-tools-token-creation', {
 						);
 
 						setStringValue(
-							'[name="vfs-token-creation-email"]',
+							'[name="customer-data-token-creation-email"]',
 							( vcard.email as { value: string }[] )
 								.map( ( emailObject ) => emailObject.value )
 								.filter( Boolean )
 								.shift()
 						);
 						setStringValue(
-							'[name="vfs-token-creation-display-name"]',
+							'[name="customer-data-token-creation-display-name"]',
 							( vcard.fn as { value: string }[] )
 								.map( ( nameObject ) => nameObject.value )
 								.filter( Boolean )
@@ -153,11 +153,11 @@ const { state } = store( 'vfs-admin-tools-token-creation', {
 
 			const submitButton = event.submitter as HTMLButtonElement | null;
 			if ( submitButton ) {
-				submitButton.value = __( 'Creating…', 'vfs' );
+				submitButton.value = __( 'Creating…', 'customer-data' );
 				submitButton.disabled = true;
 			}
 
-			const context = getContext() as VfsAdminToolsTokenCreationContext;
+			const context = getContext() as CustomerDataAdminToolsTokenCreationContext;
 
 			context.error = undefined;
 			context.token = undefined;
@@ -165,17 +165,17 @@ const { state } = store( 'vfs-admin-tools-token-creation', {
 			yield splitTask();
 
 			const data = new FormData( form );
-			const expiresAt = data.get( 'vfs-token-creation-expires-at' );
-			const userId = data.get( 'vfs-token-creation-user-id' );
-			const displayName = data.get( 'vfs-token-creation-display-name' );
-			const email = data.get( 'vfs-token-creation-email' );
-			const pageSpace = data.get( 'vfs-token-creation-scope' );
+			const expiresAt = data.get( 'customer-data-token-creation-expires-at' );
+			const userId = data.get( 'customer-data-token-creation-user-id' );
+			const displayName = data.get( 'customer-data-token-creation-display-name' );
+			const email = data.get( 'customer-data-token-creation-email' );
+			const pageSpace = data.get( 'customer-data-token-creation-scope' );
 
 			const readPermission = data.get(
-				'vfs-token-creation-permissions-read'
+				'customer-data-token-creation-permissions-read'
 			);
 			const writePermission = data.get(
-				'vfs-token-creation-permissions-write'
+				'customer-data-token-creation-permissions-write'
 			);
 
 			generateUserToken(
@@ -196,20 +196,20 @@ const { state } = store( 'vfs-admin-tools-token-creation', {
 				.then(
 					withScope( ( token: string ) => {
 						const ctx =
-							getContext() as VfsAdminToolsTokenCreationContext;
+							getContext() as CustomerDataAdminToolsTokenCreationContext;
 						ctx.token = token;
 					} )
 				)
 				.catch(
 					withScope( ( error ) => {
 						const ctx =
-							getContext() as VfsAdminToolsTokenCreationContext;
+							getContext() as CustomerDataAdminToolsTokenCreationContext;
 						ctx.error = error.message;
 					} )
 				)
 				.finally( () => {
 					if ( submitButton ) {
-						submitButton.value = __( 'Create', 'vfs' );
+						submitButton.value = __( 'Create', 'customer-data' );
 						submitButton.disabled = false;
 					}
 				} );
@@ -221,7 +221,7 @@ const { state } = store( 'vfs-admin-tools-token-creation', {
 			displayName: '',
 			email: '',
 		},
-	} as VfsAdminToolsTokenCreationContext,
+	} as CustomerDataAdminToolsTokenCreationContext,
 } ) as any as {
 	state: {
 		suffix?: string;

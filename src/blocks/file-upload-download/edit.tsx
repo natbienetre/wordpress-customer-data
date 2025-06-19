@@ -50,17 +50,17 @@ export const Edit: React.FC< {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'File upload settings', 'vfs' ) }
+					title={ __( 'File upload settings', 'customer-data' ) }
 					icon={ cloudDownload }
 				>
 					<PanelRow>
 						<ToggleControl
 							__nextHasNoMarginBottom
-							label={ __( 'Use Icon', 'vfs' ) }
+							label={ __( 'Use Icon', 'customer-data' ) }
 							checked={ useIcon }
 							help={ __(
 								'If checked, the button will display an icon.',
-								'vfs'
+								'customer-data'
 							) }
 							onChange={ ( value: boolean ) =>
 								setAttributes( { useIcon: value } )
@@ -69,11 +69,11 @@ export const Edit: React.FC< {
 					</PanelRow>
 					<PanelRow>
 						<ToggleControl
-							label={ __( 'Link Style', 'vfs' ) }
+							label={ __( 'Link Style', 'customer-data' ) }
 							checked={ linkStyle }
 							help={ __(
 								'If checked, the button will be styled as a link.',
-								'vfs'
+								'customer-data'
 							) }
 							onChange={ ( value: boolean ) =>
 								setAttributes( { linkStyle: value } )
@@ -83,7 +83,7 @@ export const Edit: React.FC< {
 					<PanelRow>
 						<ToggleControl
 							__nextHasNoMarginBottom
-							label={ __( 'Use JavaScript download', 'vfs' ) }
+							label={ __( 'Use JavaScript download', 'customer-data' ) }
 							checked={ javascriptDownload }
 							disabled={ true }
 							onChange={ ( value: boolean ) =>
@@ -98,7 +98,7 @@ export const Edit: React.FC< {
 			{ /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
 			<a { ...blockProps }>
 				<span className={ useIcon ? 'screen-reader-text' : '' }>
-					{ __( 'Download', 'vfs' ) }
+					{ __( 'Download', 'customer-data' ) }
 				</span>
 				{ useIcon && (
 					<span className="dashicons dashicons-download"></span>

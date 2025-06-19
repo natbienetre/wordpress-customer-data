@@ -1,25 +1,25 @@
 <?php
 /**
- * VFS options class
+ * CustomerData options class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author  Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 /**
  * Options class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author  Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 class Cache {
-	const GROUP = 'vfs';
+	const GROUP = 'customer-data';
 
 	/**
 	 * Get value from cache

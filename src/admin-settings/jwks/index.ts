@@ -10,5 +10,5 @@ const pluginConfig: PluginSettings = {
 };
 
 export const enable = () => {
-	registerPlugin( 'vfs-jwks', pluginConfig );
+	registerPlugin( 'customer-data-jwks', pluginConfig );
 };

@@ -38,10 +38,10 @@ export const UploadDestinationSelector: React.FC = () => {
 		<TextControl
 			__nextHasNoMarginBottom
 			__next40pxDefaultSize
-			label={ __( 'Upload destination folder', 'vfs' ) }
+			label={ __( 'Upload destination folder', 'customer-data' ) }
 			value={ pageSpace }
 			onChange={ onChange }
-			placeholder={ __( 'Enter destination', 'vfs' ) }
+			placeholder={ __( 'Enter destination', 'customer-data' ) }
 		/>
 	);
 };

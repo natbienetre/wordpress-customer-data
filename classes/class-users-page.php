@@ -2,27 +2,27 @@
 /**
  * Users page
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 use WP_Error;
 
 /**
  * Users page
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 class Users_Page {
-	public const SHOW_RESULT_ACTION  = 'vfs-show-token-result';
-	public const CREATE_TOKEN_ACTION = 'vfs-create-token-quick';
+	public const SHOW_RESULT_ACTION  = 'customer-data-show-token-result';
+	public const CREATE_TOKEN_ACTION = 'customer-data-create-token-quick';
 
 	/**
 	 * Create token tool
@@ -76,7 +76,7 @@ class Users_Page {
 		if ( ! empty( $_REQUEST['result'] ) ) {
 			$this->create_token_tool->result = json_decode( urldecode( $_REQUEST['result'] ), true );
 		} elseif ( ! empty( $_REQUEST['error'] ) ) {
-			$this->create_token_tool->result = new WP_Error( 'vfs-token-creation-error', urldecode( $_REQUEST['error'] ) );
+			$this->create_token_tool->result = new WP_Error( 'customer-data-token-creation-error', urldecode( $_REQUEST['error'] ) );
 		}
 
 		add_action( 'admin_notices', array( $this, 'render_result' ) );
@@ -88,7 +88,7 @@ class Users_Page {
 	public function load() {
 		if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'], self::CREATE_TOKEN_ACTION ) ) {
 			// translators: %s is the action name.
-			wp_die( sprintf( __( 'Invalid nonce for action <i>%s</i>', 'vfs' ), esc_html( self::CREATE_TOKEN_ACTION ) ), 400 );
+			wp_die( sprintf( __( 'Invalid nonce for action <i>%s</i>', 'customer-data' ), esc_html( self::CREATE_TOKEN_ACTION ) ), 400 );
 			return;
 		}
 
@@ -150,11 +150,11 @@ class Users_Page {
 		$query              = add_query_arg(
 			array(
 				'action'                          => self::CREATE_TOKEN_ACTION,
-				'vfs-token-creation-user-id'      => $user_object->user_login,
-				'vfs-token-creation-expires-at'   => gmdate( 'Y-m-d', time() + 3600 * 24 * 365 ),
-				'vfs-token-creation-display-name' => $user_object->display_name,
-				'vfs-token-creation-email'        => $user_object->user_email,
-				'vfs-token-creation-scope'        => '',
+				'customer-data-token-creation-user-id'      => $user_object->user_login,
+				'customer-data-token-creation-expires-at'   => gmdate( 'Y-m-d', time() + 3600 * 24 * 365 ),
+				'customer-data-token-creation-display-name' => $user_object->display_name,
+				'customer-data-token-creation-email'        => $user_object->user_email,
+				'customer-data-token-creation-scope'        => '',
 				'_wpnonce'                        => wp_create_nonce( self::CREATE_TOKEN_ACTION ),
 				'_wp_http_referer'                => remove_query_arg(
 					array(
@@ -166,19 +166,19 @@ class Users_Page {
 			),
 			admin_url( 'admin-post.php' ),
 		);
-		$create_read_token  = esc_url( add_query_arg( 'vfs-token-creation-permissions-read', 'on', $query ) );
-		$create_write_token = esc_url( add_query_arg( 'vfs-token-creation-permissions-write', 'on', $query ) );
+		$create_read_token  = esc_url( add_query_arg( 'customer-data-token-creation-permissions-read', 'on', $query ) );
+		$create_write_token = esc_url( add_query_arg( 'customer-data-token-creation-permissions-write', 'on', $query ) );
 		$create_full_token  = esc_url(
 			add_query_arg(
 				array(
-					'vfs-token-creation-permissions-read'  => 'on',
-					'vfs-token-creation-permissions-write' => 'on',
+					'customer-data-token-creation-permissions-read'  => 'on',
+					'customer-data-token-creation-permissions-write' => 'on',
 				),
 				$query
 			)
 		);
 		// translators: %1$s: URL to create a read token, %2$s: URL to create a write token, %3$s: URL to create a full token.
-		$actions['vfs_token'] = sprintf( __( 'New <a href="%1$s">read</a>, <a href="%2$s">write</a> or <a href="%3$s">full token</a>', 'vfs' ), $create_read_token, $create_write_token, $create_full_token );
+		$actions['customer_data_token'] = sprintf( __( 'New <a href="%1$s">read</a>, <a href="%2$s">write</a> or <a href="%3$s">full token</a>', 'customer-data' ), $create_read_token, $create_write_token, $create_full_token );
 		return $actions;
 	}
 }

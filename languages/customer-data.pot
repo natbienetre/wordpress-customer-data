@@ -1,0 +1,616 @@
+# Copyright (C) 2025 @holyhope
+# This file is distributed under the same license as the Customer Data plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Customer Data 1.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/customer-data\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-06-19T15:51:24+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: customer-data\n"
+
+#. Plugin Name of the plugin
+#: customer-data.php
+msgid "Customer Data"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: customer-data.php
+msgid "https://github.com/natbienetre/wordpress-customer-data"
+msgstr ""
+
+#. Description of the plugin
+#: customer-data.php
+msgid "Helps visitor to upload files and manage them."
+msgstr ""
+
+#. Author of the plugin
+#: customer-data.php
+msgid "@holyhope"
+msgstr ""
+
+#. Author URI of the plugin
+#: customer-data.php
+msgid "https://github.com/holyhope"
+msgstr ""
+
+#: classes/class-editor.php:233
+msgid "Temporary URL subpath"
+msgstr ""
+
+#: classes/class-editor.php:235
+msgid "The path to append to the temporary URL. The generated URL will be the concatenation of the Swift account URL, the Swift container, the subpath, and the file destination."
+msgstr ""
+
+#: classes/class-keyset.php:101
+msgctxt "keyset table header"
+msgid "Key"
+msgstr ""
+
+#: classes/class-keyset.php:102
+msgctxt "keyset table header"
+msgid "Keys"
+msgstr ""
+
+#: classes/class-keyset.php:111
+msgctxt "keyset table header"
+msgid "Key ID"
+msgstr ""
+
+#: classes/class-keyset.php:112
+msgctxt "keyset table header"
+msgid "Public Key"
+msgstr ""
+
+#: classes/class-keyset.php:113
+msgctxt "keyset table header"
+msgid "Algorithm"
+msgstr ""
+
+#: classes/class-keyset.php:114
+msgctxt "keyset table header"
+msgid "Curve"
+msgstr ""
+
+#: classes/class-keyset.php:115
+msgctxt "keyset table header"
+msgid "Key Type"
+msgstr ""
+
+#: classes/class-keyset.php:156
+#: classes/class-keyset.php:183
+#: classes/class-keyset.php:203
+#: classes/class-temp-keys.php:109
+msgid "Invalid nonce"
+msgstr ""
+
+#: classes/class-keyset.php:161
+#: classes/class-keyset.php:213
+#: classes/class-keyset.php:520
+msgid "No key provided"
+msgstr ""
+
+#: classes/class-keyset.php:253
+msgid "No keys found. Please create your first key."
+msgstr ""
+
+#: classes/class-keyset.php:313
+#: classes/class-temp-keys.php:214
+msgid "Set Main"
+msgstr ""
+
+#: classes/class-keyset.php:328
+msgid "Delete"
+msgstr ""
+
+#: classes/class-keyset.php:366
+msgid "Create a new key"
+msgstr ""
+
+#. translators: %s: Key ID
+#: classes/class-keyset.php:532
+msgid "Key not found: %s"
+msgstr ""
+
+#: classes/class-keyset.php:563
+#: classes/class-keyset.php:589
+msgid "No keys found"
+msgstr ""
+
+#: classes/class-keyset.php:600
+msgid "No valid key found"
+msgstr ""
+
+#. translators: %s: Key ID
+#: classes/class-keyset.php:610
+msgid "No key found for %s"
+msgstr ""
+
+#: classes/class-keyset.php:621
+msgid "No payload provided"
+msgstr ""
+
+#: classes/class-options.php:412
+msgid "Invalid OpenStack credentials"
+msgstr ""
+
+#: classes/class-options.php:445
+msgid "All CustomerData options registered in this site."
+msgstr ""
+
+#: classes/class-options.php:446
+msgid "CustomerData options"
+msgstr ""
+
+#: classes/class-options.php:506
+msgid "Failed to get object-store URL from the OpenStack catalog"
+msgstr ""
+
+#: classes/class-options.php:515
+msgid "Swift account URL not found in the catalog."
+msgstr ""
+
+#: classes/class-options.php:572
+msgid "Failed to get container metadata."
+msgstr ""
+
+#: classes/class-options.php:582
+msgid "Failed to get Swift info."
+msgstr ""
+
+#: classes/class-options.php:654
+msgid "Failed to get signature keys from Swift."
+msgstr ""
+
+#. translators: %s: Key ID
+#: classes/class-options.php:731
+msgid "Main key %s not found"
+msgstr ""
+
+#: classes/class-options.php:744
+msgid "JWKS URL is not a valid URL."
+msgstr ""
+
+#: classes/class-options.php:755
+msgid "Swift region is not set."
+msgstr ""
+
+#. translators: %s: Swift region
+#: classes/class-options.php:769
+msgid "Swift region %s is not available."
+msgstr ""
+
+#: classes/class-options.php:781
+msgid "Swift account URL is not set, and not found in the catalog."
+msgstr ""
+
+#. translators: %s: Swift account URL from the catalog
+#: classes/class-options.php:796
+msgid "Swift account URL does not match the catalog URL. The catalog URL is %s."
+msgstr ""
+
+#: classes/class-options.php:807
+msgid "Invalid temp-url-key location."
+msgstr ""
+
+#. translators: %s: Error message
+#: classes/class-options.php:817
+msgid "Invalid container configuration: %s"
+msgstr ""
+
+#: classes/class-options.php:825
+msgid "Signature key not found in the metadatas"
+msgstr ""
+
+#. translators: %1$s: selected algorithm, %2$s: supported algorithms list.
+#: classes/class-options.php:843
+msgid "Algorithm %1$s is not supported. The only supported algorithm is: %2$s."
+msgid_plural "Algorithm %1$s is not supported. The supported algorithms are: %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-options.php:845
+msgctxt "list separator"
+msgid ", "
+msgstr ""
+
+#: classes/class-settings-page.php:124
+msgid "Settings"
+msgstr ""
+
+#: classes/class-settings-page.php:222
+#: classes/class-settings-page.php:223
+#: classes/class-tools-page.php:121
+#: classes/class-tools-page.php:122
+msgid "Visitor Filesystem"
+msgstr ""
+
+#: classes/class-settings-page.php:251
+msgid "Visitor Filesystem settings"
+msgstr ""
+
+#: classes/class-settings-page.php:263
+msgid "Reset"
+msgstr ""
+
+#: classes/class-settings-page.php:298
+msgid "General"
+msgstr ""
+
+#: classes/class-settings-page.php:305
+msgid "Allow scoped tokens"
+msgstr ""
+
+#: classes/class-settings-page.php:317
+msgid "Swift provider"
+msgstr ""
+
+#: classes/class-settings-page.php:324
+msgid "Swift auth URL"
+msgstr ""
+
+#: classes/class-settings-page.php:336
+msgid "Swift identity API version"
+msgstr ""
+
+#: classes/class-settings-page.php:348
+msgid "Swift user domain name"
+msgstr ""
+
+#: classes/class-settings-page.php:360
+msgid "Swift region"
+msgstr ""
+
+#: classes/class-settings-page.php:372
+msgid "Swift tenant ID"
+msgstr ""
+
+#: classes/class-settings-page.php:384
+msgid "Swift tenant name"
+msgstr ""
+
+#: classes/class-settings-page.php:396
+msgid "Swift user"
+msgstr ""
+
+#: classes/class-settings-page.php:408
+msgid "Swift password"
+msgstr ""
+
+#: classes/class-settings-page.php:420
+msgid "Swift container"
+msgstr ""
+
+#: classes/class-settings-page.php:432
+msgid "Swift additional prefix"
+msgstr ""
+
+#: classes/class-settings-page.php:444
+msgid "Advanced"
+msgstr ""
+
+#: classes/class-settings-page.php:451
+msgid "Swift base URL"
+msgstr ""
+
+#: classes/class-settings-page.php:463
+msgid "Static value?"
+msgstr ""
+
+#: classes/class-settings-page.php:475
+msgid "Value"
+msgstr ""
+
+#: classes/class-settings-page.php:489
+msgid "Signature key"
+msgid_plural "Signature keys"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-settings-page.php:501
+msgid "Swift signature algo"
+msgstr ""
+
+#: classes/class-settings-page.php:513
+msgid "Key management"
+msgstr ""
+
+#: classes/class-settings-page.php:520
+msgid "Enable key management"
+msgstr ""
+
+#: classes/class-settings-page.php:532
+msgid "Keys set"
+msgstr ""
+
+#: classes/class-settings-page.php:544
+msgid "JWKS URL"
+msgstr ""
+
+#: classes/class-settings-page.php:563
+msgid "This section allows you to manage the general settings."
+msgstr ""
+
+#: classes/class-settings-page.php:591
+#: classes/class-settings-page.php:716
+msgid "These settings are used to interact with the Swift provider."
+msgstr ""
+
+#: classes/class-settings-page.php:617
+msgctxt "The openstack identity API version"
+msgid "v3"
+msgstr ""
+
+#: classes/class-settings-page.php:618
+msgctxt "The openstack identity API version"
+msgid "v2"
+msgstr ""
+
+#: classes/class-settings-page.php:836
+msgid "This section allows you to manage the key management."
+msgstr ""
+
+#: classes/class-swift-api.php:116
+#: classes/class-swift-api.php:134
+msgid "Invalid Swift account URL"
+msgstr ""
+
+#: classes/class-swift-api.php:156
+msgid "Path or path prefix is required"
+msgstr ""
+
+#: classes/class-swift-api.php:163
+msgid "Path and path prefix cannot both be set"
+msgstr ""
+
+#: classes/class-swift-api.php:200
+msgid "Invalid method"
+msgstr ""
+
+#: classes/class-swift-api.php:207
+msgid "Invalid expiration date"
+msgstr ""
+
+#: classes/class-swift-api.php:211
+msgid "Expiration date cannot be in the past"
+msgstr ""
+
+#: classes/class-temp-keys.php:39
+#: classes/class-temp-keys.php:81
+msgctxt "temp keys table header"
+msgid "Key"
+msgstr ""
+
+#: classes/class-temp-keys.php:40
+msgctxt "temp keys table header"
+msgid "Keys"
+msgstr ""
+
+#. translators: %s: Container name
+#: classes/class-temp-keys.php:59
+msgid "Container %s does not exist."
+msgstr ""
+
+#: classes/class-temp-keys.php:78
+msgctxt "temp keys table header"
+msgid "Location"
+msgstr ""
+
+#: classes/class-temp-keys.php:79
+msgctxt "temp keys table header"
+msgid "Context"
+msgstr ""
+
+#: classes/class-temp-keys.php:80
+msgctxt "temp keys table header"
+msgid "Metadata Key"
+msgstr ""
+
+#: classes/class-temp-keys.php:114
+msgid "Invalid key location"
+msgstr ""
+
+#: classes/class-temp-keys.php:156
+msgctxt "placeholder for temp key value"
+msgid "********"
+msgstr ""
+
+#: classes/class-temp-keys.php:179
+msgctxt "temp keys table cell"
+msgid "Container"
+msgstr ""
+
+#: classes/class-temp-keys.php:179
+msgctxt "temp keys table cell"
+msgid "Account"
+msgstr ""
+
+#: classes/class-temp-keys.php:180
+msgctxt "temp keys table cell"
+msgid "Key 1"
+msgstr ""
+
+#: classes/class-temp-keys.php:180
+msgctxt "temp keys table cell"
+msgid "Key 2"
+msgstr ""
+
+#: classes/class-temp-keys.php:239
+msgid "No keys found. Please add a key to the container or account and refresh the page."
+msgstr ""
+
+#: classes/class-token-loader.php:137
+msgid "Invalid configuration"
+msgstr ""
+
+#: classes/class-token-loader.php:169
+#: classes/class-token-loader.php:179
+msgid "Invalid token"
+msgstr ""
+
+#: classes/class-tool-create-token.php:115
+msgid "Invalid nonce. Please try again."
+msgstr ""
+
+#: classes/class-tool-create-token.php:120
+msgid "You are not allowed to create tokens."
+msgstr ""
+
+#: classes/class-tool-create-token.php:241
+msgid "user ID is required"
+msgstr ""
+
+#: classes/class-tool-create-token.php:331
+msgid "Token creation"
+msgstr ""
+
+#: classes/class-tool-create-token.php:333
+msgid "VCard file"
+msgstr ""
+
+#: classes/class-tool-create-token.php:350
+msgid "Email"
+msgstr ""
+
+#: classes/class-tool-create-token.php:366
+msgid "Expiration"
+msgstr ""
+
+#: classes/class-tool-create-token.php:368
+msgid "Never expires"
+msgstr ""
+
+#: classes/class-tool-create-token.php:375
+msgid "Expires at"
+msgstr ""
+
+#: classes/class-tool-create-token.php:387
+msgid "Scope"
+msgstr ""
+
+#: classes/class-tool-create-token.php:397
+msgid "Permissions"
+msgstr ""
+
+#: classes/class-tool-create-token.php:405
+msgid "Read"
+msgstr ""
+
+#: classes/class-tool-create-token.php:414
+msgid "Write"
+msgstr ""
+
+#: classes/class-tool-create-token.php:418
+msgid "Display name"
+msgstr ""
+
+#: classes/class-tool-create-token.php:430
+msgid "User ID"
+msgstr ""
+
+#: classes/class-tool-create-token.php:443
+#: build/admin-settings/tool-create-token-interactivity.js:1
+msgid "Automatically computed"
+msgstr ""
+
+#: classes/class-tool-create-token.php:450
+#: build/admin-settings/tool-create-token-interactivity.js:1
+msgid "Create"
+msgstr ""
+
+#. translators: %s is the user ID.
+#: classes/class-tool-create-token.php:501
+msgid "The token for <i>%s</i> has been created successfully."
+msgstr ""
+
+#: classes/class-tool-create-token.php:503
+msgid "Copy"
+msgstr ""
+
+#: classes/class-tool-inspect-token.php:174
+msgid "Token inspection"
+msgstr ""
+
+#: classes/class-tool-inspect-token.php:185
+msgid "xxxxxheaderxxxxx.yyyyypayloadyyyyyy.zzzzzsignaturezzzzz"
+msgstr ""
+
+#: classes/class-tool-inspect-token.php:189
+msgid "Inspect"
+msgstr ""
+
+#: classes/class-tool-inspect-token.php:227
+msgid "Version"
+msgstr ""
+
+#: classes/class-tool-inspect-token.php:244
+msgid "Expires at "
+msgstr ""
+
+#: classes/class-tool-inspect-token.php:251
+msgid "Scope:"
+msgstr ""
+
+#: classes/class-tool-inspect-token.php:253
+msgid "Unscoped"
+msgstr ""
+
+#: classes/class-tool-inspect-token.php:255
+msgid "Methods:"
+msgstr ""
+
+#. translators: %s is the error message.
+#. translators: %s is the error message
+#: classes/class-tool-inspect-token.php:299
+#: build/admin-settings/tool-inspect-token-interactivity.js:4
+msgid "Invalid token: %s"
+msgstr ""
+
+#: classes/class-tool-inspect-token.php:344
+msgid "Invalid signature"
+msgstr ""
+
+#: classes/class-tool-inspect-token.php:358
+msgid "Token type not supported"
+msgstr ""
+
+#: classes/class-tools-page.php:137
+msgid "Visitor Filesystem tools"
+msgstr ""
+
+#. translators: %s is the action name.
+#: classes/class-users-page.php:91
+msgid "Invalid nonce for action <i>%s</i>"
+msgstr ""
+
+#. translators: %1$s: URL to create a read token, %2$s: URL to create a write token, %3$s: URL to create a full token.
+#: classes/class-users-page.php:181
+msgid "New <a href=\"%1$s\">read</a>, <a href=\"%2$s\">write</a> or <a href=\"%3$s\">full token</a>"
+msgstr ""
+
+#: build/admin-settings/tool-create-token-interactivity.js:1
+msgid "Contacts API not supported"
+msgstr ""
+
+#: build/admin-settings/tool-create-token-interactivity.js:1
+msgid "Creating…"
+msgstr ""
+
+#: build/blocks/file-upload-delete/frontend-interactivity.js:1
+msgid "Delete %s"
+msgstr ""
+
+#: build/blocks/file-upload-delete/frontend-interactivity.js:1
+msgid "Are you sure you want to delete %s?"
+msgstr ""
+
+#. translators: %s is the name of the file.
+#: build/blocks/file-upload-download/frontend-interactivity.js:4
+#: build/blocks/file-upload-filename/frontend-interactivity.js:4
+msgid "Download %s"
+msgstr ""

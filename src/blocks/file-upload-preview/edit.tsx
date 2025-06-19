@@ -61,7 +61,7 @@ export const Edit: React.FC< {
 						'File upload settings',
 						'Files upload settings',
 						nbFiles ?? 0,
-						'vfs'
+						'customer-data'
 					) }
 					icon={ cloudUpload }
 				>
@@ -71,7 +71,7 @@ export const Edit: React.FC< {
 								'Use image preview (if possible)',
 								'Use image previews (if possible)',
 								nbFiles ?? 0,
-								'vfs'
+								'customer-data'
 							) }
 							checked={ previewImages }
 							onChange={ ( value ) =>
@@ -86,12 +86,12 @@ export const Edit: React.FC< {
 				<img
 					{ ...blockProps }
 					src={ featuredImage }
-					alt={ __( 'Image preview', 'vfs' ) }
+					alt={ __( 'Image preview', 'customer-data' ) }
 				/>
 			) : (
 				<span
 					{ ...blockProps }
-					title={ __( 'image/preview', 'vfs' ) }
+					title={ __( 'image/preview', 'customer-data' ) }
 					data-toggle="tooltip"
 				>
 					{ media }

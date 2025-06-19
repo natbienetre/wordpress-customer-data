@@ -119,7 +119,7 @@ export const FilesList: React.FC< {
 		() =>
 			pathJoin(
 				userId,
-				swiftAdmin.adminConfiguration.vfsAdminConfig.options.pageSpace
+				swiftAdmin.adminConfiguration.customerDataAdminConfig.options.pageSpace
 			),
 		[ swiftAdmin, userId ]
 	);
@@ -130,7 +130,7 @@ export const FilesList: React.FC< {
 			[
 				{
 					id: 'icon',
-					label: __( 'Icon', 'vfs' ),
+					label: __( 'Icon', 'customer-data' ),
 					type: 'media',
 					enableSorting: true,
 					enableHiding: true,
@@ -151,7 +151,7 @@ export const FilesList: React.FC< {
 				},
 				{
 					id: 'name',
-					label: __( 'Name', 'vfs' ),
+					label: __( 'Name', 'customer-data' ),
 					type: 'text',
 					enableSorting: true,
 					enableHiding: true,
@@ -169,7 +169,7 @@ export const FilesList: React.FC< {
 				},
 				{
 					id: 'remotePath',
-					label: __( 'Remote path', 'vfs' ),
+					label: __( 'Remote path', 'customer-data' ),
 					type: 'text',
 					enableSorting: true,
 					enableHiding: true,
@@ -177,14 +177,14 @@ export const FilesList: React.FC< {
 				},
 				{
 					id: 'type',
-					label: __( 'Type', 'vfs' ),
+					label: __( 'Type', 'customer-data' ),
 					type: 'text',
 					enableSorting: false,
 					enableHiding: true,
 				},
 				{
 					id: 'size',
-					label: __( 'Size', 'vfs' ),
+					label: __( 'Size', 'customer-data' ),
 					type: 'number',
 					enableSorting: true,
 					enableHiding: true,
@@ -199,7 +199,7 @@ export const FilesList: React.FC< {
 				},
 				{
 					id: 'creationDate',
-					label: __( 'Date', 'vfs' ),
+					label: __( 'Date', 'customer-data' ),
 					type: 'datetime',
 					enableSorting: true,
 					enableHiding: true,
@@ -325,11 +325,11 @@ export const FilesList: React.FC< {
 	);
 
 	return (
-		<div className="vfs-user-files">
+		<div className="customer-data-user-files">
 			{ isGenerateUrlOpen && (
 				<Modal
 					icon={ people }
-					title={ __( 'Temporary URL', 'vfs' ) }
+					title={ __( 'Temporary URL', 'customer-data' ) }
 					onRequestClose={ () => setIsGenerateUrlOpen( false ) }
 				>
 					<URLGenerationForm
@@ -364,14 +364,14 @@ export const FilesList: React.FC< {
 							onClick={ () => setIsGenerateUrlOpen( true ) }
 							isBusy={ isGenerateUrlOpen }
 							icon={ customLink }
-							label={ __( 'Generate temporary URL', 'vfs' ) }
+							label={ __( 'Generate temporary URL', 'customer-data' ) }
 						/>
 					</>
 				}
 				actions={ [
 					{
 						id: 'download',
-						label: __( 'Download', 'vfs' ),
+						label: __( 'Download', 'customer-data' ),
 						icon: cloudDownload,
 						supportsBulk: true,
 						callback: downloadCallback,
@@ -381,7 +381,7 @@ export const FilesList: React.FC< {
 					},
 					{
 						id: 'delete',
-						label: __( 'Delete', 'vfs' ),
+						label: __( 'Delete', 'customer-data' ),
 						isDestructive: true,
 						icon: trash,
 						supportsBulk: true,

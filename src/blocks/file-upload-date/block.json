@@ -1,11 +1,11 @@
 {
 	"apiVersion": 2,
-	"name": "vfs/file-upload-date",
+	"name": "customer-data/file-upload-date",
 	"title": "File Upload Date",
 	"description": "Date of the uploaded file",
 	"category": "media",
 	"icon": "clock",
-	"ancestor": [ "vfs/file-upload-fileinfo" ],
+	"ancestor": [ "customer-data/file-upload-fileinfo" ],
 	"supports": {
 		"color": {
 			"text": true,
@@ -29,6 +29,6 @@
 	},
 	"editorScript": "file:./admin.js",
 	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
-	"viewScript": [ "vfs-blocks-lib", "wp-date" ],
-	"textdomain": "vfs"
+	"viewScript": [ "customer-data-blocks-lib", "wp-date" ],
+	"textdomain": "customer-data"
 }

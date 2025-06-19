@@ -2,13 +2,13 @@
 /**
  * Key Management class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 /**
  * Class Key_Management

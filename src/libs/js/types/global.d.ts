@@ -7,10 +7,10 @@ import type WordPress from 'wordpress';
 
 declare global {
 	interface Window {
-		vfsOptions: VfsOptions | undefined;
-		vfsToken: Token | undefined;
-		vfsKeys: JSONWebKeySet | undefined;
-		vfsConfig:
+		customerDataOptions: CustomerDataOptions | undefined;
+		customerDataToken: Token | undefined;
+		customerDataKeys: JSONWebKeySet | undefined;
+		customerDataConfig:
 			| {
 					options: Partial< OpenStackOptions >;
 			  }
@@ -18,11 +18,11 @@ declare global {
 		wp: {
 			template: ( id: string ) => ( data: any ) => string;
 		};
-		vfs: {
+		customerData: {
 			swiftFile: SwiftFile | undefined;
-			configuration: VfsConfiguration | undefined;
+			configuration: CustomerDataConfiguration | undefined;
 		} | undefined;
-		vfsCallbacks: {
+		customerDataCallbacks: {
 			deleteBlock: {
 				delete: ( event: MouseEvent ) => void;
 			} | undefined;
@@ -55,7 +55,7 @@ export interface SwiftFile {
 	upload: ( filePath: string, file: VisitorNewFile, progressCallback?: ( loaded: number, total: number ) => void ) => Promise< void >;
 }
 
-export interface VfsConfiguration {
+export interface CustomerDataConfiguration {
 	fileURL(
 		filePath: string | VisitorUploadedFile,
 		method: string | undefined = undefined

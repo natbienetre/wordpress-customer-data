@@ -14,6 +14,6 @@ export const Save: React.FC = () => {
 	const blockProps = useBlockProps.save();
 
 	return (
-		<span { ...blockProps } data-wp-text="vfs::state.humanReadableSize" />
+		<span { ...blockProps } data-wp-text="customer-data::state.humanReadableSize" />
 	);
 };

@@ -32,8 +32,8 @@ export const FileType: React.FC< { visitorFile: VisitorUploadedFile } > = ( {
 			<Icon icon={ fileTypeDashicon( visitorFile ) } />
 			{ isVisible && (
 				<Popover
-					headerTitle={ __( 'File type', 'vfs' ) }
-					className="vfs-popover"
+					headerTitle={ __( 'File type', 'customer-data' ) }
+					className="customer-data-popover"
 				>
 					{ visitorFile.type }
 				</Popover>

@@ -25,7 +25,7 @@ registerBlockType( metadata.name, {
 		...metadata.attributes,
 		placeholder: {
 			...metadata.attributes.placeholder,
-			default: __( 'Paste your token here', 'vfs' ),
+			default: __( 'Paste your token here', 'customer-data' ),
 		},
 	},
 } as any as BlockConfiguration< Attributes > );

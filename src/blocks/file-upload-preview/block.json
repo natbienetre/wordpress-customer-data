@@ -1,11 +1,11 @@
 {
 	"apiVersion": 2,
-	"name": "vfs/file-upload-preview",
+	"name": "customer-data/file-upload-preview",
 	"title": "File Upload Preview",
 	"description": "Preview of the uploaded file",
 	"category": "media",
 	"icon": "media-document",
-	"ancestor": [ "vfs/file-upload-fileinfo" ],
+	"ancestor": [ "customer-data/file-upload-fileinfo" ],
 	"supports": {
 		"color": {
 			"text": true,
@@ -40,5 +40,5 @@
 	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
 	"viewScript": [ "file:./frontend.js" ],
 	"viewStyle": [ "file:./frontend.css", "dashicons" ],
-	"textdomain": "vfs"
+	"textdomain": "customer-data"
 }

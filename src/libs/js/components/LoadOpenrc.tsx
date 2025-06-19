@@ -171,7 +171,7 @@ export const LoadOpenrc: React.FC< {
 		<>
 			{ Object.keys( updatedFields ).length > 0 && (
 				<Notice
-					className="vfs-swift-provider-openrc-loader-notice"
+					className="customer-data-swift-provider-openrc-loader-notice"
 					status={
 						Object.values( updatedFields ).filter( Boolean )
 							.length > 0
@@ -188,7 +188,7 @@ export const LoadOpenrc: React.FC< {
 							'Loaded %d field from openrc file',
 							'Loaded %d fields from openrc file',
 							Object.keys( updatedFields ).length,
-							'vfs'
+							'customer-data'
 						),
 						Object.keys( updatedFields ).length
 					) }
@@ -222,10 +222,10 @@ export const LoadOpenrc: React.FC< {
 
 					loadCb( files[ 0 ] );
 				} }
-				label={ __( 'Drop openrc file here', 'vfs' ) }
+				label={ __( 'Drop openrc file here', 'customer-data' ) }
 			/>
 			<FormFileUpload
-				className="vfs-swift-provider-openrc-loader-form-file-upload"
+				className="customer-data-swift-provider-openrc-loader-form-file-upload"
 				__next40pxDefaultSize
 				accept=".sh"
 				disabled={ isLoading }
@@ -243,7 +243,7 @@ export const LoadOpenrc: React.FC< {
 			>
 				{ openrcFile
 					? openrcFile.name
-					: __( 'Select openrc file', 'vfs' ) }
+					: __( 'Select openrc file', 'customer-data' ) }
 			</FormFileUpload>
 		</>
 	);

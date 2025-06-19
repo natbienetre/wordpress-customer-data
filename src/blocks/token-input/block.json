@@ -1,6 +1,6 @@
 {
 	"apiVersion": 2,
-	"name": "vfs/token-input",
+	"name": "customer-data/token-input",
 	"title": "Token Input",
 	"description": "Input a token",
 	"category": "media",
@@ -58,5 +58,5 @@
 	"editorScript": "file:./admin.js",
 	"editorStyle": "file:./admin.css",
 	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
-	"textdomain": "vfs"
+	"textdomain": "customer-data"
 }

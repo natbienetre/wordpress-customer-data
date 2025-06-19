@@ -2,13 +2,13 @@
 /**
  * Admin page class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 use DateTime;
 use WP_Error;
@@ -28,7 +28,7 @@ class Tool_Create_Token {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public const SCRIPT_HANDLE = 'vfs-tool-create-token';
+	public const SCRIPT_HANDLE = 'customer-data-tool-create-token';
 
 	/**
 	 * Interactivity store namespace
@@ -36,7 +36,7 @@ class Tool_Create_Token {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public const INTERACTIVITY_STORE_NAMESPACE = 'vfs-admin-tools-token-creation';
+	public const INTERACTIVITY_STORE_NAMESPACE = 'customer-data-admin-tools-token-creation';
 
 	/**
 	 * Action name
@@ -44,7 +44,7 @@ class Tool_Create_Token {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public const ACTION_NAME = 'vfs-create-token';
+	public const ACTION_NAME = 'customer-data-create-token';
 
 	/**
 	 * Load hook suffix
@@ -112,12 +112,12 @@ class Tool_Create_Token {
 		}
 
 		if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'], self::ACTION_NAME ) ) {
-			$this->result = new \WP_Error( 'invalid_nonce', __( 'Invalid nonce. Please try again.', 'vfs' ) );
+			$this->result = new \WP_Error( 'invalid_nonce', __( 'Invalid nonce. Please try again.', 'customer-data' ) );
 			return;
 		}
 
 		if ( ! current_user_can( 'create_users' ) ) {
-			$this->result = new \WP_Error( 'insufficient_permissions', __( 'You are not allowed to create tokens.', 'vfs' ) );
+			$this->result = new \WP_Error( 'insufficient_permissions', __( 'You are not allowed to create tokens.', 'customer-data' ) );
 			return;
 		}
 
@@ -132,12 +132,12 @@ class Tool_Create_Token {
 	public function action() {
 		$this->result = $this->create_token(
 			$this->get_user_id( $_REQUEST ),
-			isset( $_REQUEST['vfs-token-creation-permissions-read'] ),
-			isset( $_REQUEST['vfs-token-creation-permissions-write'] ),
-			isset( $_REQUEST['vfs-token-creation-expires-at'] ) ? DateTime::createFromFormat( 'Y-m-d', $_REQUEST['vfs-token-creation-expires-at'] ) : null,
-			$_REQUEST['vfs-token-creation-display-name'] ?? '',
-			$_REQUEST['vfs-token-creation-email'] ?? '',
-			$_REQUEST['vfs-token-creation-scope'] ?? '',
+			isset( $_REQUEST['customer-data-token-creation-permissions-read'] ),
+			isset( $_REQUEST['customer-data-token-creation-permissions-write'] ),
+			isset( $_REQUEST['customer-data-token-creation-expires-at'] ) ? DateTime::createFromFormat( 'Y-m-d', $_REQUEST['customer-data-token-creation-expires-at'] ) : null,
+			$_REQUEST['customer-data-token-creation-display-name'] ?? '',
+			$_REQUEST['customer-data-token-creation-email'] ?? '',
+			$_REQUEST['customer-data-token-creation-scope'] ?? '',
 		);
 	}
 
@@ -160,10 +160,10 @@ class Tool_Create_Token {
 		$methods = array();
 
 		if ( $read_permissions ) {
-			$methods = array_merge( $methods, apply_filters( 'vfs_swift_api_read_http_methods', array( 'GET' ) ) );
+			$methods = array_merge( $methods, apply_filters( 'customer_data_swift_api_read_http_methods', array( 'GET' ) ) );
 		}
 		if ( $write_permissions ) {
-			$methods = array_merge( $methods, apply_filters( 'vfs_swift_api_write_http_methods', array( 'PUT', 'DELETE' ) ) );
+			$methods = array_merge( $methods, apply_filters( 'customer_data_swift_api_write_http_methods', array( 'PUT', 'DELETE' ) ) );
 		}
 
 		if ( is_null( $expires_at ) ) {
@@ -238,7 +238,7 @@ class Tool_Create_Token {
 
 		if ( ! isset( $body['user']['id'] ) ) {
 			return new WP_REST_Response(
-				new WP_Error( 'invalid_user_id', __( 'user ID is required', 'vfs' ) ),
+				new WP_Error( 'invalid_user_id', __( 'user ID is required', 'customer-data' ) ),
 				400
 			);
 		}
@@ -302,8 +302,8 @@ class Tool_Create_Token {
 			self::INTERACTIVITY_STORE_NAMESPACE,
 			array(
 				'suffix'                 => $options->swift_additional_prefix,
-				'readPermissionMethods'  => apply_filters( 'vfs_swift_api_read_http_methods', array( 'GET' ) ),
-				'writePermissionMethods' => apply_filters( 'vfs_swift_api_write_http_methods', array( 'PUT', 'DELETE' ) ),
+				'readPermissionMethods'  => apply_filters( 'customer_data_swift_api_read_http_methods', array( 'GET' ) ),
+				'writePermissionMethods' => apply_filters( 'customer_data_swift_api_write_http_methods', array( 'PUT', 'DELETE' ) ),
 			)
 		);
 
@@ -322,19 +322,19 @@ class Tool_Create_Token {
 		<form
 			method="post"
 			data-wp-on--submit="callbacks.createToken"
-			id="vfs-token-creation-container"
+			id="customer-data-token-creation-container"
 			class="card"
 			data-wp-interactive="<?php echo esc_attr( self::INTERACTIVITY_STORE_NAMESPACE ); ?>"
 			<?php echo wp_interactivity_data_wp_context( $this->interactivity_context() ); ?>
 		>
-			<hgroup class="vfs-token-creation-header">
-				<h2 class="title"><?php esc_html_e( 'Token creation', 'vfs' ); ?></h2>
-				<label for="vfs-token-creation-vcard" class="vfs-token-creation-vcard-label">
-					<?php esc_html_e( 'VCard file', 'vfs' ); ?>
+			<hgroup class="customer-data-token-creation-header">
+				<h2 class="title"><?php esc_html_e( 'Token creation', 'customer-data' ); ?></h2>
+				<label for="customer-data-token-creation-vcard" class="customer-data-token-creation-vcard-label">
+					<?php esc_html_e( 'VCard file', 'customer-data' ); ?>
 					<input
 						type="file"
-						name="vfs-token-creation-vcard"
-						id="vfs-token-creation-vcard"
+						name="customer-data-token-creation-vcard"
+						id="customer-data-token-creation-vcard"
 						accept="text/contacts+json;items=name,tel"
 						data-wp-bind--accept="state.contactsAccept"
 						data-wp-on--change="callbacks.readVCard"
@@ -345,109 +345,109 @@ class Tool_Create_Token {
 			<?php $this->render_result(); ?>
 			<input type="hidden" name="action" value="<?php echo esc_attr( self::ACTION_NAME ); ?>" />
 			<?php wp_nonce_field( self::ACTION_NAME ); ?>
-			<div class="vfs-token-creation-form-rows">
-				<div class="vfs-token-creation-form-row">
-					<label for="vfs-token-creation-email"><?php esc_html_e( 'Email', 'vfs' ); ?></label>
+			<div class="customer-data-token-creation-form-rows">
+				<div class="customer-data-token-creation-form-row">
+					<label for="customer-data-token-creation-email"><?php esc_html_e( 'Email', 'customer-data' ); ?></label>
 					<input
 						type="email"
 						class="regular-text"
-						name="vfs-token-creation-email"
-						id="vfs-token-creation-email"
+						name="customer-data-token-creation-email"
+						id="customer-data-token-creation-email"
 						<?php
-						if ( isset( $_REQUEST['vfs-token-creation-email'] ) ) :
-							echo 'value="' . esc_attr( $_REQUEST['vfs-token-creation-email'] ) . '"';
+						if ( isset( $_REQUEST['customer-data-token-creation-email'] ) ) :
+							echo 'value="' . esc_attr( $_REQUEST['customer-data-token-creation-email'] ) . '"';
 						endif;
 						?>
 						data-wp-on--input="callbacks.setContextAttribute"
 						data-user-attribute="email"
 					/>
 				</div>
-				<fieldset class="vfs-token-creation-form-row">
-					<legend><?php esc_html_e( 'Expiration', 'vfs' ); ?></legend>
-					<div class="vfs-token-creation-form-row-expiration">
-						<label for="vfs-token-creation-never-expires"><?php esc_html_e( 'Never expires', 'vfs' ); ?></label>
+				<fieldset class="customer-data-token-creation-form-row">
+					<legend><?php esc_html_e( 'Expiration', 'customer-data' ); ?></legend>
+					<div class="customer-data-token-creation-form-row-expiration">
+						<label for="customer-data-token-creation-never-expires"><?php esc_html_e( 'Never expires', 'customer-data' ); ?></label>
 						<input
 							type="checkbox"
-							name="vfs-token-creation-never-expires"
-							id="vfs-token-creation-never-expires"
-							<?php checked( isset( $_REQUEST['vfs-token-creation-never-expires'] ) ); ?>
+							name="customer-data-token-creation-never-expires"
+							id="customer-data-token-creation-never-expires"
+							<?php checked( isset( $_REQUEST['customer-data-token-creation-never-expires'] ) ); ?>
 						/>
-						<label for="vfs-token-creation-expires-at"><?php esc_html_e( 'Expires at', 'vfs' ); ?>
+						<label for="customer-data-token-creation-expires-at"><?php esc_html_e( 'Expires at', 'customer-data' ); ?>
 							<input
 								type="date"
 								min="<?php echo esc_attr( gmdate( 'Y-m-d', time() + 3600 * 24 ) ); ?>"
-								value="<?php echo esc_attr( $_REQUEST['vfs-token-creation-expires-at'] ?? gmdate( 'Y-m-d', time() + 3600 * 24 * 365 ) ); ?>"
-								name="vfs-token-creation-expires-at"
-								id="vfs-token-creation-expires-at"
+								value="<?php echo esc_attr( $_REQUEST['customer-data-token-creation-expires-at'] ?? gmdate( 'Y-m-d', time() + 3600 * 24 * 365 ) ); ?>"
+								name="customer-data-token-creation-expires-at"
+								id="customer-data-token-creation-expires-at"
 							/>
 						</label>
 					</div>
 				</fieldset>
-				<div class="vfs-token-creation-form-row">
-					<label for="vfs-token-creation-scope"><?php esc_html_e( 'Scope', 'vfs' ); ?></label>
+				<div class="customer-data-token-creation-form-row">
+					<label for="customer-data-token-creation-scope"><?php esc_html_e( 'Scope', 'customer-data' ); ?></label>
 					<input
 						type="text"
 						class="regular-text"
-						name="vfs-token-creation-scope"
-						id="vfs-token-creation-scope"
-						value="<?php echo esc_attr( $_REQUEST['vfs-token-creation-scope'] ?? '' ); ?>"
+						name="customer-data-token-creation-scope"
+						id="customer-data-token-creation-scope"
+						value="<?php echo esc_attr( $_REQUEST['customer-data-token-creation-scope'] ?? '' ); ?>"
 					/>
 				</div>
-				<fieldset class="vfs-token-creation-form-row">
-					<legend><?php esc_html_e( 'Permissions', 'vfs' ); ?></legend>
-					<label for="vfs-token-creation-permissions-read">
+				<fieldset class="customer-data-token-creation-form-row">
+					<legend><?php esc_html_e( 'Permissions', 'customer-data' ); ?></legend>
+					<label for="customer-data-token-creation-permissions-read">
 						<input
 							type="checkbox"
-							name="vfs-token-creation-permissions-read"
-							id="vfs-token-creation-permissions-read"
-							<?php checked( isset( $_REQUEST['vfs-token-creation-permissions-read'] ) || empty( $_REQUEST['action'] ) || self::ACTION_NAME !== $_REQUEST['action'] ); ?>
+							name="customer-data-token-creation-permissions-read"
+							id="customer-data-token-creation-permissions-read"
+							<?php checked( isset( $_REQUEST['customer-data-token-creation-permissions-read'] ) || empty( $_REQUEST['action'] ) || self::ACTION_NAME !== $_REQUEST['action'] ); ?>
 						/>
-						<?php esc_html_e( 'Read', 'vfs' ); ?>
+						<?php esc_html_e( 'Read', 'customer-data' ); ?>
 					</label>
-					<label for="vfs-token-creation-permissions-write">
+					<label for="customer-data-token-creation-permissions-write">
 						<input
 							type="checkbox"
-							name="vfs-token-creation-permissions-write"
-							id="vfs-token-creation-permissions-write"
-							<?php checked( isset( $_REQUEST['vfs-token-creation-permissions-write'] ) || empty( $_REQUEST['action'] ) || self::ACTION_NAME !== $_REQUEST['action'] ); ?>
+							name="customer-data-token-creation-permissions-write"
+							id="customer-data-token-creation-permissions-write"
+							<?php checked( isset( $_REQUEST['customer-data-token-creation-permissions-write'] ) || empty( $_REQUEST['action'] ) || self::ACTION_NAME !== $_REQUEST['action'] ); ?>
 						/>
-						<?php esc_html_e( 'Write', 'vfs' ); ?>
+						<?php esc_html_e( 'Write', 'customer-data' ); ?>
 					</label>
 				</fieldset>
-				<div class="vfs-token-creation-form-row">
-					<label for="vfs-token-creation-display-name"><?php esc_html_e( 'Display name', 'vfs' ); ?></label>
+				<div class="customer-data-token-creation-form-row">
+					<label for="customer-data-token-creation-display-name"><?php esc_html_e( 'Display name', 'customer-data' ); ?></label>
 					<input
 						type="text"
 						class="regular-text"
-						name="vfs-token-creation-display-name"
-						id="vfs-token-creation-display-name"
-						value="<?php echo esc_attr( $_REQUEST['vfs-token-creation-display-name'] ?? '' ); ?>"
+						name="customer-data-token-creation-display-name"
+						id="customer-data-token-creation-display-name"
+						value="<?php echo esc_attr( $_REQUEST['customer-data-token-creation-display-name'] ?? '' ); ?>"
 						data-wp-on--input="callbacks.setContextAttribute"
 						data-user-attribute="displayName"
 					/>
 				</div>
-				<div class="vfs-token-creation-form-row">
-					<label for="vfs-token-creation-user-id"><?php esc_html_e( 'User ID', 'vfs' ); ?></label>
+				<div class="customer-data-token-creation-form-row">
+					<label for="customer-data-token-creation-user-id"><?php esc_html_e( 'User ID', 'customer-data' ); ?></label>
 					<input
 						type="text"
 						class="regular-text"
-						name="vfs-token-creation-user-id"
-						id="vfs-token-creation-user-id"
+						name="customer-data-token-creation-user-id"
+						id="customer-data-token-creation-user-id"
 						<?php
-						if ( ! empty( $_REQUEST['vfs-token-creation-user-id'] ) ) :
-							echo 'value="' . esc_attr( $_REQUEST['vfs-token-creation-user-id'] ) . '"';
+						if ( ! empty( $_REQUEST['customer-data-token-creation-user-id'] ) ) :
+							echo 'value="' . esc_attr( $_REQUEST['customer-data-token-creation-user-id'] ) . '"';
 						endif;
 						?>
 						<?php
 						$user_id     = $this->get_user_id( $_REQUEST );
-						$placeholder = $user_id ? $user_id : __( 'Automatically computed', 'vfs' );
+						$placeholder = $user_id ? $user_id : __( 'Automatically computed', 'customer-data' );
 						echo 'placeholder="' . esc_attr( $placeholder ) . '"';
 						?>
 						data-wp-bind--placeholder="state.userId"
 					/>
 				</div>
-				<div class="vfs-token-creation-form-row">
-					<?php submit_button( __( 'Create', 'vfs' ), 'primary', 'submit', false ); ?>
+				<div class="customer-data-token-creation-form-row">
+					<?php submit_button( __( 'Create', 'customer-data' ), 'primary', 'submit', false ); ?>
 				</div>
 			</div>
 		</form>
@@ -462,16 +462,16 @@ class Tool_Create_Token {
 	 * @return string|false User ID.
 	 */
 	public function get_user_id( $request ) {
-		if ( ! empty( $request['vfs-token-creation-user-id'] ) ) {
-			return $request['vfs-token-creation-user-id'];
+		if ( ! empty( $request['customer-data-token-creation-user-id'] ) ) {
+			return $request['customer-data-token-creation-user-id'];
 		}
 
-		if ( ! empty( $request['vfs-token-creation-email'] ) ) {
-			return $request['vfs-token-creation-email'];
+		if ( ! empty( $request['customer-data-token-creation-email'] ) ) {
+			return $request['customer-data-token-creation-email'];
 		}
 
-		if ( ! empty( $request['vfs-token-creation-display-name'] ) ) {
-			return str_replace( ' ', '.', strtolower( $request['vfs-token-creation-display-name'] ) );
+		if ( ! empty( $request['customer-data-token-creation-display-name'] ) ) {
+			return str_replace( ' ', '.', strtolower( $request['customer-data-token-creation-display-name'] ) );
 		}
 
 		return false;
@@ -498,15 +498,15 @@ class Tool_Create_Token {
 
 		wp_admin_notice(
 			// translators: %s is the user ID.
-			'<p>' . sprintf( __( 'The token for <i>%s</i> has been created successfully.', 'vfs' ), esc_html( $this->get_user_id( $_REQUEST ) ) ) . '</p>'
+			'<p>' . sprintf( __( 'The token for <i>%s</i> has been created successfully.', 'customer-data' ), esc_html( $this->get_user_id( $_REQUEST ) ) ) . '</p>'
 			. '<div class="token-result-container">'
-			. '<button class="button button-primary copy-button">' . esc_html__( 'Copy', 'vfs' ) . '</button>'
+			. '<button class="button button-primary copy-button">' . esc_html__( 'Copy', 'customer-data' ) . '</button>'
 			. '<pre class="generated-token" data-wp-text="context.token">' . esc_html( is_wp_error( $this->result ) || is_null( $this->result ) ? '' : $this->result['token'] ) . '</pre>'
 			. '</div>',
 			array(
 				'type'               => 'success',
 				'paragraph_wrap'     => false,
-				'additional_classes' => $inline ? array( 'vfs-token-creation-success', 'inline' ) : array( 'vfs-token-creation-success' ),
+				'additional_classes' => $inline ? array( 'customer-data-token-creation-success', 'inline' ) : array( 'customer-data-token-creation-success' ),
 				'attributes'         => array(
 					'data-wp-bind--hidden' => '!context.token',
 					'hidden'               => is_wp_error( $this->result ) || is_null( $this->result ) ? 'hidden' : null,

@@ -29,7 +29,7 @@ export const FileName: React.FC< { visitorFile: VisitorUploadedFile } > = ( {
 		>
 			{ visitorFile.name }
 			{ isVisible && (
-				<Popover className="vfs-popover">
+				<Popover className="customer-data-popover">
 					{ visitorFile.remotePath }
 				</Popover>
 			) }

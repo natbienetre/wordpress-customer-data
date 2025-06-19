@@ -1,5 +1,5 @@
 /**
- * VFS Upload Handler
+ * CustomerData Upload Handler
  *
  * @package
  * @version 1.0.0
@@ -21,20 +21,20 @@ import type {
 	FileUploadContext,
 	FileWithStatus,
 	RemoteFile,
-	VfsActions,
-	VfsState as VfsStateBase,
+	CustomerDataActions,
+	CustomerDataState as CustomerDataStateBase,
 } from '../type';
 import { addFiles, updateFile } from '../lib';
 import { addInitCallback } from '../event';
 import { name } from './block.json';
 import type { TokenV1 } from 'token';
 
-type VfsState = VfsStateBase & {
+type CustomerDataState = CustomerDataStateBase & {
 	ready: () => boolean;
 	canWrite: () => boolean;
 };
 
-const { actions, state } = store( 'vfs', {
+const { actions, state } = store( 'customer-data', {
 	state: {
 		ready: (): boolean => state.tokenIs( 'valid' ),
 		canWrite: (): boolean =>
@@ -189,8 +189,8 @@ const { actions, state } = store( 'vfs', {
 		},
 	},
 } ) as unknown as {
-	state: VfsState;
-	actions: VfsActions;
+	state: CustomerDataState;
+	actions: CustomerDataActions;
 };
 
 const validateFile = ( acceptTypes: string[] ) =>

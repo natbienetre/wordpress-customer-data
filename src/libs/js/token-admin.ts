@@ -59,7 +59,7 @@ export const generatePrefixedSignature = async (
 	} >
 ): Promise< TemporaryPrefixedUrlSignature > => {
 	return apiFetch( {
-		path: '/vfs/v1/swift/signature',
+		path: '/customer-data/v1/swift/signature',
 		method: 'POST',
 		body: JSON.stringify( {
 			method,

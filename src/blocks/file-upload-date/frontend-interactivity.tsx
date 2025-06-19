@@ -1,5 +1,5 @@
 /**
- * VFS Upload Handler
+ * CustomerData Upload Handler
  *
  * @package
  * @version 1.0.0
@@ -14,7 +14,7 @@ import date from '../../libs/js/wordpress-interactive/date';
 
 const settings = date.getSettings();
 
-store( 'vfs', {
+store( 'customer-data', {
 	state: {
 		relativeTime: () => {
 			const context = getContext< FileContext >();

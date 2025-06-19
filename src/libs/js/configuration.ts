@@ -3,7 +3,7 @@ import { normalizePath, pathDelimiter, pathJoin, relativeTo } from './swift';
 import type { TokenV1 } from 'token';
 import type WordPressUrl from 'wordpress/url';
 
-export type VfsOptions = {
+export type CustomerDataOptions = {
 	/**
 	 * The base URL of the OpenStack Swift account.
 	 * Example: https://storage.example.com/v1/AUTH_123456/
@@ -38,7 +38,7 @@ export type VfsOptions = {
 	 * The JSON Web Token.
 	 * Example: xxxxxheaderxxxxx.yyyyypayloadyyyyy.zzzzzsignaturezzzzz
 	 */
-	vfsToken: string;
+	customerDataToken: string;
 
 	/**
 	 * The signature HMAC algorithm.
@@ -172,9 +172,9 @@ export class SwiftConfiguration {
 	}
 }
 
-export class VfsConfiguration extends SwiftConfiguration {
+export class CustomerDataConfiguration extends SwiftConfiguration {
 	constructor(
-		public readonly vfsToken: Token< TokenV1 >,
+		public readonly customerDataToken: Token< TokenV1 >,
 		swiftOptions: OpenStackOptions,
 		wordpressUrl: WordPressUrl
 	) {
@@ -182,7 +182,7 @@ export class VfsConfiguration extends SwiftConfiguration {
 	}
 
 	userPrefix(): string {
-		return encodeURIComponent( this.vfsToken?.data.user.id || '' );
+		return encodeURIComponent( this.customerDataToken?.data.user.id || '' );
 	}
 
 	/**
@@ -195,7 +195,7 @@ export class VfsConfiguration extends SwiftConfiguration {
 	}
 
 	pagePrefix(): string {
-		return normalizePath( this.vfsToken?.data.swift.pageSpace || '' );
+		return normalizePath( this.customerDataToken?.data.swift.pageSpace || '' );
 	}
 
 	/**
@@ -250,9 +250,9 @@ export class VfsConfiguration extends SwiftConfiguration {
 			params.temp_url_prefix = prefix;
 		}
 
-		params.temp_url_sig = this.vfsToken.signature( method );
-		if ( this.vfsToken.data.swift.expiresAt ) {
-			params.temp_url_expires = this.vfsToken.data.swift.expiresAt;
+		params.temp_url_sig = this.customerDataToken.signature( method );
+		if ( this.customerDataToken.data.swift.expiresAt ) {
+			params.temp_url_expires = this.customerDataToken.data.swift.expiresAt;
 		}
 
 		return params;

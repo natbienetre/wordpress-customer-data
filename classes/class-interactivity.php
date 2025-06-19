@@ -2,15 +2,15 @@
 /**
  * Interactivity
  *
- * @package VFS
+ * @package CustomerData
  */
 
-namespace VFS;
+namespace CustomerData;
 
 /**
  * Interactivity
  *
- * @package VFS
+ * @package CustomerData
  */
 class Interactivity {
 
@@ -41,12 +41,12 @@ class Interactivity {
 	public function add_interactivity() {
 		Scripts::enqueue_script( Editor::UPLOAD_BLOCK_FRONTEND_SCRIPT_HANDLE, 'blocks/lib.asset.php' );
 		wp_interactivity_config(
-			'vfs',
-			apply_filters( 'vfs_interactivity_config', array() )
+			'customer-data',
+			apply_filters( 'customer_data_interactivity_config', array() )
 		);
 		wp_interactivity_state(
-			'vfs',
-			apply_filters( 'vfs_interactivity_state', array() )
+			'customer-data',
+			apply_filters( 'customer_data_interactivity_state', array() )
 		);
 	}
 
@@ -62,10 +62,10 @@ class Interactivity {
 
 		$post_id = get_the_ID();
 
-		$page_space = get_post_meta( $post_id, '_vfs_subpath', true );
+		$page_space = get_post_meta( $post_id, '_customer_data_subpath', true );
 
 		$context = apply_filters(
-			'vfs_interactivity_context',
+			'customer_data_interactivity_context',
 			array(
 				'pageSpace'                => $page_space,
 				'filesInventoryRemotePath' => Swift_Api::path_join( $page_space, '.files.json' ),
@@ -73,7 +73,7 @@ class Interactivity {
 			$post_id
 		);
 
-		return '<div data-wp-interactive="vfs" data-wp-init="actions.init" ' . wp_interactivity_data_wp_context( $context ) . '>' .
+		return '<div data-wp-interactive="customer-data" data-wp-init="actions.init" ' . wp_interactivity_data_wp_context( $context ) . '>' .
 			wp_interactivity_process_directives( $content ) .
 			'</div>';
 	}

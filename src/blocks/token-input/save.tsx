@@ -27,7 +27,7 @@ export const Save: React.FC< {
 		<input
 			type={ attributes.type }
 			placeholder={ attributes.placeholder }
-			data-wp-interactive="vfs"
+			data-wp-interactive="customer-data"
 			data-wp-on-async--input="actions.updateToken"
 			{ ...blockProps }
 		/>

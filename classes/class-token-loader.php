@@ -2,10 +2,10 @@
 /**
  * Frontend class
  *
- * @package VFS
+ * @package CustomerData
  */
 
-namespace VFS;
+namespace CustomerData;
 
 use Jose\Component\Checker\ExpirationTimeChecker;
 use Jose\Component\Checker\HeaderCheckerManagerFactory;
@@ -19,7 +19,7 @@ use Jose\Component\Signature\Serializer\JWSSerializerManagerFactory;
 /**
  * Frontend class
  *
- * @package VFS
+ * @package CustomerData
  */
 class Token_Loader {
 	/**
@@ -27,7 +27,7 @@ class Token_Loader {
 	 *
 	 * @var string
 	 */
-	const TOKEN_QUERY_VAR = 'vfs_token';
+	const TOKEN_QUERY_VAR = 'customer_data_token';
 
 	/**
 	 * JWS loader factory
@@ -134,7 +134,7 @@ class Token_Loader {
 		} catch ( \Exception $e ) {
 			return new \WP_Error(
 				'invalid_configuration',
-				__( 'Invalid configuration', 'vfs' ),
+				__( 'Invalid configuration', 'customer-data' ),
 				array(
 					'cause' => $e->getMessage(),
 				)
@@ -166,7 +166,7 @@ class Token_Loader {
 		} catch ( \Exception $e ) {
 			return new \WP_Error(
 				'invalid_token',
-				__( 'Invalid token', 'vfs' ),
+				__( 'Invalid token', 'customer-data' ),
 				array(
 					'cause' => $e->getMessage(),
 				)
@@ -176,7 +176,7 @@ class Token_Loader {
 		if ( -1 === $signature_index ) {
 			return new \WP_Error(
 				'invalid_token',
-				__( 'Invalid token', 'vfs' ),
+				__( 'Invalid token', 'customer-data' ),
 				array(
 					'cause' => 'no matching signature',
 				)

@@ -1,7 +1,7 @@
 import { store, getElement } from '@wordpress/interactivity';
-import type { TokenState, VfsState } from '../../blocks/type';
+import type { TokenState, CustomerDataState } from '../../blocks/type';
 
-const { state } = store( 'vfs', {
+const { state } = store( 'customer-data', {
 	callbacks: {
 		setVisilibity: async () => {
 			const element = getElement().ref;
@@ -11,9 +11,9 @@ const { state } = store( 'vfs', {
 			}
 
 			const originalDisplay =
-				element.dataset.vfsOriginalDisplay ?? 'initial';
+				element.dataset.customerDataOriginalDisplay ?? 'initial';
 			const tokenShouldBe = JSON.parse(
-				element.dataset.vfsTokenShouldBe ?? '[]'
+				element.dataset.customerDataTokenShouldBe ?? '[]'
 			) as TokenState[];
 
 			if ( tokenShouldBe.length === 0 ) {
@@ -30,5 +30,5 @@ const { state } = store( 'vfs', {
 		},
 	},
 } ) as any as {
-	state: VfsState;
+	state: CustomerDataState;
 };

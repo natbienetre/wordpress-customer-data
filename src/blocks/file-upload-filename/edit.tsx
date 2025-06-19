@@ -47,7 +47,7 @@ export const Edit: React.FC< {
 					return cleanForSlug( title ) + '.png';
 				}
 
-				return _x( 'filename.png', 'Default file name', 'vfs' );
+				return _x( 'filename.png', 'Default file name', 'customer-data' );
 			}
 			if ( title ) {
 				return cleanForSlug( title );
@@ -56,7 +56,7 @@ export const Edit: React.FC< {
 			return _x(
 				'filename',
 				'Default file name without extension',
-				'vfs'
+				'customer-data'
 			);
 		},
 		[ showExtension ]
@@ -69,13 +69,13 @@ export const Edit: React.FC< {
 					title={ _x(
 						'File upload settings',
 						'File upload filename block',
-						'vfs'
+						'customer-data'
 					) }
 					icon={ cloudUpload }
 				>
 					<PanelRow>
 						<ToggleControl
-							label={ __( 'Show file(s) extension', 'vfs' ) }
+							label={ __( 'Show file(s) extension', 'customer-data' ) }
 							checked={ showExtension }
 							onChange={ ( value: boolean ) =>
 								setAttributes( { showExtension: value } )
@@ -86,11 +86,11 @@ export const Edit: React.FC< {
 					<PanelRow>
 						<ToggleControl
 							__nextHasNoMarginBottom
-							label={ __( 'Link to download the file', 'vfs' ) }
+							label={ __( 'Link to download the file', 'customer-data' ) }
 							checked={ linkToDownload }
 							help={ __(
 								'If enabled, the name of the file will be a link to download the file.',
-								'vfs'
+								'customer-data'
 							) }
 							onChange={ ( value: boolean ) =>
 								setAttributes( { linkToDownload: value } )

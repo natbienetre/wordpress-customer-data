@@ -2,13 +2,13 @@
 /**
  * KeySet class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 use Exception;
 use WP_REST_Server;
@@ -48,7 +48,7 @@ class Keyset extends \WP_List_Table {
 	 *
 	 * @var string
 	 */
-	public const OPTION_NAME = 'vfs_keys';
+	public const OPTION_NAME = 'customer_data_keys';
 
 	/**
 	 * Key algorithm
@@ -69,21 +69,21 @@ class Keyset extends \WP_List_Table {
 	 *
 	 * @var string
 	 */
-	public const SET_MAIN_ACTION = 'vfs-set-main-jwk';
+	public const SET_MAIN_ACTION = 'customer-data-set-main-jwk';
 
 	/**
 	 * Action unique id for creating a new key
 	 *
 	 * @var string
 	 */
-	public const CREATE_ACTION = 'vfs-create-jwk';
+	public const CREATE_ACTION = 'customer-data-create-jwk';
 
 	/**
 	 * Action unique id for deleting a key
 	 *
 	 * @var string
 	 */
-	public const DELETE_ACTION = 'vfs-delete-jwk';
+	public const DELETE_ACTION = 'customer-data-delete-jwk';
 
 	/**
 	 * JWK Set instance
@@ -98,8 +98,8 @@ class Keyset extends \WP_List_Table {
 	public function __construct() {
 		parent::__construct(
 			array(
-				'singular' => _x( 'Key', 'keyset table header', 'vfs' ),
-				'plural'   => _x( 'Keys', 'keyset table header', 'vfs' ),
+				'singular' => _x( 'Key', 'keyset table header', 'customer-data' ),
+				'plural'   => _x( 'Keys', 'keyset table header', 'customer-data' ),
 				'ajax'     => true,
 			)
 		);
@@ -108,11 +108,11 @@ class Keyset extends \WP_List_Table {
 		$this->_column_headers = array(
 			array(
 				'selector'   => '',
-				'key_id'     => _x( 'Key ID', 'keyset table header', 'vfs' ),
-				'public_key' => _x( 'Public Key', 'keyset table header', 'vfs' ),
-				'algorithm'  => _x( 'Algorithm', 'keyset table header', 'vfs' ),
-				'curve'      => _x( 'Curve', 'keyset table header', 'vfs' ),
-				'key_type'   => _x( 'Key Type', 'keyset table header', 'vfs' ),
+				'key_id'     => _x( 'Key ID', 'keyset table header', 'customer-data' ),
+				'public_key' => _x( 'Public Key', 'keyset table header', 'customer-data' ),
+				'algorithm'  => _x( 'Algorithm', 'keyset table header', 'customer-data' ),
+				'curve'      => _x( 'Curve', 'keyset table header', 'customer-data' ),
+				'key_type'   => _x( 'Key Type', 'keyset table header', 'customer-data' ),
 			),
 			array( 'key_id' ),
 			array( 'public_key', 'algorithm', 'curve', 'key_type' ),
@@ -126,7 +126,7 @@ class Keyset extends \WP_List_Table {
 	public static function register_hooks() {
 		add_action( 'init', array( self::class, 'init' ) );
 		add_action( 'admin_init', array( self::class, 'admin_init' ) );
-		add_filter( 'vfs_keyset_action_url', 'wp_nonce_url', 5, 2 );
+		add_filter( 'customer_data_keyset_action_url', 'wp_nonce_url', 5, 2 );
 	}
 
 	/**
@@ -153,12 +153,12 @@ class Keyset extends \WP_List_Table {
 	 */
 	public function admin_delete_key() {
 		if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'], self::DELETE_ACTION ) ) {
-			wp_die( esc_html__( 'Invalid nonce', 'vfs' ), 400 );
+			wp_die( esc_html__( 'Invalid nonce', 'customer-data' ), 400 );
 			return;
 		}
 
 		if ( ! isset( $_REQUEST['key'] ) ) {
-			wp_die( esc_html__( 'No key provided', 'vfs' ), 400 );
+			wp_die( esc_html__( 'No key provided', 'customer-data' ), 400 );
 			return;
 		}
 
@@ -169,7 +169,7 @@ class Keyset extends \WP_List_Table {
 
 		$referer = wp_get_referer();
 		if ( ! $referer ) {
-			$referer = admin_url( 'options-general.php?page=vfs-keyset' );
+			$referer = admin_url( 'options-general.php?page=customer-data-keyset' );
 		}
 
 		wp_safe_redirect( $referer );
@@ -180,7 +180,7 @@ class Keyset extends \WP_List_Table {
 	 */
 	public function admin_create_key() {
 		if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'], self::CREATE_ACTION ) ) {
-			wp_die( esc_html__( 'Invalid nonce', 'vfs' ), 400 );
+			wp_die( esc_html__( 'Invalid nonce', 'customer-data' ), 400 );
 			return;
 		}
 
@@ -189,7 +189,7 @@ class Keyset extends \WP_List_Table {
 
 		$referer = wp_get_referer();
 		if ( ! $referer ) {
-			$referer = admin_url( 'options-general.php?page=vfs-keyset' );
+			$referer = admin_url( 'options-general.php?page=customer-data-keyset' );
 		}
 
 		wp_safe_redirect( $referer );
@@ -200,17 +200,17 @@ class Keyset extends \WP_List_Table {
 	 */
 	public static function admin_set_main_key() {
 		if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'], self::SET_MAIN_ACTION ) ) {
-			wp_die( esc_html__( 'Invalid nonce', 'vfs' ), 400 );
+			wp_die( esc_html__( 'Invalid nonce', 'customer-data' ), 400 );
 			return;
 		}
 
 		$referer = wp_get_referer();
 		if ( ! $referer ) {
-			$referer = admin_url( 'options-general.php?page=vfs-keyset' );
+			$referer = admin_url( 'options-general.php?page=customer-data-keyset' );
 		}
 
 		if ( ! isset( $_REQUEST['key'] ) ) {
-			wp_die( esc_html__( 'No key provided', 'vfs' ), 400 );
+			wp_die( esc_html__( 'No key provided', 'customer-data' ), 400 );
 			return;
 		}
 
@@ -250,7 +250,7 @@ class Keyset extends \WP_List_Table {
 	 * Display the no items message.
 	 */
 	public function no_items() {
-		esc_html_e( 'No keys found. Please create your first key.', 'vfs' );
+		esc_html_e( 'No keys found. Please create your first key.', 'customer-data' );
 	}
 
 	/**
@@ -298,7 +298,7 @@ class Keyset extends \WP_List_Table {
 			if ( ! $this->is_main_key( $item ) ) {
 				$actions[ self::SET_MAIN_ACTION ] = '<a href="' . esc_attr(
 					apply_filters(
-						'vfs_keyset_action_url',
+						'customer_data_keyset_action_url',
 						add_query_arg(
 							array(
 								'action'   => self::SET_MAIN_ACTION,
@@ -310,10 +310,10 @@ class Keyset extends \WP_List_Table {
 						self::SET_MAIN_ACTION,
 						$item
 					)
-				) . '">' . __( 'Set Main', 'vfs' ) . '</a>';
+				) . '">' . __( 'Set Main', 'customer-data' ) . '</a>';
 				$actions['delete']                = '<a href="' . esc_attr(
 					apply_filters(
-						'vfs_keyset_action_url',
+						'customer_data_keyset_action_url',
 						add_query_arg(
 							array(
 								'action'   => self::DELETE_ACTION,
@@ -325,7 +325,7 @@ class Keyset extends \WP_List_Table {
 						self::DELETE_ACTION,
 						$item
 					)
-				) . '">' . __( 'Delete', 'vfs' ) . '</a>';
+				) . '">' . __( 'Delete', 'customer-data' ) . '</a>';
 			}
 		}
 
@@ -363,7 +363,7 @@ class Keyset extends \WP_List_Table {
 					?>
 					"
 					class="button"
-				><?php esc_html_e( 'Create a new key', 'vfs' ); ?></a>
+				><?php esc_html_e( 'Create a new key', 'customer-data' ); ?></a>
 			</div>
 		</div>
 		<?php
@@ -517,7 +517,7 @@ class Keyset extends \WP_List_Table {
 		if ( ! $request->has_param( 'key' ) ) {
 			return new WP_Error(
 				'no_key',
-				__( 'No key provided', 'vfs' ),
+				__( 'No key provided', 'customer-data' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -529,7 +529,7 @@ class Keyset extends \WP_List_Table {
 				'not_found',
 				sprintf(
 					/* translators: %s: Key ID */
-					__( 'Key not found: %s', 'vfs' ),
+					__( 'Key not found: %s', 'customer-data' ),
 					$id
 				),
 				array( 'status' => 404 )
@@ -560,7 +560,7 @@ class Keyset extends \WP_List_Table {
 		if ( empty( $this->keys ) ) {
 			return new WP_Error(
 				'no_keys',
-				__( 'No keys found', 'vfs' ),
+				__( 'No keys found', 'customer-data' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -586,7 +586,7 @@ class Keyset extends \WP_List_Table {
 		if ( empty( $this->keys ) ) {
 			return new WP_Error(
 				'no_keys',
-				__( 'No keys found', 'vfs' ),
+				__( 'No keys found', 'customer-data' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -597,7 +597,7 @@ class Keyset extends \WP_List_Table {
 			if ( ! $key ) {
 				$key = $this->keys->selectKey( 'sig' );
 				if ( ! $key ) {
-					return new WP_Error( 'no_key_found', __( 'No valid key found', 'vfs' ) );
+					return new WP_Error( 'no_key_found', __( 'No valid key found', 'customer-data' ) );
 				}
 			}
 		} else {
@@ -607,7 +607,7 @@ class Keyset extends \WP_List_Table {
 					'no_key_found',
 					sprintf(
 						/* translators: %s: Key ID */
-						__( 'No key found for %s', 'vfs' ),
+						__( 'No key found for %s', 'customer-data' ),
 						$item['key']
 					),
 					array( 'status' => 400 )
@@ -618,7 +618,7 @@ class Keyset extends \WP_List_Table {
 		if ( empty( $item['payload'] ) ) {
 			return new WP_Error(
 				'no_payload',
-				__( 'No payload provided', 'vfs' ),
+				__( 'No payload provided', 'customer-data' ),
 				array( 'status' => 400 )
 			);
 		}

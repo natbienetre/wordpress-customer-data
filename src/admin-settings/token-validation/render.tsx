@@ -9,8 +9,8 @@ export const Render = () => {
 	const [ isOpen, setIsOpen ] = useState( false );
 
 	useCommand( {
-		name: 'vfs/token-validation',
-		label: __( 'Inspect a token', 'vfs' ),
+		name: 'customer-data/token-validation',
+		label: __( 'Inspect a token', 'customer-data' ),
 		icon: bug,
 		callback: ( { close }: { close: () => void } ) => {
 			close();
@@ -26,7 +26,7 @@ export const Render = () => {
 				shouldCloseOnEsc={ true }
 				shouldCloseOnClickOutside={ true }
 				onRequestClose={ () => setIsOpen( false ) }
-				title={ __( 'Inspect a token', 'vfs' ) }
+				title={ __( 'Inspect a token', 'customer-data' ) }
 			>
 				<TokenInspection focusOnMount={ true } />
 			</Modal>

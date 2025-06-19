@@ -1,7 +1,7 @@
 /**
  * File Upload Info Block Frontend Styles
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
@@ -10,7 +10,7 @@
 
 @import "common";
 
-.wp-block-vfs-file-upload-filename {
+.wp-block-customer-data-file-upload-filename {
 
 	progress {
 		display: none;
@@ -18,11 +18,11 @@
 	}
 }
 
-.vfs-upload-error .wp-block-vfs-file-upload-filename span {
+.customer-data-upload-error .wp-block-customer-data-file-upload-filename span {
 	text-decoration: line-through;
 }
 
-.vfs-upload-in-progress .wp-block-vfs-file-upload-filename {
+.customer-data-upload-in-progress .wp-block-customer-data-file-upload-filename {
 
 	progress {
 		display: initial;

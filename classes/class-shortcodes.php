@@ -2,13 +2,13 @@
 /**
  * Shortcodes Handler
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -20,8 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 class Shortcodes {
-	const SCRIPT_HANDLE = 'vfs-shortcodes';
-	const STYLE_HANDLE  = 'vfs-shortcodes';
+	const SCRIPT_HANDLE = 'customer-data-shortcodes';
+	const STYLE_HANDLE  = 'customer-data-shortcodes';
 
 	/**
 	 * Initialize the shortcodes
@@ -35,7 +35,7 @@ class Shortcodes {
 		add_shortcode( 'valid-token', array( $instance, 'render_valid_token' ) );
 		add_shortcode( 'invalid-token', array( $instance, 'render_invalid_token' ) );
 		add_action( 'wp_enqueue_scripts', array( $instance, 'enqueue_scripts' ) );
-		add_filter( 'vfs_interactivity_state', array( $instance, 'interactivity_state' ) );
+		add_filter( 'customer_data_interactivity_state', array( $instance, 'interactivity_state' ) );
 	}
 
 	/**
@@ -87,7 +87,7 @@ class Shortcodes {
 		wp_enqueue_script( self::SCRIPT_HANDLE );
 		wp_enqueue_style( self::STYLE_HANDLE );
 
-		return '<div data-wp-interactive="vfs" data-wp-style--display="state.tokenIsValid ? \'unset\' : \'none\'">' . do_shortcode( $content ) . '</div>';
+		return '<div data-wp-interactive="customer-data" data-wp-style--display="state.tokenIsValid ? \'unset\' : \'none\'">' . do_shortcode( $content ) . '</div>';
 	}
 
 	/**
@@ -102,7 +102,7 @@ class Shortcodes {
 		wp_enqueue_script( self::SCRIPT_HANDLE );
 		wp_enqueue_style( self::STYLE_HANDLE );
 
-		return '<div data-wp-interactive="vfs" data-wp-class--display-none="state.tokenIsValid">' . do_shortcode( $content ) . '</div>';
+		return '<div data-wp-interactive="customer-data" data-wp-class--display-none="state.tokenIsValid">' . do_shortcode( $content ) . '</div>';
 	}
 
 	/**
@@ -119,16 +119,16 @@ class Shortcodes {
 				'field' => 'user',
 			),
 			$atts,
-			'vfs_token_field'
+			'customer_data_token_field'
 		);
 
 		wp_enqueue_script( self::SCRIPT_HANDLE );
 		wp_enqueue_style( self::STYLE_HANDLE );
 
 		return '<span
-			data-wp-interactive="vfs"
+			data-wp-interactive="customer-data"
 			data-wp-text="state.token.' . esc_js( $atts['field'] ) . '"
-			class="vfs-token-field vfs-token-field-' . esc_attr( strtolower( str_replace( '.', '-', $atts['field'] ) ) ) . '"
+			class="customer-data-token-field customer-data-token-field-' . esc_attr( strtolower( str_replace( '.', '-', $atts['field'] ) ) ) . '"
 		></span>';
 	}
 }

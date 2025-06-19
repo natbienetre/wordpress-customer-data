@@ -10,5 +10,5 @@ const pluginConfig: PluginSettings = {
 };
 
 export const enable = () => {
-	registerPlugin( 'vfs-token-creation', pluginConfig );
+	registerPlugin( 'customer-data-token-creation', pluginConfig );
 };

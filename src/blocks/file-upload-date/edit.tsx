@@ -45,17 +45,17 @@ export const Edit: React.FC< {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'File upload date', 'vfs' ) }
+					title={ __( 'File upload date', 'customer-data' ) }
 					icon={ <Dashicon icon="clock" /> }
 				>
 					<PanelRow>
 						<ToggleControl
 							__nextHasNoMarginBottom
-							label={ __( 'Relative date', 'vfs' ) }
+							label={ __( 'Relative date', 'customer-data' ) }
 							checked={ relative }
 							help={ __(
 								'Display the date relative to the current time',
-								'vfs'
+								'customer-data'
 							) }
 							onChange={ ( value: boolean ) =>
 								setAttributes( { relative: value } )

@@ -1,5 +1,5 @@
 /**
- * VFS Upload Handler
+ * CustomerData Upload Handler
  *
  * @package
  * @version 1.0.0
@@ -9,16 +9,16 @@
  */
 
 import { store, getContext } from '@wordpress/interactivity';
-import type { FileContext, VfsState } from '../type';
+import type { FileContext, CustomerDataState } from '../type';
 import { __, sprintf } from '../../libs/js/wordpress-interactive/i18n';
 
-const { state } = store( 'vfs', {
+const { state } = store( 'customer-data', {
 	state: {
 		downloadTitle: () => {
 			const context = getContext< FileContext >();
 			return sprintf(
 				// translators: %s is the name of the file.
-				__( 'Download %s', 'vfs' ),
+				__( 'Download %s', 'customer-data' ),
 				context.file.name
 			);
 		},
@@ -33,5 +33,5 @@ const { state } = store( 'vfs', {
 		},
 	},
 } ) as unknown as {
-	state: VfsState;
+	state: CustomerDataState;
 };

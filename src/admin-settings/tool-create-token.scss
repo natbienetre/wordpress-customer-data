@@ -1,12 +1,12 @@
-#vfs-token-creation-container {
+#customer-data-token-creation-container {
 
-	.vfs-token-creation-form-rows {
+	.customer-data-token-creation-form-rows {
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
 	}
 
-	.vfs-token-creation-form-row {
+	.customer-data-token-creation-form-row {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -14,7 +14,7 @@
 		gap: 10px;
 	}
 
-	.vfs-token-creation-header {
+	.customer-data-token-creation-header {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -26,15 +26,15 @@
 		display: contents;
 	}
 
-	#vfs-token-creation-never-expires {
+	#customer-data-token-creation-never-expires {
 		margin-left: 25px;
 	}
 
-	#vfs-token-creation-never-expires:checked ~ label {
+	#customer-data-token-creation-never-expires:checked ~ label {
 		display: none;
 	}
 
-	.vfs-token-creation-form-row-expiration {
+	.customer-data-token-creation-form-row-expiration {
 		display: flex;
 		flex-direction: row-reverse;
 		align-items: center;
@@ -45,7 +45,7 @@
 	}
 }
 
-.vfs-token-creation-success {
+.customer-data-token-creation-success {
 
 	.generated-token {
 		max-width: 100%;
@@ -66,8 +66,8 @@
 
 .no-js {
 
-	.vfs-token-creation-vcard-label,
-	.vfs-token-creation-success .copy-button {
+	.customer-data-token-creation-vcard-label,
+	.customer-data-token-creation-success .copy-button {
 		display: none;
 	}
 }

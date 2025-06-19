@@ -1,6 +1,6 @@
 import hooks from '../libs/js/wordpress-interactive/hooks';
 
-export const InitAction = 'vfs-init';
+export const InitAction = 'customer-data-init';
 
 export const addInitCallback = ( namespace: string, callback: () => void ) => {
 	if ( hooks.didAction( InitAction ) ) {

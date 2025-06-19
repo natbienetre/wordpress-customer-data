@@ -7,7 +7,7 @@ import { useSelect } from '@wordpress/data';
 import { store as editorStore } from '@wordpress/editor';
 import {
 	SwiftAdmin,
-	VfsAdminConfiguration,
+	CustomerDataAdminConfiguration,
 } from '../../libs/js/file-management';
 import wordpressUrl from '../../libs/js/wordpress/url';
 import apiFetch from '../../libs/js/wordpress/api-fetch';
@@ -17,9 +17,9 @@ export const Render = () => {
 	const [ isOpen, setIsOpen ] = useState( false );
 
 	useCommand( {
-		name: 'vfs/token-creation',
-		label: __( 'Create a token', 'vfs' ),
-		searchLabel: __( 'Generate a token', 'vfs' ),
+		name: 'customer-data/token-creation',
+		label: __( 'Create a token', 'customer-data' ),
+		searchLabel: __( 'Generate a token', 'customer-data' ),
 		icon: bug,
 		callback: ( { close }: { close: () => void } ) => {
 			close();
@@ -38,11 +38,11 @@ export const Render = () => {
 	const swiftAdmin = useMemo(
 		() =>
 			new SwiftAdmin(
-				new VfsAdminConfiguration(
+				new CustomerDataAdminConfiguration(
 					{
-						...window.vfsAdminConfig!,
+						...window.customerDataAdminConfig!,
 						options: {
-							...window.vfsAdminConfig!.options,
+							...window.customerDataAdminConfig!.options,
 							pageSpace: '', // Generate global tokens only
 						},
 					},
@@ -58,7 +58,7 @@ export const Render = () => {
 		isOpen && (
 			<Modal
 				icon={ people }
-				title={ __( 'Temporary URL', 'vfs' ) }
+				title={ __( 'Temporary URL', 'customer-data' ) }
 				onRequestClose={ () => setIsOpen( false ) }
 			>
 				<URLGenerationForm

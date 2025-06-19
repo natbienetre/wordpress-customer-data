@@ -1,11 +1,11 @@
 {
   "apiVersion": 2,
-  "name": "vfs/file-upload-filename",
+  "name": "customer-data/file-upload-filename",
   "title": "File Upload Filename",
   "description": "Filename of the uploaded file",
   "category": "media",
   "icon": "heading",
-  "ancestor": ["vfs/file-upload-fileinfo"],
+  "ancestor": ["customer-data/file-upload-fileinfo"],
   "supports": {
     "color": {
       "text": true,
@@ -56,8 +56,8 @@
   },
   "editorScript": "file:./admin.js",
   "editorStyle": "file:./admin.css",
-  "viewScriptModule": ["vfs-blocks-lib", "file:./frontend-interactivity.js"],
+  "viewScriptModule": ["customer-data-blocks-lib", "file:./frontend-interactivity.js"],
   "viewScript": ["file:./frontend.js"],
   "viewStyle": ["file:./frontend.css"],
-  "textdomain": "vfs"
+  "textdomain": "customer-data"
 }

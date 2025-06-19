@@ -1,5 +1,5 @@
 {
-	"name": "wordpress-customer-data/vfs",
+	"name": "natbienetre/customer-data",
 	"description": "Plugin WordPress to manager files via Swift",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
@@ -26,12 +26,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"VFS\\": "classes/"
+			"CustomerData\\": "classes/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"VFS\\Tests\\": "tests/"
+			"CustomerData\\Tests\\": "tests/"
 		}
 	},
 	"config": {
@@ -44,10 +44,10 @@
 		"phpcs": "phpcs -ps . --standard=WordPress --ignore=vendor/*,node_modules/*,languages/*.mo,languages/*.json,languages/*.php,build/*,jest.config.*,babel.config.*,jest.resolver.*",
 		"phpcbf": "phpcbf -ps . --standard=WordPress --ignore=vendor/*,node_modules/*,languages/*.mo,languages/*.json,languages/*.php,build/*,jest.config.*,babel.config.*,jest.resolver.*",
 		"build": "composer run makemo ; composer run makejson ; yarn run build ; yarn run plugin-zip",
-		"makepot": "wp i18n make-pot . languages/vfs.pot --location --slug=vfs --domain=vfs --exclude=src,vendor,node_modules,.git",
-		"updatepo": "wp i18n update-po languages/vfs.pot",
+		"makepot": "wp i18n make-pot . languages/customer-data.pot --location --slug=customer-data --domain=customer-data --exclude=src,vendor,node_modules,.git",
+		"updatepo": "wp i18n update-po languages/customer-data.pot",
 		"makephp": "wp i18n make-php languages",
-		"makemo": "wp i18n make-mo languages/vfs-*.po languages",
+		"makemo": "wp i18n make-mo languages/customer-data-*.po languages",
 		"makejson": "find languages -name '*.json' -not -type d -delete ; wp i18n make-json languages --update-mo-files --no-purge"
 	},
 	"minimum-stability": "stable"

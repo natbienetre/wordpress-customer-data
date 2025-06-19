@@ -2,7 +2,7 @@
 /**
  * Autoloader for the plugin.
  *
- * @package VFS
+ * @package CustomerData
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
@@ -17,11 +17,11 @@ require_once 'vendor/autoload.php';
  */
 spl_autoload_register(
 	static function ( $class_name ) {
-		if ( 0 !== strpos( $class_name, 'VFS' ) ) {
+		if ( 0 !== strpos( $class_name, 'CustomerData' ) ) {
 			return;
 		}
 
-		// Trim the VFS prefix.
+		// Trim the CustomerData prefix.
 		$class_name = substr( $class_name, 4 );
 
 		// Replace underscores with hyphens.
@@ -31,6 +31,6 @@ spl_autoload_register(
 		$class_name = strtolower( $class_name );
 
 		// Load the class.
-		require_once path_join( path_join( plugin_dir_path( VFS_PLUGIN_FILE ), 'classes' ), "class-{$class_name}.php" );
+		require_once path_join( path_join( plugin_dir_path( CUSTOMER_DATA_PLUGIN_FILE ), 'classes' ), "class-{$class_name}.php" );
 	}
 );

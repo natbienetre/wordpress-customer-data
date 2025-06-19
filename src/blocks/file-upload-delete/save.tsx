@@ -31,15 +31,15 @@ export const Save: React.FC< {
 		<a
 			{ ...blockProps }
 			href="javascript:void(0)"
-			data-wp-on--click="vfs::actions.delete"
-			data-wp-bind--title="vfs::state.deleteTitle"
+			data-wp-on--click="customer-data::actions.delete"
+			data-wp-bind--title="customer-data::state.deleteTitle"
 			data-wp-context={ JSON.stringify( {
 				confirmationDialog,
 			} ) }
-			title={ __( 'Delete', 'vfs' ) }
+			title={ __( 'Delete', 'customer-data' ) }
 		>
 			<span { ...( useIcon ? { className: 'screen-reader-text' } : {} ) }>
-				{ __( 'Delete', 'vfs' ) }
+				{ __( 'Delete', 'customer-data' ) }
 			</span>
 			{ useIcon && <span className="dashicons dashicons-trash"></span> }
 		</a>

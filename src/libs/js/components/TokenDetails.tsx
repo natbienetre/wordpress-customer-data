@@ -32,21 +32,21 @@ const TokenV1Details = ( {
 	return (
 		<Flex
 			direction="column"
-			className={ `vfs-token-details ${ className ?? '' }` }
+			className={ `customer-data-token-details ${ className ?? '' }` }
 			{ ...props }
 		>
 			{ ( null !== token && (
 				<>
 					{ token?.data.version && (
-						<FlexItem className="vfs-token-details-row">
+						<FlexItem className="customer-data-token-details-row">
 							<Flex direction="row">
 								<FlexItem
-									className={ `vfs-token-details-row-key vfs-token-details-row-key-version` }
+									className={ `customer-data-token-details-row-key customer-data-token-details-row-key-version` }
 								>
-									{ __( 'Version', 'vfs' ) }
+									{ __( 'Version', 'customer-data' ) }
 								</FlexItem>
 								<FlexItem
-									className={ `vfs-token-details-row-value vfs-token-details-row-value-version` }
+									className={ `customer-data-token-details-row-value customer-data-token-details-row-value-version` }
 								>
 									{ token?.data.version }
 								</FlexItem>
@@ -54,15 +54,15 @@ const TokenV1Details = ( {
 						</FlexItem>
 					) }
 					{ token?.data.user.id && (
-						<FlexItem className="vfs-token-details-row">
+						<FlexItem className="customer-data-token-details-row">
 							<Flex direction="row">
 								<FlexItem
-									className={ `vfs-token-details-row-key vfs-token-details-row-key-user-id` }
+									className={ `customer-data-token-details-row-key customer-data-token-details-row-key-user-id` }
 								>
-									{ __( 'User ID', 'vfs' ) }
+									{ __( 'User ID', 'customer-data' ) }
 								</FlexItem>
 								<FlexItem
-									className={ `vfs-token-details-row-value vfs-token-details-row-value-user-id` }
+									className={ `customer-data-token-details-row-value customer-data-token-details-row-value-user-id` }
 								>
 									{ token?.data.user.id }
 								</FlexItem>
@@ -74,19 +74,19 @@ const TokenV1Details = ( {
 						.map( ( [ k, v ] ) => (
 							<FlexItem
 								key={ `${ k }-key` }
-								className="vfs-token-details-row"
+								className="customer-data-token-details-row"
 							>
 								<Flex direction="row">
 									<FlexItem
 										key={ `${ k }-key` }
-										className={ `vfs-token-details-row-key vfs-token-details-row-key-user-${ k.toLowerCase() }` }
+										className={ `customer-data-token-details-row-key customer-data-token-details-row-key-user-${ k.toLowerCase() }` }
 										title={ k }
 									>
 										{ k }
 									</FlexItem>
 									<FlexItem
 										key={ `${ k }-value` }
-										className={ `vfs-token-details-row-value vfs-token-details-row-value-user-${ k.toLowerCase() }` }
+										className={ `customer-data-token-details-row-value customer-data-token-details-row-value-user-${ k.toLowerCase() }` }
 										title={ v.toString() }
 									>
 										{ v.toString() }
@@ -95,15 +95,15 @@ const TokenV1Details = ( {
 							</FlexItem>
 						) ) }
 					{ token?.data.swift.pageSpace && (
-						<FlexItem className="vfs-token-details-row">
+						<FlexItem className="customer-data-token-details-row">
 							<Flex direction="row">
 								<FlexItem
-									className={ `vfs-token-details-row-key vfs-token-details-row-key-page-space` }
+									className={ `customer-data-token-details-row-key customer-data-token-details-row-key-page-space` }
 								>
-									{ __( 'Page space', 'vfs' ) }
+									{ __( 'Page space', 'customer-data' ) }
 								</FlexItem>
 								<FlexItem
-									className={ `vfs-token-details-row-value vfs-token-details-row-value-page-space` }
+									className={ `customer-data-token-details-row-value customer-data-token-details-row-value-page-space` }
 								>
 									{ token?.data.swift.pageSpace }
 								</FlexItem>
@@ -111,15 +111,15 @@ const TokenV1Details = ( {
 						</FlexItem>
 					) }
 					{ token?.data.swift.expiresAt && (
-						<FlexItem className="vfs-token-details-row">
+						<FlexItem className="customer-data-token-details-row">
 							<Flex direction="row">
 								<FlexItem
-									className={ `vfs-token-details-row-key vfs-token-details-row-key-expires-at` }
+									className={ `customer-data-token-details-row-key customer-data-token-details-row-key-expires-at` }
 								>
-									{ __( 'Expires at', 'vfs' ) }
+									{ __( 'Expires at', 'customer-data' ) }
 								</FlexItem>
 								<FlexItem
-									className={ `vfs-token-details-row-value vfs-token-details-row-value-expires-at` }
+									className={ `customer-data-token-details-row-value customer-data-token-details-row-value-expires-at` }
 								>
 									{ new Date(
 										token?.data.swift.expiresAt * 1000
@@ -129,22 +129,22 @@ const TokenV1Details = ( {
 						</FlexItem>
 					) }
 					{ token?.data.swift.signatures && (
-						<FlexItem className="vfs-token-details-row">
+						<FlexItem className="customer-data-token-details-row">
 							<Flex direction="row">
 								<FlexItem
-									className={ `vfs-token-details-row-key vfs-token-details-row-key-signatures` }
+									className={ `customer-data-token-details-row-key customer-data-token-details-row-key-signatures` }
 								>
-									{ __( 'Signatures', 'vfs' ) }
+									{ __( 'Signatures', 'customer-data' ) }
 								</FlexItem>
 								{ allMethods.map( ( method ) => (
 									<FlexItem
 										key={ method }
-										className={ `vfs-token-details-row-value vfs-token-details-row-value-signatures ${
+										className={ `customer-data-token-details-row-value customer-data-token-details-row-value-signatures ${
 											method in
 											( token?.data.swift.signatures ??
 												{} )
-												? 'vfs-token-validation-granted-method'
-												: 'vfs-token-validation-denied-method'
+												? 'customer-data-token-validation-granted-method'
+												: 'customer-data-token-validation-denied-method'
 										}` }
 									>
 										{ method }
@@ -154,7 +154,7 @@ const TokenV1Details = ( {
 						</FlexItem>
 					) }
 				</>
-			) ) || <progress className="vfs-token-validation-progress" /> }
+			) ) || <progress className="customer-data-token-validation-progress" /> }
 		</Flex>
 	);
 };

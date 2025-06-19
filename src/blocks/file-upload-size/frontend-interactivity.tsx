@@ -1,5 +1,5 @@
 /**
- * VFS Upload Handler
+ * CustomerData Upload Handler
  *
  * @package
  * @version 1.0.0
@@ -13,7 +13,7 @@ import { store, getContext } from '@wordpress/interactivity';
 import type { FileContext } from '../type';
 import { formatFileSize } from '../../libs/js/format';
 
-store( 'vfs', {
+store( 'customer-data', {
 	state: {
 		humanReadableSize: (): string => {
 			const context = getContext< FileContext >();

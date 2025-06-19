@@ -1,6 +1,6 @@
 {
 	"apiVersion": 2,
-	"name": "vfs/file-upload",
+	"name": "customer-data/file-upload",
 	"title": "File Upload",
 	"description": "Upload a file or multiple files",
 	"category": "media",
@@ -69,7 +69,7 @@
 	"editorScript": "file:./admin.js",
 	"editorStyle": "file:./admin.css",
 	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
-	"viewScript": [ "vfs-blocks-lib", "file:./frontend.js", "wp-util", "wp-hooks" ],
+	"viewScript": [ "customer-data-blocks-lib", "file:./frontend.js", "wp-util", "wp-hooks" ],
 	"viewStyle": [ "file:./frontend.css" ],
-	"textdomain": "vfs"
+	"textdomain": "customer-data"
 }

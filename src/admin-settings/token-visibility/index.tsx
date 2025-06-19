@@ -29,7 +29,7 @@ export const addTokenVisibilityAttribute = (
 		...settings,
 		attributes: {
 			...settings.attributes,
-			vfsTokenShouldBe: {
+			customerDataTokenShouldBe: {
 				type: 'array',
 				default: [],
 			},
@@ -40,23 +40,23 @@ export const addTokenVisibilityAttribute = (
 export const enable = () => {
 	addFilter(
 		'blocks.registerBlockType',
-		'vfs/visibility-valid-token',
+		'customer-data/visibility-valid-token',
 		addTokenVisibilityAttribute
 	);
 
 	addFilter(
 		'blocks.getSaveContent.extraProps',
-		'vfs/visibility-valid-token',
+		'customer-data/visibility-valid-token',
 		addTokenVisibilityExtraProps
 	);
 
 	addFilter(
 		'editor.BlockEdit',
-		'vfs/visibility-valid-token',
+		'customer-data/visibility-valid-token',
 		withTokenShouldBeValidControls
 	);
 
-	registerPlugin( 'vfs-token-visibility', pluginConfig );
+	registerPlugin( 'customer-data-token-visibility', pluginConfig );
 };
 
 type PluginSettings = Omit< WPPlugin, 'name' >;

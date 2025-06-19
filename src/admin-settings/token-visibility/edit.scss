@@ -1,6 +1,6 @@
 @use "~@wordpress/base-styles/colors.native" as colors;
 
-.vfs-token-visibility-icon {
+.customer-data-token-visibility-icon {
 
 	&.is-valid {
 		color: colors.$alert-green;
@@ -19,11 +19,11 @@
 }
 
 
-.vfs-block-visibility-helper {
+.customer-data-block-visibility-helper {
 	$border-width: 2px;
 	$border-style: dotted;
 
-	.vfs-token-visibility-valid::before {
+	.customer-data-token-visibility-valid::before {
 		border: $border-width $border-style colors.$alert-green;
 
 		content: " ";
@@ -35,11 +35,11 @@
 		bottom: $border-width;
 	}
 
-	.vfs-token-visibility-invalid {
+	.customer-data-token-visibility-invalid {
 		border: $border-width $border-style colors.$alert-red;
 	}
 
-	.vfs-token-visibility-loading::after {
+	.customer-data-token-visibility-loading::after {
 		border: $border-width $border-style colors.$alert-yellow;
 
 		content: " ";
@@ -52,9 +52,9 @@
 	}
 
 	// ensure the children blocks are always visible
-	.vfs-token-visibility-valid > *,
-	.vfs-token-visibility-invalid > *,
-	.vfs-token-visibility-loading > * {
+	.customer-data-token-visibility-valid > *,
+	.customer-data-token-visibility-invalid > *,
+	.customer-data-token-visibility-loading > * {
 		z-index: 1;
 	}
 }

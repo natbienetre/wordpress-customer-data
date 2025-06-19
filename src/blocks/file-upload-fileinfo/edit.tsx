@@ -38,14 +38,14 @@ export const Edit: React.FC< {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'File upload settings', 'vfs' ) }
+					title={ __( 'File upload settings', 'customer-data' ) }
 					icon={ cloudUpload }
 				>
 					<PanelRow>
 						<TextControl
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
-							label={ __( 'Destination', 'vfs' ) }
+							label={ __( 'Destination', 'customer-data' ) }
 							value={ destination }
 							prefix={ pageSpace }
 							onChange={ ( value: string ) =>
@@ -53,7 +53,7 @@ export const Edit: React.FC< {
 							}
 							help={ __(
 								'Enter the name where the file(s) are saved.',
-								'vfs'
+								'customer-data'
 							) }
 						/>
 					</PanelRow>

@@ -1,5 +1,5 @@
 /**
- * VFS Upload Handler
+ * CustomerData Upload Handler
  *
  * @package
  * @version 1.0.0
@@ -15,11 +15,11 @@ import {
 	splitTask,
 	withScope,
 } from '@wordpress/interactivity';
-import type { FileContext, VfsActions, VfsState } from '../type';
+import type { FileContext, CustomerDataActions, CustomerDataState } from '../type';
 import { removeFile, updateFile } from '../lib';
 import { deleteConfirmation, deleteTitle } from './strings';
 
-const { actions, state } = store( 'vfs', {
+const { actions, state } = store( 'customer-data', {
 	state: {
 		deleteTitle: () => {
 			const context = getContext< FileContext >();
@@ -53,7 +53,7 @@ const { actions, state } = store( 'vfs', {
 
 			context.file.status.inProgress = true;
 
-			( state as VfsState ).swiftFile
+			( state as CustomerDataState ).swiftFile
 				?.delete( remotePath )
 				.then( () => {
 					removeFile( remotePath );
@@ -67,6 +67,6 @@ const { actions, state } = store( 'vfs', {
 		} ),
 	},
 } ) as unknown as {
-	state: VfsState;
-	actions: VfsActions;
+	state: CustomerDataState;
+	actions: CustomerDataActions;
 };

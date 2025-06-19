@@ -29,26 +29,26 @@ export const Save: React.FC< {
 			{ ( previewImages && (
 				<img
 					className="preview success-preview"
-					data-wp-bind--src="vfs::state.previewURL"
-					data-wp-bind--alt="vfs::state.dashicon"
-					data-wp-bind--title="vfs::context.file.type"
-					alt={ __( 'Preview', 'vfs' ) }
+					data-wp-bind--src="customer-data::state.previewURL"
+					data-wp-bind--alt="customer-data::state.dashicon"
+					data-wp-bind--title="customer-data::context.file.type"
+					alt={ __( 'Preview', 'customer-data' ) }
 				/>
 			) ) || (
 				<span
 					className="preview success-preview"
-					data-wp-text="vfs::state.dashicon"
-					data-wp-bind--title="vfs::context.file.type"
+					data-wp-text="customer-data::state.dashicon"
+					data-wp-bind--title="customer-data::context.file.type"
 					data-toggle="tooltip"
 				/>
 			) }
 			<span
 				className="dashicons dashicons-warning preview error-preview"
-				title={ __( 'Error', 'vfs' ) }
+				title={ __( 'Error', 'customer-data' ) }
 			/>
 			<span
 				className="dashicons dashicons-update preview in-progress-preview"
-				title={ __( 'In progress', 'vfs' ) }
+				title={ __( 'In progress', 'customer-data' ) }
 			/>
 		</div>
 	);

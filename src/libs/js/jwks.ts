@@ -26,7 +26,7 @@ type State = {
 	};
 };
 
-export const store = createReduxStore( 'vfs/jwks', {
+export const store = createReduxStore( 'customer-data/jwks', {
 	initialState: { keys: [] } as JSONWebKeySet,
 	reducer: ( state: JSONWebKeySet, action: Action ): JSONWebKeySet => {
 		switch ( action.type ) {
@@ -47,7 +47,7 @@ export const store = createReduxStore( 'vfs/jwks', {
 	resolvers: {
 		all:
 			( apiFetch: ApiFetch< JSONWebKeySet > ) => async ( state: State ) =>
-				await apiFetch( { path: '/vfs/v1/jwks' } ).then( ( keys ) =>
+				await apiFetch( { path: '/customer-data/v1/jwks' } ).then( ( keys ) =>
 					state.dispatch( { type: 'JWKS_REFRESH', keys } )
 				),
 	},
@@ -59,19 +59,19 @@ export const store = createReduxStore( 'vfs/jwks', {
 			( apiFetch: ApiFetch< JSONWebKeySet >, key: string ) =>
 			async ( state: State ) =>
 				apiFetch( {
-					path: '/vfs/v1/jwks/' + encodeURIComponent( key ),
+					path: '/customer-data/v1/jwks/' + encodeURIComponent( key ),
 					method: 'DELETE',
 				} ).then( () =>
 					state.dispatch( { type: 'JWKS_DELETE', key } )
 				),
 		generate: ( apiFetch: ApiFetch< JWK > ) => async ( state: State ) =>
 			apiFetch( {
-				path: '/vfs/v1/jwks',
+				path: '/customer-data/v1/jwks',
 				method: 'POST',
 			} ).then( ( key ) => state.dispatch( { type: 'JWKS_ADD', key } ) ),
 		refresh:
 			( apiFetch: ApiFetch< JSONWebKeySet > ) => async ( state: State ) =>
-				apiFetch( { path: '/vfs/v1/jwks' } ).then( ( keys ) =>
+				apiFetch( { path: '/customer-data/v1/jwks' } ).then( ( keys ) =>
 					state.dispatch( { type: 'JWKS_REFRESH', keys } )
 				),
 	},

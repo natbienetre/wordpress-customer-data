@@ -21,8 +21,8 @@ export const Save: React.FC< {
 	return (
 		<>
 			<div
-				className="wp-block-vfs-upload-fileinfo-container"
-				data-wp-interactive="vfs"
+				className="wp-block-customer-data-upload-fileinfo-container"
+				data-wp-interactive="customer-data"
 				data-wp-context={ JSON.stringify( {
 					destination,
 					pageSpace,
@@ -34,16 +34,16 @@ export const Save: React.FC< {
 				>
 					<div
 						{ ...blockProps }
-						data-wp-class--vfs-upload-in-progress="context.file.status.inProgress"
-						data-wp-class--vfs-upload-error="context.file.status.error"
-						data-wp-class--vfs-upload-success="context.file.status.success"
+						data-wp-class--customer-data-upload-in-progress="context.file.status.inProgress"
+						data-wp-class--customer-data-upload-error="context.file.status.error"
+						data-wp-class--customer-data-upload-success="context.file.status.success"
 					>
 						<InnerBlocks.Content />
 					</div>
 				</template>
 				<progress
-					className="vfs-upload-progress"
-					data-wp-class--vfs-upload-loaded="state.loaded"
+					className="customer-data-upload-progress"
+					data-wp-class--customer-data-upload-loaded="state.loaded"
 					{ ...blockProps }
 				/>
 			</div>

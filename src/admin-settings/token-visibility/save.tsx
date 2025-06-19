@@ -20,14 +20,14 @@ export const addTokenVisibilityExtraProps = (
 		return props;
 	}
 
-	const { vfsTokenShouldBe } = attributes;
+	const { customerDataTokenShouldBe } = attributes;
 
-	if ( vfsTokenShouldBe.length === 0 ) {
+	if ( customerDataTokenShouldBe.length === 0 ) {
 		return props;
 	}
 
 	if ( attributes.style?.display && 'none' !== attributes.style.display ) {
-		props[ 'data-vfs-original-display' ] = attributes.style.display;
+		props[ 'data-customer-data-original-display' ] = attributes.style.display;
 	}
 
 	attributes.style = {
@@ -35,10 +35,10 @@ export const addTokenVisibilityExtraProps = (
 		display: 'none',
 	};
 
-	props[ 'data-vfs-token-should-be' ] = JSON.stringify( vfsTokenShouldBe );
+	props[ 'data-customer-data-token-should-be' ] = JSON.stringify( customerDataTokenShouldBe );
 
-	props[ `data-wp-watch--vfs-token-visibility` ] =
-		'vfs::callbacks.setVisilibity';
+	props[ `data-wp-watch--customer-data-token-visibility` ] =
+		'customer-data::callbacks.setVisilibity';
 
 	return props;
 };

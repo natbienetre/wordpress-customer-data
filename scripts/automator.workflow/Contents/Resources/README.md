@@ -1,6 +1,6 @@
-# VFS Token Creation Workflow - Localization
+# CustomerData Token Creation Workflow - Localization
 
-This directory contains localization files for the VFS Token Creation Automator workflow.
+This directory contains localization files for the CustomerData Token Creation Automator workflow.
 
 ## Structure
 

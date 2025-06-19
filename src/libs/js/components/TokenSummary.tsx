@@ -16,17 +16,17 @@ export const TokenSummary = ( {
 			{ undefined === errors
 				? ( token && (
 						<Notice isDismissible={ false }>
-							{ __( 'Validating token…', 'vfs' ) }
+							{ __( 'Validating token…', 'customer-data' ) }
 							<progress />
 						</Notice>
 				  ) ) ||
 				  null
 				: errors?.length > 0 && (
 						<NoticeList
-							className={ `vfs-token-validation-result ${
+							className={ `customer-data-token-validation-result ${
 								errors!.length > 0
-									? 'vfs-token-validation-result-error'
-									: 'vfs-token-validation-result-success'
+									? 'customer-data-token-validation-result-error'
+									: 'customer-data-token-validation-result-success'
 							}` }
 							notices={ errors!.map( ( error, index ) => ( {
 								id: index.toString(),
