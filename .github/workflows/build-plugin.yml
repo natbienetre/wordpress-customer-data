@@ -1,0 +1,119 @@
+name: Build WordPress Plugin
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'scripts/automator.workflow/**'
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - 'scripts/automator.workflow/**'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag for the plugin'
+        required: false
+        default: 'latest'
+
+jobs:
+  build-plugin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --prefer-dist --optimize-autoloader
+
+      - name: Enabled Corepack
+        run: corepack enable
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'yarn'
+
+      - name: Install node dependencies
+        run: yarn install --immutable
+
+      - name: Generate version info
+        id: version
+        run: |
+          if [ "${{ github.event.inputs.version }}" != "" ]; then
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            # Extract version from package.json
+            VERSION=$(node -p "require('./package.json').version")
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Compile
+        run: composer run-script build
+
+      - name: Create plugin directory structure
+        run: |
+          # Create build directory
+          mkdir -p build/visitor-filesystem
+
+          # Copy PHP files and directories
+          cp -r classes build/visitor-filesystem/
+          cp -r languages build/visitor-filesystem/
+          cp -r vendor build/visitor-filesystem/
+          cp *.php build/visitor-filesystem/
+          cp autoload.php build/visitor-filesystem/
+          cp utils.php build/visitor-filesystem/
+          cp readme.txt build/visitor-filesystem/
+          cp LICENSE build/visitor-filesystem/
+
+          # Copy built assets
+          cp -r build/admin-settings build/visitor-filesystem/
+          cp -r build/shortcodes build/visitor-filesystem/
+          cp -r build/blocks build/visitor-filesystem/
+          cp -r build/frontend.* build/visitor-filesystem/
+
+      - name: Create plugin archive
+        run: |
+          cd build
+          tar -czvf "visitor-filesystem-${{ steps.version.outputs.version }}.tar.gz" visitor-filesystem/
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: visitor-filesystem-${{ steps.version.outputs.version }}
+          path: 'build/visitor-filesystem-${{ steps.version.outputs.version }}.tar.gz'
+
+      - name: Create release (on push to main/master)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/visitor-filesystem-${{ steps.version.outputs.version }}.tar.gz
+          tag_name: v${{ steps.version.outputs.version }}
+          name: Visitor FileSystem v${{ steps.version.outputs.version }}
+          body: |
+            WordPress plugin built from commit ${{ github.sha }}
+
+            ## Installation
+            1. Download the `.tar.gz` file and extract it
+            2. Upload the `visitor-filesystem` folder to your WordPress `/wp-content/plugins/` directory
+            3. Activate the plugin from the WordPress admin panel
+
+            ## Features
+            - File upload management for visitors
+            - JWT token-based authentication
+            - OpenStack Swift integration
+            - Custom Gutenberg blocks
+            - Admin settings and tools
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
