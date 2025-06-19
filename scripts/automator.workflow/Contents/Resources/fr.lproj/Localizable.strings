@@ -1,0 +1,16 @@
+/*
+ * French translations for VFS Token Creation Workflow
+ * Traductions françaises pour le workflow de création de token VFS
+ */
+
+/* Button text */
+"OK" = "OK";
+
+/* Error messages */
+"No email address provided" = "Aucune adresse e-mail fournie";
+"Error retrieving contact: %s" = "Erreur lors de la récupération du contact : %s";
+"Error retrieving credentials: %s" = "Erreur lors de la récupération des identifiants : %s";
+"Error creating token: %s" = "Erreur lors de la création du token : %s";
+
+/* Success message */
+"The URL for %s has been copied to clipboard." = "L'URL pour %s a été copiée dans le presse-papiers.";
