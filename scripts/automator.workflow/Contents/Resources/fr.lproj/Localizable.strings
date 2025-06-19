@@ -15,3 +15,4 @@
 
 /* Success message */
 "The URL for %s has been copied to clipboard." = "L'URL pour %s a été copiée dans le presse-papiers.";
+"What's the display name for %s?" = "Quel est le nom affiché pour %s ?";
