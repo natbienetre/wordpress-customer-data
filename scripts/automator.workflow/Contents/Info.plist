@@ -14,7 +14,9 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>automator</string>
+				<string>Generate a VFS token</string>
+				<key>fr</key>
+				<string>Générer un token VFS</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runWorkflowAsService</string>
@@ -26,6 +28,11 @@
 			<key>NSSendTypes</key>
 			<array>
 				<string>public.utf8-plain-text</string>
+			</array>
+			<key>CFBundleLocalizations</key>
+			<array>
+				<string>fr</string>
+				<string>en</string>
 			</array>
 		</dict>
 	</array>
