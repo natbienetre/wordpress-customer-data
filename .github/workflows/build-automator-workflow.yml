@@ -2,11 +2,11 @@ name: Build Automator Workflow Archive
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
     paths:
       - 'scripts/automator.workflow/**'
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
     paths:
       - 'scripts/automator.workflow/**'
   workflow_dispatch:
