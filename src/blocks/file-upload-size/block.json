@@ -1,11 +1,11 @@
 {
 	"apiVersion": 2,
-	"name": "vfs/file-upload-size",
+	"name": "customer-data/file-upload-size",
 	"title": "File Upload Size",
 	"description": "Size of the uploaded file",
 	"category": "media",
 	"icon": "media-text",
-	"ancestor": [ "vfs/file-upload-fileinfo" ],
+	"ancestor": [ "customer-data/file-upload-fileinfo" ],
 	"supports": {
 		"color": {
 			"text": true,
@@ -25,5 +25,5 @@
 	},
 	"editorScript": "file:./admin.js",
 	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
-	"textdomain": "vfs"
+	"textdomain": "customer-data"
 }

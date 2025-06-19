@@ -68,7 +68,7 @@ export const ZipDownloadButton: React.FC< {
 								warning(
 									sprintf(
 										// translators: %s is the error message
-										__( 'Failed to zip files: %s', 'vfs' ),
+										__( 'Failed to zip files: %s', 'customer-data' ),
 										getErrorMessage( i18n, err )
 									)
 								);
@@ -102,11 +102,11 @@ export const ZipDownloadButton: React.FC< {
 						'Download %d file',
 						'Download %d files',
 						fileCount,
-						'vfs'
+						'customer-data'
 					),
 					fileCount
 				) }
-				label={ __( 'Download', 'vfs' ) }
+				label={ __( 'Download', 'customer-data' ) }
 			/>
 		) ) || <ProgressBar value={ zippedFilesCount || 0 } max={ fileCount } />
 	);

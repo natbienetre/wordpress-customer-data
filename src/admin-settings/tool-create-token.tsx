@@ -17,17 +17,17 @@ domReady( () => {
 				event.stopPropagation();
 
 				button.disabled = true;
-				button.textContent = __( 'Copying…', 'vfs' );
+				button.textContent = __( 'Copying…', 'customer-data' );
 
 				const token =
 					element.querySelector( '.generated-token' )?.textContent;
 				if ( token ) {
 					navigator.clipboard.writeText( token ).then( () => {
-						button.textContent = __( 'Copied!', 'vfs' );
+						button.textContent = __( 'Copied!', 'customer-data' );
 						button.disabled = false;
 						clearTimeout( timeout );
 						timeout = setTimeout( () => {
-							button.textContent = __( 'Copy', 'vfs' );
+							button.textContent = __( 'Copy', 'customer-data' );
 						}, 2000 );
 					} );
 				}

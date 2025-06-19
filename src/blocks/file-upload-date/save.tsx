@@ -18,11 +18,11 @@ export const Save: React.FC< {
 	const { relative } = attributes;
 
 	if ( relative ) {
-		blockProps[ 'data-wp-text' ] = 'vfs::state.relativeTime';
-		blockProps[ 'data-wp-bind--title' ] = 'vfs::state.absoluteTime';
+		blockProps[ 'data-wp-text' ] = 'customer-data::state.relativeTime';
+		blockProps[ 'data-wp-bind--title' ] = 'customer-data::state.absoluteTime';
 		blockProps[ 'data-toggle' ] = 'tooltip';
 	} else {
-		blockProps[ 'data-wp-text' ] = 'vfs::state.absoluteTime';
+		blockProps[ 'data-wp-text' ] = 'customer-data::state.absoluteTime';
 	}
 
 	return <span { ...blockProps } />;

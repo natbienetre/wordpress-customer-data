@@ -1,7 +1,7 @@
 @import "~@wordpress/dataviews/build-style/style.css";
 @import "~@wordpress/base-styles/build-style/admin-schemes.css";
 
-.vfs-editor-sidebar-files {
+.customer-data-editor-sidebar-files {
 
 	.dataviews-view-list__item {
 		display: none;
@@ -22,7 +22,7 @@
 	}
 }
 
-.dataviews-action-modal .vfs-user-files {
+.dataviews-action-modal .customer-data-user-files {
 
 	table {
 		width: 100%;
@@ -44,7 +44,7 @@
 	}
 }
 
-.vfs-popover .components-popover__content {
+.customer-data-popover .components-popover__content {
 	white-space: nowrap;
 	word-break: keep-all;
 	padding: 2px 4px;

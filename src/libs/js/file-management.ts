@@ -1,6 +1,6 @@
 import { SwiftAPI } from './file-upload';
 import {
-	VfsOptions,
+	CustomerDataOptions,
 	OpenStackOptions,
 	TemporaryPrefixedUrlQueryParams,
 	TemporaryUrlQueryParams,
@@ -22,8 +22,8 @@ import type WordPressUrl from 'wordpress/url';
 
 export type OpenStackToken = string;
 
-export interface VfsAdminConfig {
-	options: VfsAdminOptions;
+export interface CustomerDataAdminConfig {
+	options: CustomerDataAdminOptions;
 	keyManagement: KeyManagement;
 	allowScopedTokens: boolean;
 	keys: JWK[];
@@ -31,7 +31,7 @@ export interface VfsAdminConfig {
 
 declare global {
 	interface Window {
-		vfsAdminConfig?: VfsAdminConfig;
+		customerDataAdminConfig?: CustomerDataAdminConfig;
 	}
 }
 
@@ -45,7 +45,7 @@ export interface OpenStackAdminOptions extends OpenStackOptions {
 	password: string;
 }
 
-export interface VfsAdminOptions extends VfsOptions, OpenStackAdminOptions {
+export interface CustomerDataAdminOptions extends CustomerDataOptions, OpenStackAdminOptions {
 	/**
 	 * The signature key.
 	 * Example: my-key
@@ -59,15 +59,15 @@ export interface KeyManagement {
 	mainKey: string;
 }
 
-export class VfsAdminConfiguration extends SwiftConfiguration {
+export class CustomerDataAdminConfiguration extends SwiftConfiguration {
 	public readonly keyManagement: KeyManagement;
 
 	constructor(
-		public readonly vfsAdminConfig: VfsAdminConfig,
+		public readonly customerDataAdminConfig: CustomerDataAdminConfig,
 		public readonly wordpressUrl: WordPressUrl
 	) {
-		super( vfsAdminConfig.options, wordpressUrl );
-		this.keyManagement = vfsAdminConfig.keyManagement;
+		super( customerDataAdminConfig.options, wordpressUrl );
+		this.keyManagement = customerDataAdminConfig.keyManagement;
 	}
 }
 
@@ -168,7 +168,7 @@ export class OpenStackConfigurationV3 {
 
 export class SwiftAdmin extends SwiftAPI {
 	constructor(
-		public readonly adminConfiguration: VfsAdminConfiguration,
+		public readonly adminConfiguration: CustomerDataAdminConfiguration,
 		public readonly wordpressUrl: WordPressUrl,
 		public readonly apiFetch: ApiFetch< any >
 	) {
@@ -182,7 +182,7 @@ export class SwiftAdmin extends SwiftAPI {
 		return super.newXhr( method, url ).then( ( xhr ) => {
 			xhr.setRequestHeader(
 				'X-Auth-Token',
-				this.adminConfiguration.vfsAdminConfig.options.token
+				this.adminConfiguration.customerDataAdminConfig.options.token
 			);
 			return xhr;
 		} );
@@ -300,7 +300,7 @@ export class SwiftAdmin extends SwiftAPI {
 					user,
 					swift: {
 						pageSpace:
-							this.adminConfiguration.vfsAdminConfig.options
+							this.adminConfiguration.customerDataAdminConfig.options
 								.pageSpace,
 						signatures: methods.reduce(
 							( acc, method, index ) => {
@@ -321,7 +321,7 @@ export class SwiftAdmin extends SwiftAPI {
 		swiftSuffix: string
 	): Promise< TemporaryPrefixedUrlQueryParams | TemporaryUrlQueryParams > {
 		return this.apiFetch( {
-			path: '/vfs/v1/swift/signature',
+			path: '/customer-data/v1/swift/signature',
 			method: 'POST',
 			body: JSON.stringify( {
 				method,
@@ -347,7 +347,7 @@ export class SwiftAdmin extends SwiftAPI {
 		expiresAt: Date
 	): Promise< TemporaryPrefixedUrlSignature > {
 		return this.apiFetch( {
-			path: '/vfs/v1/swift/signature',
+			path: '/customer-data/v1/swift/signature',
 			method: 'POST',
 			body: JSON.stringify( {
 				method,

@@ -1,28 +1,28 @@
 @use "~@wordpress/base-styles/colors.native" as colors;
 
-.vfs-admin-settings-check-options {
+.customer-data-admin-settings-check-options {
 	display: inline-flex;
 	margin-left: 10px;
 	flex-direction: row;
 	gap: 10px;
 }
 
-.vfs-token-inspection-result {
+.customer-data-token-inspection-result {
 
-	&.vfs-token-inspection-result-success {
+	&.customer-data-token-inspection-result-success {
 		color: colors.$alert-green;
 	}
 
-	&.vfs-token-inspection-result-error {
+	&.customer-data-token-inspection-result-error {
 		color: colors.$alert-red;
 	}
 
-	&.vfs-token-inspection-result-empty {
+	&.customer-data-token-inspection-result-empty {
 		display: none;
 	}
 }
 
-.vfs-token-inspection-result-method-item {
+.customer-data-token-inspection-result-method-item {
 	display: inline-block;
 	padding: 2px 4px;
 	border-radius: 4px;
@@ -30,23 +30,23 @@
 	font-weight: 600;
 	text-transform: uppercase;
 
-	&.vfs-allowed-method {
+	&.customer-data-allowed-method {
 		color: colors.$alert-green;
 	}
 
-	&.vfs-denied-method {
+	&.customer-data-denied-method {
 		color: colors.$alert-red;
 		text-decoration: line-through;
 	}
 }
 
-.vfs-token-inspection-result-user {
+.customer-data-token-inspection-result-user {
 	display: flex;
 	flex-direction: row;
 	gap: 10px;
 }
 
-.vfs-token-inspection-result-expiry-date {
+.customer-data-token-inspection-result-expiry-date {
 
 	&.expired {
 		color: colors.$alert-red;
@@ -57,7 +57,7 @@
 	}
 }
 
-.vfs-token-inspection-result-user-email {
+.customer-data-token-inspection-result-user-email {
 	font-style: italic;
 }
 

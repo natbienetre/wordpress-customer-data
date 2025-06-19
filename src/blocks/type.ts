@@ -1,5 +1,5 @@
 import type { TokenV1 } from 'token';
-import { VfsConfiguration } from '../libs/js/configuration';
+import { CustomerDataConfiguration } from '../libs/js/configuration';
 import type { SwiftFile } from '../libs/js/file-upload';
 import type { JSONWebKeySet } from 'jose';
 
@@ -83,19 +83,19 @@ export type FileContext = {
 
 export type TokenState = 'valid' | 'invalid' | 'loading';
 
-export type VfsState = {
+export type CustomerDataState = {
 	tokenIs: ( visibility: TokenState ) => boolean;
 	files: FileWithStatus[] | undefined;
 	token: TokenV1 | false | null;
-	configuration: VfsConfiguration | null;
+	configuration: CustomerDataConfiguration | null;
 	swiftFile: SwiftFile | null;
 };
 
-export type VfsActions = {
+export type CustomerDataActions = {
 	updateFileInventory: () => Promise< void >;
 };
 
-export type VfsConfig = {
+export type CustomerDataConfig = {
 	prefix: string;
 	container: string;
 	swiftBaseUrl: string;

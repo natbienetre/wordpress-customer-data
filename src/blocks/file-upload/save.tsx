@@ -50,7 +50,7 @@ export const Save: React.FC< {
 						${ 1 === nbFiles ? '' : 'multiple' }
 					/>`
 				}
-				data-wp-interactive="vfs"
+				data-wp-interactive="customer-data"
 				data-wp-context={ JSON.stringify( {
 					files: [],
 					accept,

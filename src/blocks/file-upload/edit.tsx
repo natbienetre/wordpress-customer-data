@@ -80,13 +80,13 @@ export const Edit: React.FC< {
 		if ( '' === destination ) {
 			switch ( nbFiles ) {
 				case 0:
-					return __( 'Unlimited uploads', 'vfs' );
+					return __( 'Unlimited uploads', 'customer-data' );
 				case 1:
-					return __( 'Single upload', 'vfs' );
+					return __( 'Single upload', 'customer-data' );
 				default:
 					return sprintf(
 						// translators: %s is the number of files
-						__( '%s uploads', 'vfs' ),
+						__( '%s uploads', 'customer-data' ),
 						nbFiles
 					);
 			}
@@ -96,19 +96,19 @@ export const Edit: React.FC< {
 			case 0:
 				return sprintf(
 					// translators: %s is the destination
-					__( 'Unlimited uploads to %s', 'vfs' ),
+					__( 'Unlimited uploads to %s', 'customer-data' ),
 					destination
 				);
 			case 1:
 				return sprintf(
 					// translators: %s is the destination
-					__( 'Single upload to %s', 'vfs' ),
+					__( 'Single upload to %s', 'customer-data' ),
 					destination
 				);
 			default:
 				return sprintf(
 					// translators: %1$s is the number of files, %2$s is the destination
-					__( '%1$s uploads to %2$s', 'vfs' ),
+					__( '%1$s uploads to %2$s', 'customer-data' ),
 					nbFiles,
 					destination
 				);
@@ -161,25 +161,25 @@ export const Edit: React.FC< {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'File upload settings', 'vfs' ) }
+					title={ __( 'File upload settings', 'customer-data' ) }
 					icon={ cloudUpload }
 				>
 					<PanelRow>
 						<RangeControl
 							__nextHasNoMarginBottom
 							__next40pxDefaultSize
-							label={ __( 'Number of files to upload', 'vfs' ) }
+							label={ __( 'Number of files to upload', 'customer-data' ) }
 							value={ nbFiles }
 							help={
 								<>
 									{ ' ' }
 									{ __(
 										'The number of files that can be uploaded.',
-										'vfs'
+										'customer-data'
 									) }
 									<br />
 									<small>
-										{ __( '0 means unlimited.', 'vfs' ) }
+										{ __( '0 means unlimited.', 'customer-data' ) }
 									</small>{ ' ' }
 								</>
 							}
@@ -200,7 +200,7 @@ export const Edit: React.FC< {
 					<PanelRow>
 						<ToggleControl
 							__nextHasNoMarginBottom
-							label={ __( 'Link style', 'vfs' ) }
+							label={ __( 'Link style', 'customer-data' ) }
 							checked={ linkStyle }
 							onChange={ ( value: boolean ) =>
 								setAttributes( { linkStyle: value } )
@@ -213,12 +213,12 @@ export const Edit: React.FC< {
 							__nextHasNoMarginBottom
 							label={
 								nbFiles === 0
-									? __( 'Destination directory', 'vfs' )
+									? __( 'Destination directory', 'customer-data' )
 									: _n(
 											'Destination File Name',
 											'Destination directory',
 											nbFiles,
-											'vfs'
+											'customer-data'
 									  )
 							}
 							value={ destination }
@@ -248,7 +248,7 @@ export const Edit: React.FC< {
 								'Enter the name of the file where the uploaded file will be saved.',
 								'Enter the name of the directory where the uploaded files will be saved.',
 								nbFiles,
-								'vfs'
+								'customer-data'
 							) }
 						/>
 					</PanelRow>
@@ -263,7 +263,7 @@ export const Edit: React.FC< {
 											title: type,
 									  }
 							) }
-							label={ __( 'Allowed file types', 'vfs' ) }
+							label={ __( 'Allowed file types', 'customer-data' ) }
 							placeholder="*"
 							suggestions={ fileTypesSuggestions }
 							onChange={ ( value: ( string | TokenItem )[] ) =>
@@ -302,7 +302,7 @@ export const Edit: React.FC< {
 							__nextHasNoMarginBottom
 							label={ __(
 								'Automatically extract archive',
-								'vfs'
+								'customer-data'
 							) }
 							checked={ extractArchive }
 							onChange={ ( value: boolean ) =>
@@ -331,6 +331,6 @@ export const Edit: React.FC< {
 
 export const defaultLabel = ( nbFiles: number ) => {
 	return 0 === nbFiles
-		? __( 'Add files', 'vfs' )
-		: _n( 'Select file', 'Select files', nbFiles, 'vfs' );
+		? __( 'Add files', 'customer-data' )
+		: _n( 'Select file', 'Select files', nbFiles, 'customer-data' );
 };

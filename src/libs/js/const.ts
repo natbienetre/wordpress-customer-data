@@ -1,1 +1,1 @@
-export const TokenQueryParams = 'vfs_token';
+export const TokenQueryParams = 'customer_data_token';

@@ -4,7 +4,7 @@ composer.lock
 
 build/
 
-/languages/vfs-*.json
-/languages/vfs-*.php
+/languages/customer-data-*.json
+/languages/customer-data-*.php
 
 /scripts/automator.workflow/Contents/QuickLook/Preview.png

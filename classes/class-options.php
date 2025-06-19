@@ -1,14 +1,14 @@
 <?php
 /**
- * VFS options class
+ * CustomerData options class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author  Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 use OpenStack\Common\Error\BadResponseError;
 use WP_Error;
@@ -16,7 +16,7 @@ use WP_Error;
 /**
  * Options class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author  Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
@@ -28,7 +28,7 @@ class Options {
 	 *
 	 * @var string
 	 */
-	const OPTION_NAME = 'vfs_options';
+	const OPTION_NAME = 'customer_data_options';
 
 	/**
 	 * Swift auth URL
@@ -166,7 +166,7 @@ class Options {
 	protected const CATALOG_CACHE_KEY = 'openstack_catalog';
 	protected const TOKEN_CACHE_KEY   = 'openstack_token';
 
-	public const SWIFT_URL_NOT_FOUND_IN_CATALOG_ERROR_CODE = 'vfs_swift_url_not_found_in_catalog';
+	public const SWIFT_URL_NOT_FOUND_IN_CATALOG_ERROR_CODE = 'customer_data_swift_url_not_found_in_catalog';
 
 	/**
 	 * Constructor
@@ -203,13 +203,13 @@ class Options {
 	 * @return void
 	 */
 	public static function register_hooks() {
-		register_activation_hook( VFS_PLUGIN_FILE, array( __CLASS__, 'add_options' ) );
+		register_activation_hook( CUSTOMER_DATA_PLUGIN_FILE, array( __CLASS__, 'add_options' ) );
 
 		$instance = new self();
 
 		add_action( 'plugins_loaded', array( $instance, 'init' ) );
 		add_action( 'admin_init', array( $instance, 'register_settings' ) );
-		add_filter( 'vfs_valids_hmac_algos', array( $instance, 'filter_out_deprecated_algorithms' ) );
+		add_filter( 'customer_data_valids_hmac_algos', array( $instance, 'filter_out_deprecated_algorithms' ) );
 	}
 
 	/**
@@ -242,7 +242,7 @@ class Options {
 			'swift_signature_location'   => null,
 			'swift_signature_value'      => '',
 			'swift_signature_static'     => false,
-			'swift_additional_prefix'    => 'vfs/',
+			'swift_additional_prefix'    => 'customer-data/',
 			'swift_signature_hmac_algo'  => 'SHA-512',
 			'inject_keyset'              => false,
 			'key_management'             => new Key_Management( true, '', '' ),
@@ -256,13 +256,13 @@ class Options {
 	 * @return Options
 	 */
 	public static function load(): Options {
-		global $vfs_opts;
+		global $customer_data_opts;
 
-		if ( empty( $vfs_opts ) ) {
-			$vfs_opts = new self( (array) get_option( self::OPTION_NAME, self::defaults() ) );
+		if ( empty( $customer_data_opts ) ) {
+			$customer_data_opts = new self( (array) get_option( self::OPTION_NAME, self::defaults() ) );
 		}
 
-		return $vfs_opts;
+		return $customer_data_opts;
 	}
 
 	/**
@@ -408,8 +408,8 @@ class Options {
 			$response = $e->getResponse();
 			if ( 401 === $response->getStatusCode() ) {
 				return new WP_Error(
-					'vfs_openstack_token_generation_failed',
-					__( 'Invalid OpenStack credentials', 'vfs' ),
+					'customer_data_openstack_token_generation_failed',
+					__( 'Invalid OpenStack credentials', 'customer-data' ),
 					array(
 						'response' => $response,
 					)
@@ -417,14 +417,14 @@ class Options {
 			}
 
 			return new WP_Error(
-				'vfs_openstack_token_generation_failed',
+				'customer_data_openstack_token_generation_failed',
 				$e->getMessage(),
 				array(
 					'response' => $response,
 				)
 			);
 		} catch ( \Exception $e ) {
-			return new WP_Error( 'vfs_openstack_token_generation_failed', $e->getMessage() );
+			return new WP_Error( 'customer_data_openstack_token_generation_failed', $e->getMessage() );
 		}
 
 		return $openstack_token;
@@ -442,8 +442,8 @@ class Options {
 			self::OPTION_NAME,
 			array(
 				'type'              => 'array',
-				'description'       => __( 'All VFS options registered in this site.', 'vfs' ),
-				'label_for'         => __( 'VFS options', 'vfs' ),
+				'description'       => __( 'All CustomerData options registered in this site.', 'customer-data' ),
+				'label_for'         => __( 'CustomerData options', 'customer-data' ),
 				'default'           => self::defaults(),
 				'sanitize_callback' => array( __CLASS__, 'sanitize_setting' ),
 			)
@@ -503,7 +503,7 @@ class Options {
 		} catch ( \Exception $e ) {
 			return new WP_Error(
 				self::SWIFT_URL_NOT_FOUND_IN_CATALOG_ERROR_CODE,
-				__( 'Failed to get object-store URL from the OpenStack catalog', 'vfs' ),
+				__( 'Failed to get object-store URL from the OpenStack catalog', 'customer-data' ),
 				array(
 					'cause'   => $e,
 					'catalog' => $catalog,
@@ -512,7 +512,7 @@ class Options {
 		}
 
 		if ( false === $url ) {
-			return new WP_Error( self::SWIFT_URL_NOT_FOUND_IN_CATALOG_ERROR_CODE, __( 'Swift account URL not found in the catalog.', 'vfs' ) );
+			return new WP_Error( self::SWIFT_URL_NOT_FOUND_IN_CATALOG_ERROR_CODE, __( 'Swift account URL not found in the catalog.', 'customer-data' ) );
 		}
 
 		return trailingslashit( $url );
@@ -548,7 +548,7 @@ class Options {
 	 * @return \stdClass|WP_Error Swift info.
 	 */
 	public function get_swift_info() {
-		$info = Cache::get( 'vfs_swift_info' );
+		$info = Cache::get( 'customer_data_swift_info' );
 		if ( false !== $info ) {
 			return $info;
 		}
@@ -569,7 +569,7 @@ class Options {
 		} catch ( \Exception $e ) {
 			return new WP_Error(
 				self::SWIFT_URL_NOT_FOUND_IN_CATALOG_ERROR_CODE,
-				__( 'Failed to get container metadata.', 'vfs' ),
+				__( 'Failed to get container metadata.', 'customer-data' ),
 				array(
 					'cause' => $e,
 				)
@@ -579,7 +579,7 @@ class Options {
 		if ( 200 !== $response->getStatusCode() ) {
 			return new WP_Error(
 				self::SWIFT_URL_NOT_FOUND_IN_CATALOG_ERROR_CODE,
-				__( 'Failed to get Swift info.', 'vfs' ),
+				__( 'Failed to get Swift info.', 'customer-data' ),
 				array(
 					'cause' => $response,
 				)
@@ -588,7 +588,7 @@ class Options {
 
 		$info = json_decode( $response->getBody()->getContents() );
 
-		Cache::set( 'vfs_swift_info', $info );
+		Cache::set( 'customer_data_swift_info', $info );
 
 		return $info;
 	}
@@ -632,7 +632,7 @@ class Options {
 		 *
 		 * @param array $algos List of supported signature algorithms.
 		 */
-		return apply_filters( 'vfs_valids_hmac_algos', $allowed_digests );
+		return apply_filters( 'customer_data_valids_hmac_algos', $allowed_digests );
 	}
 
 	/**
@@ -651,7 +651,7 @@ class Options {
 		} catch ( \Exception $e ) {
 			return new WP_Error(
 				self::SWIFT_URL_NOT_FOUND_IN_CATALOG_ERROR_CODE,
-				__( 'Failed to get signature keys from Swift.', 'vfs' ),
+				__( 'Failed to get signature keys from Swift.', 'customer-data' ),
 				array(
 					'cause' => $e,
 				)
@@ -728,7 +728,7 @@ class Options {
 						'key_management_main_key_error',
 						sprintf(
 							/* translators: %s: Key ID */
-							__( 'Main key %s not found', 'vfs' ),
+							__( 'Main key %s not found', 'customer-data' ),
 							$sanitized->key_management->main_key
 						)
 					);
@@ -741,7 +741,7 @@ class Options {
 					add_settings_error(
 						self::OPTION_NAME,
 						'jwks_url_invalid',
-						__( 'JWKS URL is not a valid URL.', 'vfs' )
+						__( 'JWKS URL is not a valid URL.', 'customer-data' )
 					);
 				}
 			}
@@ -752,7 +752,7 @@ class Options {
 			add_settings_error(
 				self::OPTION_NAME,
 				'swift_region_error',
-				__( 'Swift region is not set.', 'vfs' )
+				__( 'Swift region is not set.', 'customer-data' )
 			);
 		} elseif ( is_wp_error( $regions ) ) {
 			add_settings_error(
@@ -766,7 +766,7 @@ class Options {
 				'swift_region_error',
 				sprintf(
 					/* translators: %s: Swift region */
-					__( 'Swift region %s is not available.', 'vfs' ),
+					__( 'Swift region %s is not available.', 'customer-data' ),
 					$sanitized->swift_region
 				)
 			);
@@ -778,7 +778,7 @@ class Options {
 				add_settings_error(
 					self::OPTION_NAME,
 					'swift_account_url_error',
-					__( 'Swift account URL is not set, and not found in the catalog.', 'vfs' )
+					__( 'Swift account URL is not set, and not found in the catalog.', 'customer-data' )
 				);
 			} else {
 				add_settings_error(
@@ -793,7 +793,7 @@ class Options {
 				'swift_account_url_mismatch',
 				sprintf(
 					/* translators: %s: Swift account URL from the catalog */
-					__( 'Swift account URL does not match the catalog URL. The catalog URL is %s.', 'vfs' ),
+					__( 'Swift account URL does not match the catalog URL. The catalog URL is %s.', 'customer-data' ),
 					$swift_account_url
 				),
 				'warning'
@@ -804,7 +804,7 @@ class Options {
 			add_settings_error(
 				self::OPTION_NAME,
 				'temp_url_key_location_input_error',
-				__( 'Invalid temp-url-key location.', 'vfs' )
+				__( 'Invalid temp-url-key location.', 'customer-data' )
 			);
 		} else {
 			$signature_keys = $sanitized->get_signature_keys_from_swift();
@@ -814,7 +814,7 @@ class Options {
 					'container_configuration_error',
 					sprintf(
 						/* translators: %s: Error message */
-						__( 'Invalid container configuration: %s', 'vfs' ),
+						__( 'Invalid container configuration: %s', 'customer-data' ),
 						$signature_keys->get_error_message()
 					)
 				);
@@ -822,7 +822,7 @@ class Options {
 				add_settings_error(
 					self::OPTION_NAME,
 					'temp_url_key_location_error',
-					__( 'Signature key not found in the metadatas', 'vfs' )
+					__( 'Signature key not found in the metadatas', 'customer-data' )
 				);
 			}
 		}
@@ -840,9 +840,9 @@ class Options {
 				'algos_error',
 				sprintf(
 					// translators: %1$s: selected algorithm, %2$s: supported algorithms list.
-					_n( 'Algorithm %1$s is not supported. The only supported algorithm is: %2$s.', 'Algorithm %1$s is not supported. The supported algorithms are: %2$s.', count( $algos ), 'vfs' ),
+					_n( 'Algorithm %1$s is not supported. The only supported algorithm is: %2$s.', 'Algorithm %1$s is not supported. The supported algorithms are: %2$s.', count( $algos ), 'customer-data' ),
 					$sanitized->swift_signature_hmac_algo,
-					implode( _x( ', ', 'list separator', 'vfs' ), $algos )
+					implode( _x( ', ', 'list separator', 'customer-data' ), $algos )
 				)
 			);
 		}

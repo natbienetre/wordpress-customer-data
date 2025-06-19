@@ -1,6 +1,6 @@
 @use "~@wordpress/base-styles/colors.native" as colors;
 
-#vfs-swift-provider-openrc-loader {
+#customer-data-swift-provider-openrc-loader {
 	float: right;
 
 	input[type="file"] {
@@ -13,8 +13,8 @@
 	}
 }
 
-#vfs-temp-keys-list,
-#vfs-key-management-list {
+#customer-data-temp-keys-list,
+#customer-data-key-management-list {
 
 	th {
 		// restore expected padding
@@ -26,7 +26,7 @@
 	}
 }
 
-.vfs-secret {
+.customer-data-secret {
 	display: flex;
 	flex-direction: row;
 	gap: 2px;
@@ -52,7 +52,7 @@
 	}
 }
 
-.vfs-hidden {
+.customer-data-hidden {
 	display: none;
 }
 

@@ -1,5 +1,5 @@
 /**
- * VFS Upload Handler
+ * CustomerData Upload Handler
  *
  * @package
  * @version 1.0.0
@@ -11,7 +11,7 @@
 import { store, getContext } from '@wordpress/interactivity';
 import type { FileContext } from '../type';
 
-store( 'vfs', {
+store( 'customer-data', {
 	state: {
 		humanReadableFileType: () => {
 			const context = getContext< FileContext >();

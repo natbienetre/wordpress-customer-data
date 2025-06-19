@@ -1,14 +1,14 @@
 /**
  * File Upload Info Block Frontend Styles
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  * @description Frontend styles for the file upload info block.
  */
 
-.wp-block-vfs-file-upload-filename {
+.wp-block-customer-data-file-upload-filename {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;

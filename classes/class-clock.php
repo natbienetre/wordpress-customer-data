@@ -2,10 +2,10 @@
 /**
  * Clock class
  *
- * @package VFS
+ * @package CustomerData
  */
 
-namespace VFS;
+namespace CustomerData;
 
 use Psr\Clock\ClockInterface;
 

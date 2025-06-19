@@ -29,10 +29,10 @@ import { useSelectVisibilityHelperPreference } from '../../libs/js/visibility-he
 import './edit.scss';
 
 export interface Attributes {
-	vfsTokenShouldBe: TokenState[];
+	customerDataTokenShouldBe: TokenState[];
 }
 
-export const containerClassName = 'vfs-block-visibility-helper';
+export const containerClassName = 'customer-data-block-visibility-helper';
 
 export const GlobalTokenVisibilityHelper = () => {
 	const value = useSelectVisibilityHelperPreference();
@@ -73,33 +73,33 @@ export const Edit: React.FC< {
 		attributes: Partial< Attributes & { className?: string } >
 	) => void;
 } > = ( {
-	attributes: { vfsTokenShouldBe, className },
+	attributes: { customerDataTokenShouldBe, className },
 	setAttributes,
 } ): JSX.Element => {
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Visibility settings', 'vfs' ) }
+					title={ __( 'Visibility settings', 'customer-data' ) }
 					icon={ <Icon icon="visibility" /> }
-					initialOpen={ vfsTokenShouldBe.length > 0 }
+					initialOpen={ customerDataTokenShouldBe.length > 0 }
 				>
 					{ Object.entries( {
 						valid: {
-							label: __( 'Display if the token is valid', 'vfs' ),
+							label: __( 'Display if the token is valid', 'customer-data' ),
 							icon: <ValidIcon />,
 						},
 						invalid: {
 							label: __(
 								'Display if the token is invalid',
-								'vfs'
+								'customer-data'
 							),
 							icon: <InvalidIcon />,
 						},
 						loading: {
 							label: __(
 								'Display if the token is loading',
-								'vfs'
+								'customer-data'
 							),
 							icon: <LoadingIcon />,
 						},
@@ -116,34 +116,34 @@ export const Edit: React.FC< {
 										{ label }
 									</>
 								}
-								checked={ vfsTokenShouldBe.includes(
+								checked={ customerDataTokenShouldBe.includes(
 									state as TokenState
 								) }
 								onChange={ ( value ) => {
 									if ( value ) {
 										setAttributes( {
-											vfsTokenShouldBe: [
+											customerDataTokenShouldBe: [
 												...new Set( [
-													...vfsTokenShouldBe,
+													...customerDataTokenShouldBe,
 													state as TokenState,
 												] ),
 											],
 											className: addClassName(
 												className,
-												`vfs-token-visibility-${ state }`
+												`customer-data-token-visibility-${ state }`
 											),
 										} );
 									} else {
 										setAttributes( {
-											vfsTokenShouldBe:
-												vfsTokenShouldBe.filter(
+											customerDataTokenShouldBe:
+												customerDataTokenShouldBe.filter(
 													( v ) =>
 														v !==
 														( state as TokenState )
 												),
 											className: removeClassName(
 												className,
-												`vfs-token-visibility-${ state }`
+												`customer-data-token-visibility-${ state }`
 											),
 										} );
 									}
@@ -167,20 +167,20 @@ export const withTokenShouldBeValidControls = createHigherOrderComponent(
 			attributes: Attributes & { className?: string };
 		} ) => {
 			const { setAttributes } = props;
-			const { vfsTokenShouldBe, className } = props.attributes;
+			const { customerDataTokenShouldBe, className } = props.attributes;
 			const removeVisibility = useCallback(
 				( visibility: TokenState ) => {
 					setAttributes( {
-						vfsTokenShouldBe: vfsTokenShouldBe.filter(
+						customerDataTokenShouldBe: customerDataTokenShouldBe.filter(
 							( v ) => v !== visibility
 						),
 						className: removeClassName(
 							className,
-							`vfs-token-visibility-${ visibility }`
+							`customer-data-token-visibility-${ visibility }`
 						),
 					} );
 				},
-				[ setAttributes, vfsTokenShouldBe, className ]
+				[ setAttributes, customerDataTokenShouldBe, className ]
 			);
 
 			return (
@@ -195,7 +195,7 @@ export const withTokenShouldBeValidControls = createHigherOrderComponent(
 								valid: {
 									label: __(
 										'Display if the token is valid',
-										'vfs'
+										'customer-data'
 									),
 									icon: (
 										<ValidIcon
@@ -208,7 +208,7 @@ export const withTokenShouldBeValidControls = createHigherOrderComponent(
 								invalid: {
 									label: __(
 										'Display if the token is invalid',
-										'vfs'
+										'customer-data'
 									),
 									icon: (
 										<InvalidIcon
@@ -221,7 +221,7 @@ export const withTokenShouldBeValidControls = createHigherOrderComponent(
 								loading: {
 									label: __(
 										'Display if the token is loading',
-										'vfs'
+										'customer-data'
 									),
 									icon: (
 										<LoadingIcon
@@ -236,7 +236,7 @@ export const withTokenShouldBeValidControls = createHigherOrderComponent(
 								{ label: string; icon: React.ReactNode }
 							> )
 								.filter( ( [ state ] ) =>
-									vfsTokenShouldBe.includes(
+									customerDataTokenShouldBe.includes(
 										state as TokenState
 									)
 								)
@@ -260,7 +260,7 @@ export const withTokenShouldBeValidControls = createHigherOrderComponent(
 const ValidIcon = ( props: any ) => (
 	<Icon
 		icon="unlock"
-		className="vfs-token-visibility-icon is-valid"
+		className="customer-data-token-visibility-icon is-valid"
 		{ ...props }
 	/>
 );
@@ -268,7 +268,7 @@ const ValidIcon = ( props: any ) => (
 const InvalidIcon = ( props: any ) => (
 	<Icon
 		icon="lock"
-		className="vfs-token-visibility-icon is-invalid"
+		className="customer-data-token-visibility-icon is-invalid"
 		{ ...props }
 	/>
 );
@@ -276,7 +276,7 @@ const InvalidIcon = ( props: any ) => (
 const LoadingIcon = ( props: any ) => (
 	<Icon
 		icon={ pending }
-		className="vfs-token-visibility-icon is-loading"
+		className="customer-data-token-visibility-icon is-loading"
 		{ ...props }
 	/>
 );

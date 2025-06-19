@@ -2,10 +2,10 @@
 /**
  * Utils
  *
- * @package VFS
+ * @package CustomerData
  */
 
-namespace VFS;
+namespace CustomerData;
 
 /**
  * Error log

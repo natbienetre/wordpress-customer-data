@@ -1,5 +1,5 @@
 /**
- * VFS Upload Handler
+ * CustomerData Upload Handler
  *
  * @package
  * @version 1.0.0
@@ -14,7 +14,7 @@ import type { HttpMethod } from 'token';
 import { sprintf, __ } from '../libs/js/wordpress-interactive/i18n';
 import * as jose from 'jose';
 
-type VfsAdminToolsContext = {
+type CustomerDataAdminToolsContext = {
 	token:
 		| {
 				payload: {
@@ -41,10 +41,10 @@ type VfsAdminToolsContext = {
 		| false;
 };
 
-const { state } = store( 'vfs-admin-tools-token-inspection', {
+const { state } = store( 'customer-data-admin-tools-token-inspection', {
 	state: {
 		expirationDate(): string {
-			const context = getContext() as VfsAdminToolsContext;
+			const context = getContext() as CustomerDataAdminToolsContext;
 			if ( ! context.token || ! context.token.payload ) {
 				return '';
 			}
@@ -58,7 +58,7 @@ const { state } = store( 'vfs-admin-tools-token-inspection', {
 			);
 		},
 		expirationDatetime(): string {
-			const context = getContext() as VfsAdminToolsContext;
+			const context = getContext() as CustomerDataAdminToolsContext;
 			if ( ! context.token || ! context.token.payload ) {
 				return '';
 			}
@@ -68,7 +68,7 @@ const { state } = store( 'vfs-admin-tools-token-inspection', {
 			).toLocaleString();
 		},
 		expired() {
-			const context = getContext() as VfsAdminToolsContext;
+			const context = getContext() as CustomerDataAdminToolsContext;
 			if ( ! context.token || ! context.token.payload ) {
 				return false;
 			}
@@ -81,14 +81,14 @@ const { state } = store( 'vfs-admin-tools-token-inspection', {
 	},
 	context: {
 		token: false,
-	} as VfsAdminToolsContext,
+	} as CustomerDataAdminToolsContext,
 	callbacks: {
 		inspectToken: () => {
 			const input = getElement().ref as HTMLInputElement;
 
 			const token = input.value;
 
-			const context = getContext() as VfsAdminToolsContext;
+			const context = getContext() as CustomerDataAdminToolsContext;
 
 			if ( ! token ) {
 				context.token = false;
@@ -118,7 +118,7 @@ const { state } = store( 'vfs-admin-tools-token-inspection', {
 						notices: [
 							sprintf(
 								// translators: %s is the error message
-								__( 'Invalid token: %s', 'vfs' ),
+								__( 'Invalid token: %s', 'customer-data' ),
 								error.message
 							),
 						],
@@ -132,9 +132,9 @@ const { state } = store( 'vfs-admin-tools-token-inspection', {
 				const value = input.value.trim();
 				const url = new URL( window.location.href );
 				if ( value.length > 0 ) {
-					url.searchParams.set( 'vfs-token-inspection-token', value );
+					url.searchParams.set( 'customer-data-token-inspection-token', value );
 				} else {
-					url.searchParams.delete( 'vfs-token-inspection-token' );
+					url.searchParams.delete( 'customer-data-token-inspection-token' );
 				}
 				history.replaceState( null, '', url.toString() );
 			}

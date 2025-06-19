@@ -38,11 +38,11 @@ export const TokenInspection: React.FC< {
 	const jwkSet = useMemo( () => localJWKSet(), [ localJWKSet ] );
 
 	return (
-		<Flex direction="column" className="vfs-token-validation">
+		<Flex direction="column" className="customer-data-token-validation">
 			<TextControl
 				__nextHasNoMarginBottom
 				__next40pxDefaultSize
-				className="vfs-token-validation-input"
+				className="customer-data-token-validation-input"
 				value={ token }
 				onChange={ ( value ) => {
 					setToken( value );
@@ -62,21 +62,21 @@ export const TokenInspection: React.FC< {
 						setErrors( undefined );
 					}
 				} }
-				label={ __( 'Token to inspect', 'vfs' ) }
+				label={ __( 'Token to inspect', 'customer-data' ) }
 				hideLabelFromVision={ true }
 				autoFocus={ focusOnMount } // eslint-disable-line jsx-a11y/no-autofocus
 				placeholder={ _x(
 					'xxxxxheaderxxxxx.yyyyypayloadyyyyyy.zzzzzsignaturezzzzz',
 					'Token placeholder',
-					'vfs'
+					'customer-data'
 				) }
-				help={ __( 'Enter the token to inspect.', 'vfs' ) }
+				help={ __( 'Enter the token to inspect.', 'customer-data' ) }
 			/>
 			{ token.length > 0 && (
 				<TokenSummary token={ tokenData } errors={ errors } />
 			) }
 			{ token.length === 0 && (
-				<p> { __( 'Token details will appear here.', 'vfs' ) } </p>
+				<p> { __( 'Token details will appear here.', 'customer-data' ) } </p>
 			) }
 		</Flex>
 	);
@@ -120,19 +120,19 @@ const getTokenData = (
 				case 'ERR_JWS_SIGNATURE_VERIFICATION_FAILED':
 					return parseToken(
 						token,
-						__( 'Untrusted token, did you delete the key?', 'vfs' )
+						__( 'Untrusted token, did you delete the key?', 'customer-data' )
 					);
 				case 'ERR_JWS_INVALID':
 					return parseToken(
 						token,
-						__( 'Invalid token format', 'vfs' )
+						__( 'Invalid token format', 'customer-data' )
 					);
 			}
 			return parseToken(
 				token,
 				sprintf(
 					// translators: %s is the error code.
-					__( 'Invalid token: code %s', 'vfs' ),
+					__( 'Invalid token: code %s', 'customer-data' ),
 					err.code
 				)
 			);

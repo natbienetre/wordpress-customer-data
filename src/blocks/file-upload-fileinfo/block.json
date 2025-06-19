@@ -1,6 +1,6 @@
 {
 	"apiVersion": 2,
-	"name": "vfs/file-upload-fileinfo",
+	"name": "customer-data/file-upload-fileinfo",
 	"title": "Block representing a single uploaded file",
 	"description": "Display file information",
 	"category": "media",
@@ -67,12 +67,12 @@
 		}
 	},
 	"blockHooks": {
-		"vfs/file-upload": "after"
+		"customer-data/file-upload": "after"
 	},
 	"editorScript": "file:./admin.js",
 	"editorStyle": "file:./admin.css",
 	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
-	"viewScript": [ "vfs-blocks-lib", "wp-util", "file:./frontend.js", "wp-hooks" ],
+	"viewScript": [ "customer-data-blocks-lib", "wp-util", "file:./frontend.js", "wp-hooks" ],
 	"viewStyle": [ "file:./frontend.css" ],
-	"textdomain": "vfs"
+	"textdomain": "customer-data"
 }

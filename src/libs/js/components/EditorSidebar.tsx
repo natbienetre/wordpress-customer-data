@@ -21,7 +21,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { useState, useEffect, useMemo } from '@wordpress/element';
 import { people, plus, settings, file, bug } from '@wordpress/icons';
-import { SwiftAdmin, VfsAdminConfiguration } from '../file-management';
+import { SwiftAdmin, CustomerDataAdminConfiguration } from '../file-management';
 import wordpressUrl from '../wordpress/url';
 import apiFetch from '../wordpress/api-fetch';
 import type {
@@ -31,7 +31,7 @@ import type {
 import { usePageSpace } from '../post';
 import { UsersList } from './UsersList';
 import { UploadDestinationSelector } from './UploadDestinationSelector';
-import { VfsBlockSelector } from './VfsBlockSelector';
+import { CustomerDataBlockSelector } from './CustomerDataBlockSelector';
 
 import './EditorSidebar.scss';
 import {
@@ -68,11 +68,11 @@ export const EditorSidebar: React.FC = () => {
 		return select( editorStore ).getPermalink() || '';
 	}, [] );
 
-	const vfsAdminConfig = useMemo(
+	const customerDataAdminConfig = useMemo(
 		() => ( {
-			...window.vfsAdminConfig!,
+			...window.customerDataAdminConfig!,
 			options: {
-				...window.vfsAdminConfig!.options,
+				...window.customerDataAdminConfig!.options,
 				pageSpace,
 			},
 		} ),
@@ -82,11 +82,11 @@ export const EditorSidebar: React.FC = () => {
 	const swiftAdmin = useMemo(
 		() =>
 			new SwiftAdmin(
-				new VfsAdminConfiguration( vfsAdminConfig, wordpressUrl ),
+				new CustomerDataAdminConfiguration( customerDataAdminConfig, wordpressUrl ),
 				wordpressUrl,
 				apiFetch
 			),
-		[ vfsAdminConfig ]
+		[ customerDataAdminConfig ]
 	);
 
 	useEffect( () => {
@@ -118,21 +118,21 @@ export const EditorSidebar: React.FC = () => {
 	return (
 		<>
 			<PluginSidebar
-				name="vfs-users-spaces"
-				title={ __( 'Users spaces', 'vfs' ) }
+				name="customer-data-users-spaces"
+				title={ __( 'Users spaces', 'customer-data' ) }
 				icon={ people }
 			>
 				<PanelBody
 					initialOpen={ false }
-					title={ __( 'Accessibility', 'vfs' ) }
+					title={ __( 'Accessibility', 'customer-data' ) }
 					icon={ bug }
 				>
 					<PanelRow>
-						<VfsBlockSelector />
+						<CustomerDataBlockSelector />
 					</PanelRow>
 					<PanelRow>
 						<ToggleControl
-							label={ __( 'Block visibility helper', 'vfs' ) }
+							label={ __( 'Block visibility helper', 'customer-data' ) }
 							checked={ visibilityHelperPreference }
 							onChange={ ( value ) => {
 								dispatchVisibilityHelperPreference( value );
@@ -142,7 +142,7 @@ export const EditorSidebar: React.FC = () => {
 				</PanelBody>
 				<PanelBody
 					initialOpen={ false }
-					title={ __( 'Settings', 'vfs' ) }
+					title={ __( 'Settings', 'customer-data' ) }
 					icon={ settings }
 				>
 					<PanelRow>
@@ -150,9 +150,9 @@ export const EditorSidebar: React.FC = () => {
 					</PanelRow>
 				</PanelBody>
 				<PanelBody
-					title={ __( 'Files', 'vfs' ) }
+					title={ __( 'Files', 'customer-data' ) }
 					icon={ file }
-					className="vfs-editor-sidebar-files"
+					className="customer-data-editor-sidebar-files"
 				>
 					<PanelRow>
 						<Button
@@ -160,12 +160,12 @@ export const EditorSidebar: React.FC = () => {
 							onClick={ () => setIsGenerateUrlOpen( true ) }
 							isBusy={ isGenerateUrlOpen }
 							icon={ plus }
-							text={ __( 'Create a new space', 'vfs' ) }
+							text={ __( 'Create a new space', 'customer-data' ) }
 						/>
 						{ isGenerateUrlOpen && (
 							<Modal
 								icon={ people }
-								title={ __( 'Temporary URL', 'vfs' ) }
+								title={ __( 'Temporary URL', 'customer-data' ) }
 								onRequestClose={ () =>
 									setIsGenerateUrlOpen( false )
 								}

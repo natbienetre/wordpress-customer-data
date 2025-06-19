@@ -21,13 +21,13 @@ export const localKeySet = async (
 	window: Window & globalThis.Window,
 	apiFetch: ApiFetch< JSONWebKeySet >
 ): Promise< JSONWebKeySet > => {
-	if ( undefined !== window.vfsKeys ) {
-		return window.vfsKeys;
+	if ( undefined !== window.customerDataKeys ) {
+		return window.customerDataKeys;
 	}
 
-	return apiFetch( { path: '/vfs/v1/jwks' } ).then( ( keys ) => {
-		window.vfsKeys = keys as JSONWebKeySet;
-		return window.vfsKeys;
+	return apiFetch( { path: '/customerData/v1/jwks' } ).then( ( keys ) => {
+		window.customerDataKeys = keys as JSONWebKeySet;
+		return window.customerDataKeys;
 	} );
 };
 

@@ -1,7 +1,7 @@
 import { store as preferencesStore } from '@wordpress/preferences';
 import { useDispatch, useSelect } from '@wordpress/data';
 
-export const scope = 'vfs/editor';
+export const scope = 'customer-data/editor';
 export const visibilityHelperName = 'blockVisibilityHelper';
 
 // TODO, use preference store or feature in core-editor?

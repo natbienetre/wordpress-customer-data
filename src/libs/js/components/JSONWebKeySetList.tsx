@@ -38,7 +38,7 @@ export const JSONWebKeySetList: React.FC = (): JSX.Element => {
 									// translators: %1$s is the key ID, %2$s is the error message.
 									__(
 										'Failed to delete key %1$s: %2$s',
-										'vfs'
+										'customer-data'
 									),
 									confirmingDelete,
 									err.message
@@ -51,13 +51,13 @@ export const JSONWebKeySetList: React.FC = (): JSX.Element => {
 				onCancel={ () => setConfirmingDelete( undefined ) }
 			>
 				<p>
-					{ __( 'Are you sure you want to delete this key?', 'vfs' ) }
+					{ __( 'Are you sure you want to delete this key?', 'customer-data' ) }
 				</p>
-				<p>{ __( 'This action cannot be undone.', 'vfs' ) }</p>
+				<p>{ __( 'This action cannot be undone.', 'customer-data' ) }</p>
 				<p>
 					{ __(
 						'This action will delete the key from the server and invalidate all tokens signed with it.',
-						'vfs'
+						'customer-data'
 					) }
 				</p>
 			</ConfirmDialog>
@@ -80,7 +80,7 @@ export const JSONWebKeySetList: React.FC = (): JSX.Element => {
 								isDestructive={ true }
 								variant="link"
 							>
-								{ __( 'Delete', 'vfs' ) }
+								{ __( 'Delete', 'customer-data' ) }
 							</Button>
 						</FlexItem>
 						<FlexItem>{ jwk.alg }</FlexItem>

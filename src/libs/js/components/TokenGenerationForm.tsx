@@ -121,7 +121,7 @@ export const TokenGenerationForm: React.FC< {
 			.catch( ( err: Error ) => {
 				setError(
 					<>
-						<div>{ __( 'Failed to generate token', 'vfs' ) }</div>
+						<div>{ __( 'Failed to generate token', 'customer-data' ) }</div>
 						<RawHTML>{ err.message }</RawHTML>
 					</>
 				);
@@ -146,7 +146,7 @@ export const TokenGenerationForm: React.FC< {
 					</FlexBlock>
 					<FlexItem>
 						<Navigator.BackButton variant="secondary">
-							{ __( 'Go back', 'vfs' ) }
+							{ __( 'Go back', 'customer-data' ) }
 						</Navigator.BackButton>
 					</FlexItem>
 				</Flex>
@@ -157,7 +157,7 @@ export const TokenGenerationForm: React.FC< {
 						<TextControl
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
-							label={ __( 'Scope', 'vfs' ) }
+							label={ __( 'Scope', 'customer-data' ) }
 							value={ suffix }
 							onChange={ ( value ) => {
 								if ( ! suffixConstraints ) {
@@ -180,7 +180,7 @@ export const TokenGenerationForm: React.FC< {
 						<TextControl
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
-							label={ __( 'Display name', 'vfs' ) }
+							label={ __( 'Display name', 'customer-data' ) }
 							readOnly={
 								userConstraints?.displayName !== undefined
 							}
@@ -198,7 +198,7 @@ export const TokenGenerationForm: React.FC< {
 						<TextControl
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
-							label={ __( 'Email', 'vfs' ) }
+							label={ __( 'Email', 'customer-data' ) }
 							readOnly={ userConstraints?.email !== undefined }
 							value={ user.email ?? '' }
 							type="email"
@@ -213,7 +213,7 @@ export const TokenGenerationForm: React.FC< {
 						<TextControl
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
-							label={ __( 'Identifier', 'vfs' ) }
+							label={ __( 'Identifier', 'customer-data' ) }
 							readOnly={ userConstraints?.id !== undefined }
 							placeholder={ userId }
 							value={ user.id }
@@ -229,7 +229,7 @@ export const TokenGenerationForm: React.FC< {
 							variant="primary"
 							onClick={ generateUrl }
 						>
-							{ __( 'Generate temporary token', 'vfs' ) }
+							{ __( 'Generate temporary token', 'customer-data' ) }
 						</Navigator.Button>
 					</FlexItem>
 				</Flex>
@@ -258,7 +258,7 @@ const ResultScreen: React.FC< {
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							hideLabelFromVision={ true }
-							label={ __( 'Generated token', 'vfs' ) }
+							label={ __( 'Generated token', 'customer-data' ) }
 							value={ result }
 							readOnly
 							onChange={ () => {} }
@@ -270,7 +270,7 @@ const ResultScreen: React.FC< {
 							ref={ copyToClipboard }
 							icon={ copy }
 							size="compact"
-							label={ __( 'Copy to clipboard', 'vfs' ) }
+							label={ __( 'Copy to clipboard', 'customer-data' ) }
 						/>
 					</FlexItem>
 				</Flex>

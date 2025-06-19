@@ -2,13 +2,13 @@
 /**
  * Editor class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 use WP_Block_Type_Registry;
 
@@ -24,7 +24,7 @@ class Editor {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public const SCRIPT_HANDLE = 'vfs-editor';
+	public const SCRIPT_HANDLE = 'customer-data-editor';
 
 	/**
 	 * Upload block frontend script handle
@@ -32,7 +32,7 @@ class Editor {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public const UPLOAD_BLOCK_FRONTEND_SCRIPT_HANDLE = 'vfs-blocks-lib';
+	public const UPLOAD_BLOCK_FRONTEND_SCRIPT_HANDLE = 'customer-data-blocks-lib';
 
 	/**
 	 * Admin block admin script handle
@@ -40,7 +40,7 @@ class Editor {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public const UPLOAD_BLOCK_ADMIN_SCRIPT_HANDLE = 'vfs-file-upload-editor-script';
+	public const UPLOAD_BLOCK_ADMIN_SCRIPT_HANDLE = 'customer-data-file-upload-editor-script';
 
 	/**
 	 * Frontend script handle
@@ -48,7 +48,7 @@ class Editor {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public const FRONTEND_SCRIPT_HANDLE = 'vfs-frontend-scripts';
+	public const FRONTEND_SCRIPT_HANDLE = 'customer-data-frontend-scripts';
 
 	/**
 	 * Token visibility script handle
@@ -56,7 +56,7 @@ class Editor {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public const TOKEN_VISIBILITY_SCRIPT_HANDLE = 'vfs-token-visibility-interactivity';
+	public const TOKEN_VISIBILITY_SCRIPT_HANDLE = 'customer-data-token-visibility-interactivity';
 
 	/**
 	 * Register hooks
@@ -71,7 +71,7 @@ class Editor {
 		add_action( 'init', array( $instance, 'register_blocks_collection' ) );
 		add_action( 'wp_enqueue_scripts', array( $instance, 'frontend_enqueue_scripts' ) );
 		add_action( 'enqueue_block_editor_assets', array( $instance, 'enqueue_editor_assets' ) );
-		add_filter( 'vfs_interactivity_config', array( $instance, 'interactivity_config' ) );
+		add_filter( 'customer_data_interactivity_config', array( $instance, 'interactivity_config' ) );
 		add_filter( 'block_editor_settings_all', array( $instance, 'default_block_visibility_helper_settings' ) );
 	}
 
@@ -101,7 +101,7 @@ class Editor {
 
 		wp_add_inline_script(
 			self::SCRIPT_HANDLE,
-			'window.vfsAdminConfig = ' . wp_json_encode( Scripts::admin_config() )
+			'window.customerDataAdminConfig = ' . wp_json_encode( Scripts::admin_config() )
 		);
 	}
 
@@ -133,8 +133,8 @@ class Editor {
 	 */
 	public function register_blocks_collection(): void {
 		$this->register_block_types_from_metadata_collection(
-			path_join( plugin_dir_path( VFS_PLUGIN_FILE ), path_join( Scripts::BUILD_DIR, 'blocks' ) ),
-			path_join( plugin_dir_path( VFS_PLUGIN_FILE ), path_join( Scripts::BUILD_DIR, 'blocks-manifest.php' ) )
+			path_join( plugin_dir_path( CUSTOMER_DATA_PLUGIN_FILE ), path_join( Scripts::BUILD_DIR, 'blocks' ) ),
+			path_join( plugin_dir_path( CUSTOMER_DATA_PLUGIN_FILE ), path_join( Scripts::BUILD_DIR, 'blocks-manifest.php' ) )
 		);
 	}
 
@@ -165,7 +165,7 @@ class Editor {
 				wp_set_script_translations(
 					array_pop( $registered_block->view_script_handles ),
 					$block['textdomain'],
-					path_join( plugin_dir_path( VFS_PLUGIN_FILE ), 'languages/' )
+					path_join( plugin_dir_path( CUSTOMER_DATA_PLUGIN_FILE ), 'languages/' )
 				);
 			}
 		}
@@ -190,7 +190,7 @@ class Editor {
 		Scripts::register_with_assets( self::UPLOAD_BLOCK_FRONTEND_SCRIPT_HANDLE, 'blocks/lib.asset.php' );
 
 		/* Blocks translations */
-		$manifest_data = require path_join( plugin_dir_path( VFS_PLUGIN_FILE ), path_join( Scripts::BUILD_DIR, 'blocks-manifest.php' ) );
+		$manifest_data = require path_join( plugin_dir_path( CUSTOMER_DATA_PLUGIN_FILE ), path_join( Scripts::BUILD_DIR, 'blocks-manifest.php' ) );
 		foreach ( $manifest_data as $block ) {
 			if ( ! isset( $block['textdomain'] ) ) {
 				continue;
@@ -212,7 +212,7 @@ class Editor {
 				wp_set_script_translations(
 					$handle,
 					$block['textdomain'],
-					path_join( plugin_dir_path( VFS_PLUGIN_FILE ), 'languages/' )
+					path_join( plugin_dir_path( CUSTOMER_DATA_PLUGIN_FILE ), 'languages/' )
 				);
 			}
 		}
@@ -227,28 +227,28 @@ class Editor {
 	public function register_post_meta(): void {
 		register_post_meta(
 			'',
-			'_vfs_subpath',
+			'_customer_data_subpath',
 			array(
 				'type'              => 'string',
-				'label'             => __( 'Temporary URL subpath', 'vfs' ),
+				'label'             => __( 'Temporary URL subpath', 'customer-data' ),
 				'single'            => true,
-				'description'       => __( 'The path to append to the temporary URL. The generated URL will be the concatenation of the Swift account URL, the Swift container, the subpath, and the file destination.', 'vfs' ),
+				'description'       => __( 'The path to append to the temporary URL. The generated URL will be the concatenation of the Swift account URL, the Swift container, the subpath, and the file destination.', 'customer-data' ),
 				'show_in_rest'      => true,
 				'auth_callback'     => '__return_true',
 				'revisions_enabled' => false,
-				'sanitize_callback' => array( $this, 'sanitize_vfs_subpath' ),
+				'sanitize_callback' => array( $this, 'sanitize_customer_data_subpath' ),
 			)
 		);
 	}
 
 	/**
-	 * Sanitize VFS subpath
+	 * Sanitize CustomerData subpath
 	 *
 	 * @since 1.0.0
 	 * @param string $value The value to sanitize.
 	 * @return string
 	 */
-	public function sanitize_vfs_subpath( $value ): string {
+	public function sanitize_customer_data_subpath( $value ): string {
 		return wp_slash( sanitize_text_field( $value ) );
 	}
 
@@ -260,7 +260,7 @@ class Editor {
 	 * @return array Modified settings.
 	 */
 	public function default_block_visibility_helper_settings( $settings ) {
-		$settings['vfsBlockVisibilityHelper'] = false;
+		$settings['customerDataBlockVisibilityHelper'] = false;
 		return $settings;
 	}
 }

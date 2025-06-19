@@ -1,5 +1,5 @@
 /**
- * VFS Upload Handler
+ * CustomerData Upload Handler
  *
  * @package
  * @version 1.0.0
@@ -10,9 +10,9 @@
 
 import { store, getContext } from '@wordpress/interactivity';
 import { pathJoin } from '../../libs/js/swift';
-import type { FileContext, FileUploadContext, VfsState } from '../type';
+import type { FileContext, FileUploadContext, CustomerDataState } from '../type';
 
-const { state } = store( 'vfs', {
+const { state } = store( 'customer-data', {
 	state: {
 		loaded: () => undefined !== state.files,
 		downloadUrl: () => {
@@ -36,5 +36,5 @@ const { state } = store( 'vfs', {
 		ready: false,
 	},
 } ) as unknown as {
-	state: VfsState;
+	state: CustomerDataState;
 };

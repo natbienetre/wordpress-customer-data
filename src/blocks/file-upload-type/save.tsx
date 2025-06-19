@@ -13,5 +13,5 @@ import { useBlockProps } from '@wordpress/block-editor';
 export const Save: React.FC = () => {
 	const blockProps = useBlockProps.save();
 
-	return <span { ...blockProps } data-wp-text="vfs::context.file.type" />;
+	return <span { ...blockProps } data-wp-text="customer-data::context.file.type" />;
 };

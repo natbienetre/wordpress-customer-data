@@ -1,5 +1,5 @@
 /**
- * VFS Upload Handler
+ * CustomerData Upload Handler
  *
  * @package
  * @version 1.0.0
@@ -10,7 +10,7 @@
 
 import { store, getContext, getElement } from '@wordpress/interactivity';
 import { FileContext as _FileContext } from '../type';
-import type { VfsState } from '../type';
+import type { CustomerDataState } from '../type';
 import { fileTypeDashicon } from '../../libs/js/icon';
 
 type FileContext = {
@@ -29,7 +29,7 @@ const isImage = ( file: FileContext[ 'file' ] ) => {
 	);
 };
 
-const { actions, state } = store( 'vfs', {
+const { actions, state } = store( 'customer-data', {
 	state: {
 		previewURL: (): string => {
 			const context = getContext< FileContext >();
@@ -39,7 +39,7 @@ const { actions, state } = store( 'vfs', {
 			}
 
 			const readUri = (
-				state as VfsState
+				state as CustomerDataState
 			 ).configuration!.fileURLForMethod(
 				context.file.remotePath,
 				'GET'
@@ -149,7 +149,7 @@ const { actions, state } = store( 'vfs', {
 			const element = getElement().ref as HTMLSpanElement;
 			const context = getContext< FileContext >();
 			const img = document.createElement( 'img' );
-			img.src = ( state as VfsState )
+			img.src = ( state as CustomerDataState )
 				.configuration!.fileURLForMethod(
 					context.file.remotePath,
 					'GET'

@@ -2,13 +2,13 @@
 /**
  * Scripts class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 use WP_Error;
 
@@ -36,7 +36,7 @@ class Scripts {
 	 * @return WP_Error|void
 	 */
 	public static function register_with_assets( $handle, $asset_path, $in_footer = true, $style_dependencies = false ) {
-		$asset_local_path = path_join( plugin_dir_path( VFS_PLUGIN_FILE ), path_join( self::BUILD_DIR, $asset_path ) );
+		$asset_local_path = path_join( plugin_dir_path( CUSTOMER_DATA_PLUGIN_FILE ), path_join( self::BUILD_DIR, $asset_path ) );
 		if ( ! file_exists( $asset_local_path ) ) {
 			return new WP_Error( 'asset_not_found', sprintf( 'Asset %s not found', $asset_path ) );
 		}
@@ -49,7 +49,7 @@ class Scripts {
 		if ( isset( $asset['type'] ) && 'module' === $asset['type'] ) {
 			wp_register_script_module(
 				$handle,
-				plugins_url( self::BUILD_DIR . '/' . preg_replace( '/\.asset\.php$/i', '.js', $asset_path ), VFS_PLUGIN_FILE ),
+				plugins_url( self::BUILD_DIR . '/' . preg_replace( '/\.asset\.php$/i', '.js', $asset_path ), CUSTOMER_DATA_PLUGIN_FILE ),
 				$asset['dependencies'],
 				$asset['version']
 			);
@@ -59,7 +59,7 @@ class Scripts {
 		} else {
 			wp_register_script(
 				$handle,
-				plugins_url( self::BUILD_DIR . '/' . preg_replace( '/\.asset\.php$/i', '.js', $asset_path ), VFS_PLUGIN_FILE ),
+				plugins_url( self::BUILD_DIR . '/' . preg_replace( '/\.asset\.php$/i', '.js', $asset_path ), CUSTOMER_DATA_PLUGIN_FILE ),
 				$asset['dependencies'],
 				$asset['version'],
 				$in_footer
@@ -67,15 +67,15 @@ class Scripts {
 
 			wp_set_script_translations(
 				$handle,
-				'vfs',
-				path_join( plugin_dir_path( VFS_PLUGIN_FILE ), 'languages/' )
+				'customer-data',
+				path_join( plugin_dir_path( CUSTOMER_DATA_PLUGIN_FILE ), 'languages/' )
 			);
 		}
 
 		if ( false !== $style_dependencies ) {
 			wp_register_style(
 				$handle,
-				plugins_url( self::BUILD_DIR . '/' . preg_replace( '/\.asset\.php$/i', '.css', $asset_path ), VFS_PLUGIN_FILE ),
+				plugins_url( self::BUILD_DIR . '/' . preg_replace( '/\.asset\.php$/i', '.css', $asset_path ), CUSTOMER_DATA_PLUGIN_FILE ),
 				$style_dependencies,
 				$asset['version']
 			);
@@ -95,7 +95,7 @@ class Scripts {
 			return;
 		}
 
-		$asset_local_path = path_join( plugin_dir_path( VFS_PLUGIN_FILE ), path_join( self::BUILD_DIR, $asset_path ) );
+		$asset_local_path = path_join( plugin_dir_path( CUSTOMER_DATA_PLUGIN_FILE ), path_join( self::BUILD_DIR, $asset_path ) );
 		if ( ! file_exists( $asset_local_path ) ) {
 			return new WP_Error( 'asset_not_found', sprintf( 'Asset %s not found', $asset_path ) );
 		}
@@ -139,7 +139,7 @@ class Scripts {
 		}
 
 		return apply_filters(
-			'vfs_admin_config',
+			'customer_data_admin_config',
 			array(
 				'options'           => array(
 					'token'              => $token,

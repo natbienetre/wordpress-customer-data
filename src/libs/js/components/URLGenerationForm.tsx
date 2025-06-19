@@ -108,7 +108,7 @@ export const URLGenerationForm: React.FC< {
 					...user,
 					id: userId,
 				},
-				window.vfsAdminConfig!.allowScopedTokens
+				window.customerDataAdminConfig!.allowScopedTokens
 					? encodeURIComponent( suffix ?? '' )
 					: '',
 				landingPage,
@@ -125,7 +125,7 @@ export const URLGenerationForm: React.FC< {
 				setError(
 					<>
 						<div>
-							{ __( 'Failed to generate temporary URL', 'vfs' ) }
+							{ __( 'Failed to generate temporary URL', 'customer-data' ) }
 						</div>
 						<RawHTML>{ err.message }</RawHTML>
 					</>
@@ -159,19 +159,19 @@ export const URLGenerationForm: React.FC< {
 					</FlexBlock>
 					<FlexItem>
 						<Navigator.BackButton variant="secondary">
-							{ __( 'Go back', 'vfs' ) }
+							{ __( 'Go back', 'customer-data' ) }
 						</Navigator.BackButton>
 					</FlexItem>
 				</Flex>
 			</Navigator.Screen>
 			<Navigator.Screen path="/">
-				{ window.vfsAdminConfig!.allowScopedTokens && (
+				{ window.customerDataAdminConfig!.allowScopedTokens && (
 					<Flex>
 						<FlexBlock>
 							<TextControl
 								__next40pxDefaultSize
 								__nextHasNoMarginBottom
-								label={ __( 'Scope', 'vfs' ) }
+								label={ __( 'Scope', 'customer-data' ) }
 								value={ suffix }
 								onChange={ ( value ) => {
 									if ( ! suffixConstraints ) {
@@ -197,7 +197,7 @@ export const URLGenerationForm: React.FC< {
 						<TextControl
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
-							label={ __( 'Display name', 'vfs' ) }
+							label={ __( 'Display name', 'customer-data' ) }
 							readOnly={
 								userConstraints?.displayName !== undefined
 							}
@@ -215,7 +215,7 @@ export const URLGenerationForm: React.FC< {
 						<TextControl
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
-							label={ __( 'Email', 'vfs' ) }
+							label={ __( 'Email', 'customer-data' ) }
 							readOnly={ userConstraints?.email !== undefined }
 							value={ user.email ?? '' }
 							type="email"
@@ -230,7 +230,7 @@ export const URLGenerationForm: React.FC< {
 						<TextControl
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
-							label={ __( 'Identifier', 'vfs' ) }
+							label={ __( 'Identifier', 'customer-data' ) }
 							readOnly={ userConstraints?.id !== undefined }
 							placeholder={ userId }
 							value={ user.id }
@@ -246,7 +246,7 @@ export const URLGenerationForm: React.FC< {
 							variant="primary"
 							onClick={ generateUrl }
 						>
-							{ __( 'Generate temporary URL', 'vfs' ) }
+							{ __( 'Generate temporary URL', 'customer-data' ) }
 						</Navigator.Button>
 					</FlexItem>
 				</Flex>
@@ -275,7 +275,7 @@ const ResultScreen: React.FC< {
 							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							hideLabelFromVision={ true }
-							label={ __( 'Generated URL', 'vfs' ) }
+							label={ __( 'Generated URL', 'customer-data' ) }
 							value={ result }
 							readOnly
 							onChange={ () => {} }
@@ -287,7 +287,7 @@ const ResultScreen: React.FC< {
 							ref={ copyToClipboard }
 							icon={ copy }
 							size="compact"
-							label={ __( 'Copy to clipboard', 'vfs' ) }
+							label={ __( 'Copy to clipboard', 'customer-data' ) }
 						/>
 					</FlexItem>
 				</Flex>

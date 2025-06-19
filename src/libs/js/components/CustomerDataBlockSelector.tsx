@@ -28,7 +28,7 @@ import './EditorSidebar.scss';
 import type { BlockInstance } from '@wordpress/blocks';
 import { TokenState } from '../../../blocks/type';
 
-export const VfsBlockSelector: React.FC = ( { ...props } ) => {
+export const CustomerDataBlockSelector: React.FC = ( { ...props } ) => {
 	const blocks = useSelect( ( select ) => {
 		const { getBlocks } = select( blockEditorStore ) as {
 			getBlocks: ( rootClientId?: string ) => BlockInstance[];
@@ -59,7 +59,7 @@ export const VfsBlockSelector: React.FC = ( { ...props } ) => {
 
 	const { selectBlock } = useDispatch( blockEditorStore );
 
-	const isVfsBlock = useCallback(
+	const isCustomerDataBlock = useCallback(
 		( block: BlockInstance ) =>
 			[
 				FileUploadBlockName,
@@ -67,34 +67,34 @@ export const VfsBlockSelector: React.FC = ( { ...props } ) => {
 				FileUploadFileInfoBlockName,
 			].includes( block.name ) ||
 			[ 'invalid', 'valid', 'loading' ].some( ( state ) =>
-				block.attributes.vfsTokenShouldBe.includes(
+				block.attributes.customerDataTokenShouldBe.includes(
 					state as TokenState
 				)
 			),
 		[]
 	);
 
-	const vfsBlocksCount = useMemo(
-		() => blocks.filter( isVfsBlock ).length,
-		[ blocks, isVfsBlock ]
+	const customerDataBlocksCount = useMemo(
+		() => blocks.filter( isCustomerDataBlock ).length,
+		[ blocks, isCustomerDataBlock ]
 	);
 
 	const selectNextBlock = useCallback( () => {
 		const nextBlockId =
-			blocks.slice( selectedBlockIndex + 1 ).find( isVfsBlock )
+			blocks.slice( selectedBlockIndex + 1 ).find( isCustomerDataBlock )
 				?.clientId ??
-			blocks.slice( 0, selectedBlockIndex ).find( isVfsBlock )?.clientId;
+			blocks.slice( 0, selectedBlockIndex ).find( isCustomerDataBlock )?.clientId;
 		if ( nextBlockId ) {
 			selectBlock( nextBlockId );
 		}
-	}, [ selectBlock, selectedBlockIndex, blocks, isVfsBlock ] );
+	}, [ selectBlock, selectedBlockIndex, blocks, isCustomerDataBlock ] );
 
 	return (
-		( 0 === vfsBlocksCount && (
+		( 0 === customerDataBlocksCount && (
 			<Notice status="warning">
 				{ __(
-					'No VFS blocks found, please insert a VFS block',
-					'vfs'
+					'No CustomerData blocks found, please insert a CustomerData block',
+					'customer-data'
 				) }
 			</Notice>
 		) ) || (
@@ -105,10 +105,10 @@ export const VfsBlockSelector: React.FC = ( { ...props } ) => {
 						_n(
 							'%d block found',
 							'%d blocks found',
-							vfsBlocksCount,
-							'vfs'
+							customerDataBlocksCount,
+							'customer-data'
 						),
-						vfsBlocksCount
+						customerDataBlocksCount
 					) }
 				</FlexBlock>
 				<FlexItem>
@@ -116,7 +116,7 @@ export const VfsBlockSelector: React.FC = ( { ...props } ) => {
 						__next40pxDefaultSize
 						onClick={ selectNextBlock }
 						icon={ 'controls-forward' }
-						title={ __( 'Select the next block', 'vfs' ) }
+						title={ __( 'Select the next block', 'customer-data' ) }
 						iconPosition="right"
 					/>
 				</FlexItem>

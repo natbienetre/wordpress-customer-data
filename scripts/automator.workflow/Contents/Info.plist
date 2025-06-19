@@ -14,9 +14,9 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Generate a VFS token</string>
+				<string>Generate a CustomerData token</string>
 				<key>fr</key>
-				<string>Générer un token VFS</string>
+				<string>Générer un token CustomerData</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runWorkflowAsService</string>

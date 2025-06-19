@@ -2,15 +2,15 @@
 /**
  * Class Temp_Key_Location
  *
- * @package VFS
+ * @package CustomerData
  */
 
-namespace VFS;
+namespace CustomerData;
 
 /**
  * Class Temp_Key_Location
  *
- * @package VFS
+ * @package CustomerData
  */
 class Temp_Key_Location {
 	/**

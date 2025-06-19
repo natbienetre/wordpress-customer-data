@@ -2,13 +2,13 @@
 /**
  * KeySet class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 /**
  * Class KeySet
@@ -16,5 +16,5 @@ namespace VFS;
  * @since 1.0.0
  */
 class Api {
-	public const NAMESPACE = 'vfs/v1';
+	public const NAMESPACE = 'customer-data/v1';
 }

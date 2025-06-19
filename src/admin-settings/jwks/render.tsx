@@ -13,7 +13,7 @@ export const Render = () => {
 	const generateKey = useDispatch( jwksStore ).generate;
 
 	useCommand( {
-		name: 'vfs/jwks-list',
+		name: 'customer-data/jwks-list',
 		label: __( 'JSON Web Key Set list' ),
 		icon: key,
 		callback: ( { close }: { close: () => void } ) => {
@@ -30,13 +30,13 @@ export const Render = () => {
 				shouldCloseOnEsc={ true }
 				shouldCloseOnClickOutside={ true }
 				onRequestClose={ () => setIsOpen( false ) }
-				title={ __( 'JSON Web Key Set list', 'vfs' ) }
+				title={ __( 'JSON Web Key Set list', 'customer-data' ) }
 				headerActions={
 					<Button
 						__next40pxDefaultSize
 						onClick={ () => generateKey( apiFetch ) }
 						icon={ plusCircle }
-						label={ __( 'Generate a key', 'vfs' ) }
+						label={ __( 'Generate a key', 'customer-data' ) }
 					/>
 				}
 			>

@@ -1,11 +1,11 @@
 {
 	"apiVersion": 2,
-	"name": "vfs/file-upload-delete",
+	"name": "customer-data/file-upload-delete",
 	"title": "Delete uploaded file",
 	"description": "Button to delete the uploaded file",
 	"category": "media",
 	"icon": "trash",
-	"ancestor": [ "vfs/file-upload-fileinfo" ],
+	"ancestor": [ "customer-data/file-upload-fileinfo" ],
 	"supports": {
 		"color": {
 			"text": false,
@@ -44,5 +44,5 @@
 	"editorScript": "file:./admin.js",
 	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
 	"viewScript": "file:./frontend.js",
-	"textdomain": "vfs"
+	"textdomain": "customer-data"
 }

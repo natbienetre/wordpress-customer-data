@@ -2,7 +2,7 @@ import JSZip from 'jszip';
 import {
 	type OpenstackEntry,
 	SwiftConfiguration,
-	VfsConfiguration,
+	CustomerDataConfiguration,
 } from './configuration';
 import type {
 	VisitorNewFile,
@@ -324,17 +324,17 @@ export abstract class SwiftAPI {
 
 export class SwiftFile extends SwiftAPI implements _SwiftFile {
 	constructor(
-		public readonly vfsConfiguration: VfsConfiguration,
+		public readonly customerDataConfiguration: CustomerDataConfiguration,
 		wordpressUrl: WordPressUrl
 	) {
-		super( vfsConfiguration, wordpressUrl );
+		super( customerDataConfiguration, wordpressUrl );
 	}
 
 	async *deepList(
 		prefix: string = '',
 		cb: ( count: number, total: number ) => void = () => {}
 	): AsyncIterable< VisitorUploadedFile & { remotePath: string } > {
-		prefix = this.vfsConfiguration.prefix( prefix );
+		prefix = this.customerDataConfiguration.prefix( prefix );
 
 		return super.deepList( prefix, cb );
 	}
@@ -352,7 +352,7 @@ export class SwiftFile extends SwiftAPI implements _SwiftFile {
 		const xhr = new XMLHttpRequest();
 		const urlWithParams = this.wordpressUrl.addQueryArgs(
 			cleanURL( this.wordpressUrl, url ).toString(),
-			this.vfsConfiguration.swiftQueryParamsForMethod( method )
+			this.customerDataConfiguration.swiftQueryParamsForMethod( method )
 		);
 		xhr.open( method, urlWithParams, true );
 		return xhr;
@@ -364,11 +364,11 @@ export class SwiftFile extends SwiftAPI implements _SwiftFile {
 	): Promise< XMLHttpRequest > {
 		return super.do( xhr, ...expectedStatuses ).catch( ( error ) => {
 			if ( error instanceof HTTPStatusError && error.status === 401 ) {
-				const expiredAt = this.vfsConfiguration.vfsToken.expiredAt();
+				const expiredAt = this.customerDataConfiguration.customerDataToken.expiredAt();
 				if ( expiredAt ) {
-					throw new VfsTokenExpiredError( expiredAt, xhr );
+					throw new CustomerDataTokenExpiredError( expiredAt, xhr );
 				} else {
-					throw new VfsAuthenticationError( xhr );
+					throw new CustomerDataAuthenticationError( xhr );
 				}
 			}
 
@@ -389,11 +389,11 @@ export class SwiftFile extends SwiftAPI implements _SwiftFile {
 					error.status === 401
 				) {
 					const expiredAt =
-						this.vfsConfiguration.vfsToken.expiredAt();
+						this.customerDataConfiguration.customerDataToken.expiredAt();
 					if ( expiredAt ) {
-						throw new VfsTokenExpiredError( expiredAt, xhr );
+						throw new CustomerDataTokenExpiredError( expiredAt, xhr );
 					} else {
-						throw new VfsAuthenticationError( xhr );
+						throw new CustomerDataAuthenticationError( xhr );
 					}
 				}
 
@@ -448,19 +448,19 @@ export class ZipError extends Error {
 	}
 }
 
-export class VfsAuthenticationError extends Error {
+export class CustomerDataAuthenticationError extends Error {
 	constructor( public readonly cause: XMLHttpRequest ) {
 		super( 'Unauthorized. Please contact the administrator.' );
-		this.name = 'VfsAuthenticationError';
+		this.name = 'CustomerDataAuthenticationError';
 	}
 }
 
-export class VfsTokenExpiredError extends Error {
+export class CustomerDataTokenExpiredError extends Error {
 	constructor(
 		public readonly expiredAt: Date,
 		public readonly cause: XMLHttpRequest
 	) {
 		super( `Token expired at ${ expiredAt.toISOString() }` );
-		this.name = 'VfsTokenExpiredError';
+		this.name = 'CustomerDataTokenExpiredError';
 	}
 }

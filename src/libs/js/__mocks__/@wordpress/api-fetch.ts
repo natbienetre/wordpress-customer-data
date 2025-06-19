@@ -22,7 +22,7 @@ const getKeyPair = async () => {
 const apiFetch = jest
 	.fn()
 	.mockImplementation( async ( options: APIFetchOptions ) => {
-		if ( options.path === '/vfs/v1/jwks/sign' ) {
+		if ( options.path === '/customer-data/v1/jwks/sign' ) {
 			const body = JSON.parse( options.body as string );
 			const payload = JSON.parse( body.payload );
 
@@ -50,7 +50,7 @@ const apiFetch = jest
 				},
 			};
 		}
-		if ( options.path === '/vfs/v1/jwks' ) {
+		if ( options.path === '/customer-data/v1/jwks' ) {
 			const { publicKey } = await getKeyPair();
 			return Promise.resolve( {
 				keys: [

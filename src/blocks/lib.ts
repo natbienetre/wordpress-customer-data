@@ -9,24 +9,24 @@ import {
 	PostContext,
 	RemoteFile,
 	Status,
-	VfsConfig,
-	VfsState,
+	CustomerDataConfig,
+	CustomerDataState,
 } from './type';
 import { addInitCallback, InitAction } from './event';
 import hooks from '../libs/js/wordpress-interactive/hooks';
-import { VfsConfiguration } from '../libs/js/configuration';
+import { CustomerDataConfiguration } from '../libs/js/configuration';
 import { SwiftFile } from '../libs/js/file-upload';
 import { getToken } from '../libs/js/global-token';
 import { Token } from '../libs/js/token';
 import wordpressUrl from '../libs/js/wordpress-interactive/url';
 import { apiFetch } from '../libs/js/wordpress-interactive/api-fetch';
 
-const { actions, state } = store( 'vfs', {
+const { actions, state } = store( 'customer-data', {
 	state: {
 		// Optimistically assume the token is valid if it is present in the query param
 		//tokenIsValid:
 		//	null !==
-		// 	new URLSearchParams( window.location.search ).get( 'vfs_token' ),
+		// 	new URLSearchParams( window.location.search ).get( 'customer_data_token' ),
 		tokenIs: ( visibility: 'valid' | 'invalid' | 'loading' ) => {
 			switch ( visibility ) {
 				case 'loading':
@@ -41,7 +41,7 @@ const { actions, state } = store( 'vfs', {
 		token: null,
 		configuration: null,
 		swiftFile: null,
-	} as VfsState,
+	} as CustomerDataState,
 	actions: {
 		populate: () => {
 			if ( ! state.tokenIs( 'valid' ) ) {
@@ -92,15 +92,15 @@ const { actions, state } = store( 'vfs', {
 			state.configuration = null;
 		},
 		updateTokenFromQueryParams: async () => {
-			const config = getConfig( 'vfs' ) as VfsConfig;
+			const config = getConfig( 'customer-data' ) as CustomerDataConfig;
 			if ( config.keySet ) {
-				window.vfsKeys = config.keySet;
+				window.customerDataKeys = config.keySet;
 			}
 			actions
 				.reset()
 				.then( () => getToken( window, apiFetch ) )
 				.then( ( token ) => {
-					const configuration = new VfsConfiguration(
+					const configuration = new CustomerDataConfiguration(
 						new Token( token ),
 						config,
 						wordpressUrl
@@ -125,7 +125,7 @@ const { actions, state } = store( 'vfs', {
 		},
 		init: async () => {
 			addInitCallback(
-				'vfs-init-context',
+				'customer-data-init-context',
 				withScope( actions.populate )
 			);
 

@@ -1,7 +1,7 @@
 /**
  * File Upload Info Block Admin Styles
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
@@ -10,7 +10,7 @@
 
 @use "frontend";
 
-.wp-block-vfs-file-upload-preview.has-warning {
+.wp-block-customer-data-file-upload-preview.has-warning {
 	aspect-ratio: unset !important;
 	flex-basis: auto;
 }

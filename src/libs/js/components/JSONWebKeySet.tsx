@@ -9,8 +9,8 @@ import { useState, useMemo } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import {
 	SwiftAdmin,
-	type VfsAdminConfig,
-	VfsAdminConfiguration,
+	type CustomerDataAdminConfig,
+	CustomerDataAdminConfiguration,
 } from '../file-management';
 import { people, plus, tool, unlock } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
@@ -19,18 +19,18 @@ import { TokenInspection } from './TokenValidation';
 import { TokenGenerationForm } from './TokenGenerationForm';
 
 export const JSONWebKeySet: React.FC< {
-	vfsAdminConfig: VfsAdminConfig;
-} > = ( { vfsAdminConfig: initialVfsAdminConfig } ): JSX.Element => {
+	customerDataAdminConfig: CustomerDataAdminConfig;
+} > = ( { customerDataAdminConfig: initialCustomerDataAdminConfig } ): JSX.Element => {
 	const [ isGenerateUrlOpen, setIsGenerateUrlOpen ] = useState( false );
 
 	const swiftAdmin = useMemo(
 		() =>
 			new SwiftAdmin(
-				new VfsAdminConfiguration(
+				new CustomerDataAdminConfiguration(
 					{
-						...initialVfsAdminConfig!,
+						...initialCustomerDataAdminConfig!,
 						options: {
-							...initialVfsAdminConfig!.options,
+							...initialCustomerDataAdminConfig!.options,
 							pageSpace: '', // Generate global tokens only
 						},
 					},
@@ -39,7 +39,7 @@ export const JSONWebKeySet: React.FC< {
 				wordpressUrl,
 				apiFetch
 			),
-		[ initialVfsAdminConfig ]
+		[ initialCustomerDataAdminConfig ]
 	);
 
 	/*
@@ -54,29 +54,29 @@ export const JSONWebKeySet: React.FC< {
 	*/
 
 	return (
-		( window.vfsAdminConfig?.keyManagement?.enabled && (
-			<Panel header={ __( 'JSON Web Key Set', 'vfs' ) }>
+		( window.customerDataAdminConfig?.keyManagement?.enabled && (
+			<Panel header={ __( 'JSON Web Key Set', 'customer-data' ) }>
 				<PanelBody
-					title={ __( 'Token validation', 'vfs' ) }
+					title={ __( 'Token validation', 'customer-data' ) }
 					icon={ unlock }
 				>
 					<PanelRow>
 						<TokenInspection />
 					</PanelRow>
 				</PanelBody>
-				<PanelBody title={ __( 'User space', 'vfs' ) } icon={ tool }>
+				<PanelBody title={ __( 'User space', 'customer-data' ) } icon={ tool }>
 					<PanelRow>
 						<Button
 							__next40pxDefaultSize
 							onClick={ () => setIsGenerateUrlOpen( true ) }
 							isBusy={ isGenerateUrlOpen }
 							icon={ plus }
-							text={ __( 'Create a new space', 'vfs' ) }
+							text={ __( 'Create a new space', 'customer-data' ) }
 						/>
 						{ isGenerateUrlOpen && (
 							<Modal
 								icon={ people }
-								title={ __( 'Temporary token', 'vfs' ) }
+								title={ __( 'Temporary token', 'customer-data' ) }
 								onRequestClose={ () =>
 									setIsGenerateUrlOpen( false )
 								}

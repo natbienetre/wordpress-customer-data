@@ -31,9 +31,9 @@ describe( 'getToken', () => {
 		const serializedToken = `${ header }.${ payload }.${ signature }`;
 
 		const mockWindow = {
-			vfsToken: undefined,
+			customerDataToken: undefined,
 			location: {
-				search: `?vfs_token=${ serializedToken }`,
+				search: `?customer_data_token=${ serializedToken }`,
 			},
 		} as unknown as Window & globalThis.Window;
 
@@ -44,7 +44,7 @@ describe( 'getToken', () => {
 
 	it( 'should throw error when token is not found in URL parameters', () => {
 		const mockWindow = {
-			vfsToken: undefined,
+			customerDataToken: undefined,
 			location: { search: '?other_param=value' },
 		} as unknown as Window & globalThis.Window;
 
@@ -55,8 +55,8 @@ describe( 'getToken', () => {
 
 	it( 'should throw error when token is invalid', () => {
 		const mockWindow = {
-			vfsToken: undefined,
-			location: { search: '?vfs_token=invalid_token' },
+			customerDataToken: undefined,
+			location: { search: '?customer_data_token=invalid_token' },
 		} as unknown as Window & globalThis.Window;
 
 		expect( getToken( mockWindow, apiFetch ) ).rejects.toThrow(

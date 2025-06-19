@@ -31,15 +31,15 @@ export const Save: React.FC< {
 		<a
 			{ ...blockProps }
 			rel="external"
-			title={ __( 'Download the file', 'vfs' ) }
+			title={ __( 'Download the file', 'customer-data' ) }
 			referrerPolicy="strict-origin-when-cross-origin"
-			data-wp-bind--href="vfs::state.downloadUrl"
-			data-wp-bind--download="vfs::context.file.name"
-			data-wp-bind--type="vfs::context.file.type"
-			data-wp-bind--title="vfs::state.downloadTitle"
+			data-wp-bind--href="customer-data::state.downloadUrl"
+			data-wp-bind--download="customer-data::context.file.name"
+			data-wp-bind--type="customer-data::context.file.type"
+			data-wp-bind--title="customer-data::state.downloadTitle"
 		>
 			<span { ...( useIcon ? { className: 'screen-reader-text' } : {} ) }>
-				{ __( 'Download', 'vfs' ) }
+				{ __( 'Download', 'customer-data' ) }
 			</span>
 			{ useIcon && (
 				<span className="dashicons dashicons-download"></span>

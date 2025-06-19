@@ -2,10 +2,10 @@
 /**
  * Class Temp_Keys
  *
- * @package VFS
+ * @package CustomerData
  */
 
-namespace VFS;
+namespace CustomerData;
 
 use OpenStack\ObjectStore\v1\Service;
 use WP_Error;
@@ -13,11 +13,11 @@ use WP_Error;
 /**
  * Class Temp_Keys
  *
- * @package VFS
+ * @package CustomerData
  */
 class Temp_Keys extends \WP_List_Table {
 
-	const SET_MAIN_ACTION = 'vfs-set-main-temp-key';
+	const SET_MAIN_ACTION = 'customer-data-set-main-temp-key';
 
 	/**
 	 * The signature keys.
@@ -36,8 +36,8 @@ class Temp_Keys extends \WP_List_Table {
 	public function __construct( $object_store, $swift_container ) {
 		parent::__construct(
 			array(
-				'singular' => _x( 'Key', 'temp keys table header', 'vfs' ),
-				'plural'   => _x( 'Keys', 'temp keys table header', 'vfs' ),
+				'singular' => _x( 'Key', 'temp keys table header', 'customer-data' ),
+				'plural'   => _x( 'Keys', 'temp keys table header', 'customer-data' ),
 				'ajax'     => true,
 			)
 		);
@@ -56,7 +56,7 @@ class Temp_Keys extends \WP_List_Table {
 			throw new \Exception(
 				sprintf(
 					/* translators: %s: Container name */
-					esc_html__( 'Container %s does not exist.', 'vfs' ),
+					esc_html__( 'Container %s does not exist.', 'customer-data' ),
 					esc_html( $swift_container )
 				)
 			);
@@ -75,10 +75,10 @@ class Temp_Keys extends \WP_List_Table {
 		$this->_column_headers = array(
 			array(
 				'selector'     => '',
-				'location'     => _x( 'Location', 'temp keys table header', 'vfs' ),
-				'context'      => _x( 'Context', 'temp keys table header', 'vfs' ),
-				'metadata_key' => _x( 'Metadata Key', 'temp keys table header', 'vfs' ),
-				'value'        => _x( 'Key', 'temp keys table header', 'vfs' ),
+				'location'     => _x( 'Location', 'temp keys table header', 'customer-data' ),
+				'context'      => _x( 'Context', 'temp keys table header', 'customer-data' ),
+				'metadata_key' => _x( 'Metadata Key', 'temp keys table header', 'customer-data' ),
+				'value'        => _x( 'Key', 'temp keys table header', 'customer-data' ),
 			),
 			array( 'location' ),
 			array( 'context', 'metadata_key', 'value' ),
@@ -91,7 +91,7 @@ class Temp_Keys extends \WP_List_Table {
 	 */
 	public static function register_hooks() {
 		add_action( 'admin_init', array( self::class, 'admin_init' ) );
-		add_filter( 'vfs_temp_keys_action_url', 'wp_nonce_url', 5, 2 );
+		add_filter( 'customer_data_temp_keys_action_url', 'wp_nonce_url', 5, 2 );
 	}
 
 	/**
@@ -106,12 +106,12 @@ class Temp_Keys extends \WP_List_Table {
 	 */
 	public static function admin_set_main_key() {
 		if ( empty( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'], self::SET_MAIN_ACTION ) ) {
-			wp_die( esc_html__( 'Invalid nonce', 'vfs' ), 400 );
+			wp_die( esc_html__( 'Invalid nonce', 'customer-data' ), 400 );
 			return;
 		}
 
 		if ( empty( $_REQUEST['location'] ) || ! is_array( $_REQUEST['location'] ) || empty( $_REQUEST['location']['location'] ) || empty( $_REQUEST['location']['metadata_key'] ) ) {
-			wp_die( esc_html__( 'Invalid key location', 'vfs' ), 400 );
+			wp_die( esc_html__( 'Invalid key location', 'customer-data' ), 400 );
 			return;
 		}
 
@@ -152,8 +152,8 @@ class Temp_Keys extends \WP_List_Table {
 	 * @return string The HTML for the value.
 	 */
 	public function column_value( $item ) {
-		return '<div class="vfs-secret">' .
-			'<span class="placeholder dashicons dashicons-hidden"></span><code class="placeholder">' . esc_html_x( '********', 'placeholder for temp key value', 'vfs' ) . '</code>' .
+		return '<div class="customer-data-secret">' .
+			'<span class="placeholder dashicons dashicons-hidden"></span><code class="placeholder">' . esc_html_x( '********', 'placeholder for temp key value', 'customer-data' ) . '</code>' .
 			'<span class="value dashicons dashicons-visibility"></span><code class="value">' . esc_html( $item['value'] ) . '</code>' .
 			'</div>';
 	}
@@ -176,8 +176,8 @@ class Temp_Keys extends \WP_List_Table {
 			foreach ( $keys_in_context as $metadata_key => $key ) {
 				$this->items[] = array(
 					'location'     => new Temp_Key_Location( $context, $metadata_key ),
-					'context'      => Temp_Key_Location::CONTEXT_CONTAINER === $context ? _x( 'Container', 'temp keys table cell', 'vfs' ) : _x( 'Account', 'temp keys table cell', 'vfs' ),
-					'metadata_key' => Temp_Key_Location::METADATA_KEY_1 === $metadata_key ? _x( 'Key 1', 'temp keys table cell', 'vfs' ) : _x( 'Key 2', 'temp keys table cell', 'vfs' ),
+					'context'      => Temp_Key_Location::CONTEXT_CONTAINER === $context ? _x( 'Container', 'temp keys table cell', 'customer-data' ) : _x( 'Account', 'temp keys table cell', 'customer-data' ),
+					'metadata_key' => Temp_Key_Location::METADATA_KEY_1 === $metadata_key ? _x( 'Key 1', 'temp keys table cell', 'customer-data' ) : _x( 'Key 2', 'temp keys table cell', 'customer-data' ),
 					'value'        => $key,
 				);
 			}
@@ -199,7 +199,7 @@ class Temp_Keys extends \WP_List_Table {
 			if ( ! $this->is_main_key( $item ) ) {
 				$actions[ self::SET_MAIN_ACTION ] = '<a href="' . esc_attr(
 					apply_filters(
-						'vfs_temp_keys_action_url',
+						'customer_data_temp_keys_action_url',
 						add_query_arg(
 							array(
 								'action'   => self::SET_MAIN_ACTION,
@@ -211,7 +211,7 @@ class Temp_Keys extends \WP_List_Table {
 						self::SET_MAIN_ACTION,
 						$item
 					)
-				) . '">' . __( 'Set Main', 'vfs' ) . '</a>';
+				) . '">' . __( 'Set Main', 'customer-data' ) . '</a>';
 			}
 		}
 
@@ -236,7 +236,7 @@ class Temp_Keys extends \WP_List_Table {
 	 * @since 3.1.0
 	 */
 	public function no_items() {
-		esc_html_e( 'No keys found. Please add a key to the container or account and refresh the page.', 'vfs' );
+		esc_html_e( 'No keys found. Please add a key to the container or account and refresh the page.', 'customer-data' );
 	}
 
 	/**

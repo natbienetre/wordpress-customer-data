@@ -1,11 +1,11 @@
 {
 	"apiVersion": 2,
-	"name": "vfs/file-upload-download",
+	"name": "customer-data/file-upload-download",
 	"title": "Download uploaded file",
 	"description": "Button to download the uploaded file",
 	"category": "media",
 	"icon": "download",
-	"ancestor": [ "vfs/file-upload-fileinfo" ],
+	"ancestor": [ "customer-data/file-upload-fileinfo" ],
 	"supports": {
 		"color": {
 			"text": false,
@@ -43,5 +43,5 @@
 	},
 	"editorScript": "file:./admin.js",
 	"viewScriptModule": [ "file:./frontend-interactivity.js" ],
-	"textdomain": "vfs"
+	"textdomain": "customer-data"
 }

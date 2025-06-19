@@ -29,7 +29,7 @@ export const FileCreationDate: React.FC< {
 			{ humanTimeDiff( visitorFile.creationDate, undefined ) }
 			{ isVisible && (
 				<div style={ { display: 'inline' } }>
-					<Popover className="vfs-popover">
+					<Popover className="customer-data-popover">
 						{ visitorFile.creationDate.toLocaleString() }
 					</Popover>
 				</div>

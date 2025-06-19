@@ -11,7 +11,7 @@ export const getErrorMessage = ( i18n: I18n, err: unknown ): string => {
 
 	return i18n.sprintf(
 		// translators: %s is the error message
-		i18n.__( 'An unknown error occurred: %s', 'vfs' ),
+		i18n.__( 'An unknown error occurred: %s', 'customer-data' ),
 		err
 	);
 };

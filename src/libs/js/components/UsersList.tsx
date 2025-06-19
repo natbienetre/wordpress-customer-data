@@ -78,12 +78,12 @@ export const UsersList: React.FC< {
 			[
 				{
 					id: 'id',
-					label: __( 'ID', 'vfs' ),
+					label: __( 'ID', 'customer-data' ),
 					type: 'text',
 					enableSorting: true,
 					enableHiding: true,
 					enableGlobalSearch: true,
-					header: __( 'User', 'vfs' ),
+					header: __( 'User', 'customer-data' ),
 				},
 			] as Field< {
 				id: string;
@@ -115,7 +115,7 @@ export const UsersList: React.FC< {
 			actions={ [
 				{
 					id: 'browse',
-					label: __( 'Browse', 'vfs' ),
+					label: __( 'Browse', 'customer-data' ),
 					icon: external,
 					//callback: ( items ) => {
 					//	setUserSelected( items[ 0 ].id );
@@ -131,7 +131,7 @@ export const UsersList: React.FC< {
 							queryParams={ queryParams! }
 						/>
 					),
-					modalHeader: __( 'User files', 'vfs' ),
+					modalHeader: __( 'User files', 'customer-data' ),
 					modalSize: 'fill',
 					hideModalHeader: true,
 				},

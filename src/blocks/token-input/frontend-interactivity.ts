@@ -3,22 +3,22 @@ import url from '../../libs/js/wordpress-interactive/url';
 
 const queryParams = new URLSearchParams( window.location.search );
 
-const { actions } = store( 'vfs', {
+const { actions } = store( 'customer-data', {
 	state: {
-		encodedToken: queryParams.get( 'vfs_token' ),
+		encodedToken: queryParams.get( 'customer_data_token' ),
 	},
 	actions: {
 		updateToken: async () => {
 			const input = getElement().ref as HTMLInputElement;
 			const currentUrl = url.removeQueryArgs(
 				window.location.toString(),
-				'vfs_token'
+				'customer_data_token'
 			);
 			const destination = input.value
-				? url.addQueryArgs( currentUrl, { vfs_token: input.value } )
+				? url.addQueryArgs( currentUrl, { customer_data_token: input.value } )
 				: currentUrl;
 
-			window.history.replaceState( 'vfs-token', '', destination );
+			window.history.replaceState( 'customer-data-token', '', destination );
 
 			actions.updateTokenFromQueryParams();
 		},

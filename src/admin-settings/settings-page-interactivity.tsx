@@ -1,5 +1,5 @@
 /**
- * VFS Upload Handler
+ * CustomerData Upload Handler
  *
  * @package
  * @version 1.0.0
@@ -10,29 +10,29 @@
 
 import { store, getElement } from '@wordpress/interactivity';
 
-type VfsAdminSettingsFeature = 'staticSignature' | 'keyManagement';
+type CustomerDataAdminSettingsFeature = 'staticSignature' | 'keyManagement';
 
-type VfsAdminSettingsState = {
-	features: Record< VfsAdminSettingsFeature, boolean >;
+type CustomerDataAdminSettingsState = {
+	features: Record< CustomerDataAdminSettingsFeature, boolean >;
 };
 
-const { state } = store( 'vfs-admin-settings', {
+const { state } = store( 'customer-data-admin-settings', {
 	state: {
 		features: {
 			staticSignature: false,
 			keyManagement: true,
 		},
-	} as VfsAdminSettingsState,
+	} as CustomerDataAdminSettingsState,
 	callbacks: {
 		propagateFeatureChange() {
 			const element = getElement().ref as HTMLInputElement & {
 				dataset: {
-					vfsAdminSettingsFeatureTarget: string;
+					customerDataAdminSettingsFeatureTarget: string;
 				};
 			};
 
 			const key = element.dataset
-				.vfsAdminSettingsFeatureTarget as VfsAdminSettingsFeature;
+				.customerDataAdminSettingsFeatureTarget as CustomerDataAdminSettingsFeature;
 
 			state.features[ key ] = element.checked;
 
@@ -44,29 +44,29 @@ const { state } = store( 'vfs-admin-settings', {
 			state.features = form
 				.querySelectorAll( 'input' )
 				.values()
-				// Element with a dataset.vfsAdminSettingsFeatureTarget
+				// Element with a dataset.customerDataAdminSettingsFeatureTarget
 				.filter(
-					( element ) => element.dataset.vfsAdminSettingsFeatureTarget
+					( element ) => element.dataset.customerDataAdminSettingsFeatureTarget
 				)
 				// Map to [featureName, isEnabled]
 				.map( ( element ) => [
 					element.dataset
-						.vfsAdminSettingsFeatureTarget! as VfsAdminSettingsFeature,
+						.customerDataAdminSettingsFeatureTarget! as CustomerDataAdminSettingsFeature,
 					element.checked,
 				] )
 				// Reduce to a record of featureName -> isEnabled
 				.reduce(
 					( acc, [ key, checked ] ) => {
-						acc[ key as VfsAdminSettingsFeature ] =
+						acc[ key as CustomerDataAdminSettingsFeature ] =
 							checked as boolean;
 						return acc;
 					},
-					state.features as Record< VfsAdminSettingsFeature, boolean >
+					state.features as Record< CustomerDataAdminSettingsFeature, boolean >
 				);
 
 			// Switch features based on the state
 			for ( const key in state.features ) {
-				switchFeature( document, key as VfsAdminSettingsFeature );
+				switchFeature( document, key as CustomerDataAdminSettingsFeature );
 			}
 
 			const inputs = getInputs( form );
@@ -74,7 +74,7 @@ const { state } = store( 'vfs-admin-settings', {
 		},
 		bindFeatures() {
 			for ( const key in state.features ) {
-				switchFeature( document, key as VfsAdminSettingsFeature );
+				switchFeature( document, key as CustomerDataAdminSettingsFeature );
 			}
 		},
 		loadOpenrc() {
@@ -91,35 +91,35 @@ const { state } = store( 'vfs-admin-settings', {
 
 const getInputs = ( container: ParentNode ) => {
 	const authUrlInput = container.querySelector(
-		'#vfs-swift-auth-url'
+		'#customer-data-swift-auth-url'
 	) as HTMLInputElement;
 
 	const identityApiVersionInput = container.querySelector(
-		'vfs-swift-identity-api-version'
+		'customer-data-swift-identity-api-version'
 	) as HTMLInputElement;
 
 	const openstackUserDomainNameInput = container.querySelector(
-		'vfs-swift-user-domain-name'
+		'customer-data-swift-user-domain-name'
 	) as HTMLInputElement;
 
 	const openstackTenantIdInput = container.querySelector(
-		'vfs-swift-tenant-id'
+		'customer-data-swift-tenant-id'
 	) as HTMLInputElement;
 
 	const openstackTenantNameInput = container.querySelector(
-		'vfs-swift-tenant-name'
+		'customer-data-swift-tenant-name'
 	) as HTMLInputElement;
 
 	const openstackPasswordInput = container.querySelector(
-		'vfs-swift-password'
+		'customer-data-swift-password'
 	) as HTMLInputElement;
 
 	const openstackUsernameInput = container.querySelector(
-		'vfs-swift-user'
+		'customer-data-swift-user'
 	) as HTMLInputElement;
 
 	const openstackRegionNameInput = container.querySelector(
-		'vfs-swift-region'
+		'customer-data-swift-region'
 	) as HTMLInputElement;
 
 	return {
@@ -134,18 +134,18 @@ const getInputs = ( container: ParentNode ) => {
 	} as SwiftInputs;
 };
 
-const selectorPrefix = '.vfs-admin-settings-';
+const selectorPrefix = '.customer-data-admin-settings-';
 const selectorEnabledSuffix = '-enabled';
 const selectorDisabledSuffix = '-disabled';
 
 const selectors = {
 	staticSignature: `static-signature`,
 	keyManagement: `key-management`,
-} as Record< VfsAdminSettingsFeature, string >;
+} as Record< CustomerDataAdminSettingsFeature, string >;
 
 const switchFeature = async (
 	container: ParentNode,
-	key: VfsAdminSettingsFeature
+	key: CustomerDataAdminSettingsFeature
 ) => {
 	const selector = selectors[ key ];
 
@@ -155,9 +155,9 @@ const switchFeature = async (
 		)
 		.forEach( ( element ) => {
 			if ( state.features[ key ] ) {
-				element.classList.remove( 'vfs-hidden' );
+				element.classList.remove( 'customer-data-hidden' );
 			} else {
-				element.classList.add( 'vfs-hidden' );
+				element.classList.add( 'customer-data-hidden' );
 			}
 		} );
 
@@ -167,9 +167,9 @@ const switchFeature = async (
 		)
 		.forEach( ( element ) => {
 			if ( state.features[ key ] ) {
-				element.classList.add( 'vfs-hidden' );
+				element.classList.add( 'customer-data-hidden' );
 			} else {
-				element.classList.remove( 'vfs-hidden' );
+				element.classList.remove( 'customer-data-hidden' );
 			}
 		} );
 };

@@ -38,15 +38,15 @@ export const Edit: React.FC< {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'File upload settings', 'vfs' ) }
+					title={ __( 'File upload settings', 'customer-data' ) }
 					icon={ cloudUpload }
 				>
 					<PanelRow>
 						<ToggleControl
-							label={ __( 'Use Icon', 'vfs' ) }
+							label={ __( 'Use Icon', 'customer-data' ) }
 							help={ __(
 								'If checked, the button will display an icon.',
-								'vfs'
+								'customer-data'
 							) }
 							checked={ useIcon }
 							onChange={ ( value ) =>
@@ -56,10 +56,10 @@ export const Edit: React.FC< {
 					</PanelRow>
 					<PanelRow>
 						<ToggleControl
-							label={ __( 'Link Style', 'vfs' ) }
+							label={ __( 'Link Style', 'customer-data' ) }
 							help={ __(
 								'If checked, the button will be styled as a link.',
-								'vfs'
+								'customer-data'
 							) }
 							checked={ linkStyle }
 							onChange={ ( value ) =>
@@ -69,10 +69,10 @@ export const Edit: React.FC< {
 					</PanelRow>
 					<PanelRow>
 						<ToggleControl
-							label={ __( 'Confirmation Dialog', 'vfs' ) }
+							label={ __( 'Confirmation Dialog', 'customer-data' ) }
 							help={ __(
 								'If checked, the button will display a confirmation dialog.',
-								'vfs'
+								'customer-data'
 							) }
 							checked={ confirmationDialog }
 							onChange={ ( value ) =>
@@ -85,7 +85,7 @@ export const Edit: React.FC< {
 			{ /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
 			<a { ...blockProps }>
 				<span className={ useIcon ? 'screen-reader-text' : '' }>
-					{ __( 'Delete', 'vfs' ) }
+					{ __( 'Delete', 'customer-data' ) }
 				</span>
 				{ useIcon && (
 					<span className="dashicons dashicons-trash"></span>

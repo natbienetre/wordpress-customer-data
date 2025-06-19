@@ -2,13 +2,13 @@
 /**
  * Admin page class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 /**
  * Class Tools_Page
@@ -22,7 +22,7 @@ class Tools_Page {
 	 *
 	 * @var string
 	 */
-	const MENU_SLUG = 'vfs-tools';
+	const MENU_SLUG = 'customer-data-tools';
 
 	/**
 	 * Load hook suffix
@@ -118,8 +118,8 @@ class Tools_Page {
 	 */
 	public function add_admin_menu() {
 		$this->load_hook_suffix = add_management_page(
-			__( 'Visitor Filesystem', 'vfs' ),
-			__( 'Visitor Filesystem', 'vfs' ),
+			__( 'Visitor Filesystem', 'customer-data' ),
+			__( 'Visitor Filesystem', 'customer-data' ),
 			'manage_options',
 			self::MENU_SLUG,
 			array( $this, 'render_page' )
@@ -134,10 +134,10 @@ class Tools_Page {
 	 */
 	public function render_page() {
 		?>
-		<h1><?php esc_html_e( 'Visitor Filesystem tools', 'vfs' ); ?></h1>
+		<h1><?php esc_html_e( 'Visitor Filesystem tools', 'customer-data' ); ?></h1>
 
-		<div class="wrap" id="vfs-content">
-			<div id="vfs-tools-container">
+		<div class="wrap" id="customer-data-content">
+			<div id="customer-data-tools-container">
 				<?php $this->create_token_tool->render(); ?>
 				<?php $this->inspect_token_tool->render(); ?>
 			</div>

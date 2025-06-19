@@ -35,7 +35,7 @@ export class Token< TokenData extends VersionnedTokenData > {
 		} >
 	): Promise< SerializedToken > {
 		return apiFetch( {
-			path: '/vfs/v1/jwks/sign',
+			path: '/customer-data/v1/jwks/sign',
 			method: 'POST',
 			body: JSON.stringify( {
 				payload: JSON.stringify( this.data ),
@@ -68,7 +68,7 @@ export class Token< TokenData extends VersionnedTokenData > {
 
 export class TokenEvent extends CustomEvent< Token< VersionnedTokenData > > {
 	constructor( token: Token< VersionnedTokenData > ) {
-		super( 'vfs:token', { detail: token } );
+		super( 'customerData:token', { detail: token } );
 	}
 }
 

@@ -1,7 +1,7 @@
 /**
  * File Upload Info Block Frontend Styles
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
@@ -10,7 +10,7 @@
 
 @use "~@wordpress/base-styles/colors.native" as colors;
 
-.vfs-upload-success .wp-block-vfs-file-upload-preview {
+.customer-data-upload-success .wp-block-customer-data-file-upload-preview {
 
 	img {
 		// For alt text
@@ -39,7 +39,7 @@
 	}
 }
 
-.wp-block-vfs-file-upload-preview {
+.wp-block-customer-data-file-upload-preview {
 
 	.preview {
 		display: none;
@@ -56,8 +56,8 @@
 	}
 }
 
-.vfs-upload-success .wp-block-vfs-file-upload-preview .success-preview,
-.vfs-upload-error .wp-block-vfs-file-upload-preview .error-preview,
-.vfs-upload-in-progress .wp-block-vfs-file-upload-preview .in-progress-preview {
+.customer-data-upload-success .wp-block-customer-data-file-upload-preview .success-preview,
+.customer-data-upload-error .wp-block-customer-data-file-upload-preview .error-preview,
+.customer-data-upload-in-progress .wp-block-customer-data-file-upload-preview .in-progress-preview {
 	display: block;
 }

@@ -23,14 +23,14 @@ export const Save: React.FC< {
 			<span
 				data-wp-text={
 					showExtension
-						? `vfs::context.file.name`
-						: `vfs::state.getBasename`
+						? `customer-data::context.file.name`
+						: `customer-data::state.getBasename`
 				}
 			/>
 
 			<progress
-				data-wp-bind--value="vfs::context.file.uploaded"
-				data-wp-bind--max="vfs::context.file.size"
+				data-wp-bind--value="customer-data::context.file.uploaded"
+				data-wp-bind--max="customer-data::context.file.size"
 			/>
 		</Container>
 	);
@@ -47,12 +47,12 @@ const Container: React.FC<
 			<a
 				{ ...blockProps }
 				rel="external"
-				title={ __( 'Download the file', 'vfs' ) }
+				title={ __( 'Download the file', 'customer-data' ) }
 				referrerPolicy="strict-origin-when-cross-origin"
-				data-wp-bind--href="vfs::state.downloadUrl"
-				data-wp-bind--download="vfs::context.file.name"
-				data-wp-bind--type="vfs::context.file.type"
-				data-wp-bind--title="vfs::state.downloadTitle"
+				data-wp-bind--href="customer-data::state.downloadUrl"
+				data-wp-bind--download="customer-data::context.file.name"
+				data-wp-bind--type="customer-data::context.file.type"
+				data-wp-bind--title="customer-data::state.downloadTitle"
 			>
 				{ children }
 			</a>

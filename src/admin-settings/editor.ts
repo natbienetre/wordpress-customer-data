@@ -5,7 +5,7 @@
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
- * @description This script registers the VFS sidebar in the WordPress editor.
+ * @description This script registers the CustomerData sidebar in the WordPress editor.
  */
 
 import { enable as enableTokenVisibility } from './token-visibility';

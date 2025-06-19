@@ -2,13 +2,13 @@
 /**
  * KeySet class
  *
- * @package VFS
+ * @package CustomerData
  * @version 1.0.0
  * @author Pierre Peronnet <pierre.peronnet@gmail.com>
  * @license GPL-2.0-or-later
  */
 
-namespace VFS;
+namespace CustomerData;
 
 use DateTime;
 use WP_REST_Server;
@@ -42,7 +42,7 @@ class Swift_Api {
 	 *
 	 * @var string
 	 */
-	public const OPTION_NAME = 'vfs_swift_api';
+	public const OPTION_NAME = 'customer_data_swift_api';
 
 	public const PATH_SEPARATOR = '/';
 
@@ -61,7 +61,7 @@ class Swift_Api {
 	 * @return string[] All HTTP methods.
 	 */
 	public static function all_http_methods() {
-		return apply_filters( 'vfs_swift_api_all_http_methods', array( 'GET', 'PUT', 'DELETE' ) );
+		return apply_filters( 'customer_data_swift_api_all_http_methods', array( 'GET', 'PUT', 'DELETE' ) );
 	}
 
 	/**
@@ -113,7 +113,7 @@ class Swift_Api {
 
 		$prefix = wp_parse_url( $options->get_swift_account_url(), PHP_URL_PATH );
 		if ( false === $prefix ) {
-			return new WP_Error( 'invalid_swift_account_url', __( 'Invalid Swift account URL', 'vfs' ) );
+			return new WP_Error( 'invalid_swift_account_url', __( 'Invalid Swift account URL', 'customer-data' ) );
 		}
 
 		return $prefix . $options->swift_container . self::PATH_SEPARATOR . $options->swift_additional_prefix . ltrim( $path, self::PATH_SEPARATOR );
@@ -131,7 +131,7 @@ class Swift_Api {
 
 		$prefix = wp_parse_url( $options->get_swift_account_url(), PHP_URL_PATH );
 		if ( false === $prefix ) {
-			return new WP_Error( 'invalid_swift_account_url', __( 'Invalid Swift account URL', 'vfs' ) );
+			return new WP_Error( 'invalid_swift_account_url', __( 'Invalid Swift account URL', 'customer-data' ) );
 		}
 
 		return $prefix . $options->swift_container . PATH_SEPARATOR . $path;
@@ -153,14 +153,14 @@ class Swift_Api {
 
 		if ( false === $path && false === $path_prefix ) {
 			return new WP_REST_Response(
-				new WP_Error( 'invalid_path', __( 'Path or path prefix is required', 'vfs' ) ),
+				new WP_Error( 'invalid_path', __( 'Path or path prefix is required', 'customer-data' ) ),
 				400
 			);
 		}
 
 		if ( $path && $path_prefix ) {
 			return new WP_REST_Response(
-				new WP_Error( 'invalid_path', __( 'Path and path prefix cannot both be set', 'vfs' ) ),
+				new WP_Error( 'invalid_path', __( 'Path and path prefix cannot both be set', 'customer-data' ) ),
 				400
 			);
 		}
@@ -197,18 +197,18 @@ class Swift_Api {
 	 */
 	public function generate_signature( $path, $method, $expires_at, $prefix = true ) {
 		if ( ! in_array( $method, self::all_http_methods(), true ) ) {
-			return new WP_Error( 'invalid_method', __( 'Invalid method', 'vfs' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_method', __( 'Invalid method', 'customer-data' ), array( 'status' => 400 ) );
 		}
 
 		if ( ! ( $expires_at instanceof DateTime ) ) {
 			$expires_at = $expires_at ? new DateTime( $expires_at ) : new DateTime( '+365 days' );
 		}
 		if ( ! $expires_at ) {
-			return new WP_Error( 'invalid_expires_at', __( 'Invalid expiration date', 'vfs' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_expires_at', __( 'Invalid expiration date', 'customer-data' ), array( 'status' => 400 ) );
 		}
 
 		if ( $expires_at < new DateTime() ) {
-			return new WP_Error( 'invalid_expires_at', __( 'Expiration date cannot be in the past', 'vfs' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_expires_at', __( 'Expiration date cannot be in the past', 'customer-data' ), array( 'status' => 400 ) );
 		}
 
 		$absolute_path = $this->absolute_path_with_prefix( $path );
