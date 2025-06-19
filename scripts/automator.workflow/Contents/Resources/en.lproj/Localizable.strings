@@ -1,0 +1,17 @@
+/*
+ * English translations for VFS Token Creation Workflow
+ * Base translations for the VFS token creation workflow
+ */
+
+/* Button text */
+"OK" = "OK";
+
+/* Error messages */
+"No email address provided" = "No email address provided";
+"Multiple email addresses provided" = "Multiple email addresses provided";
+"Error retrieving contact: %s" = "Error retrieving contact: %s";
+"Error retrieving credentials: %s" = "Error retrieving credentials: %s";
+"Error creating token: %s" = "Error creating token: %s";
+
+/* Success message */
+"The URL for %s has been copied to clipboard." = "The URL for %s has been copied to clipboard.";
