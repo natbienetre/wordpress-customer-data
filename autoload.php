@@ -22,7 +22,7 @@ spl_autoload_register(
 		}
 
 		// Trim the CustomerData prefix.
-		$class_name = substr( $class_name, 4 );
+		$class_name = substr( $class_name, 13 ); // length of "CustomerData\\"
 
 		// Replace underscores with hyphens.
 		$class_name = str_replace( '_', '-', $class_name );

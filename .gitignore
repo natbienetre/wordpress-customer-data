@@ -1,7 +1,9 @@
 /vendor/
 *.zip
-
-build/
+/.circleci/
+/bin
+/build/
+/tests/test-sample.php
 
 /languages/customer-data-*.json
 /languages/customer-data-*.php
