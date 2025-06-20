@@ -2,7 +2,7 @@
 	"name": "natbienetre/customer-data",
 	"description": "Plugin WordPress to manager files via Swift",
 	"type": "wordpress-plugin",
-	"license": "GPL-2.0-or-later",
+	"license": "MPL-2.0",
 	"authors": [
 		{
 			"name": "Pierre Peronnet",
