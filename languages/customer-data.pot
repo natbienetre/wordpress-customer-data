@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-19T15:51:24+00:00\n"
+"POT-Creation-Date: 2025-06-20T11:16:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: customer-data\n"
 
 #. Plugin Name of the plugin
@@ -105,6 +105,9 @@ msgid "Set Main"
 msgstr ""
 
 #: classes/class-keyset.php:328
+#: build/admin-settings/editor.js:4
+#: build/admin-settings/editor.js:10
+#: build/blocks/file-upload-delete/admin.js:1
 msgid "Delete"
 msgstr ""
 
@@ -114,6 +117,7 @@ msgstr ""
 
 #. translators: %s: Key ID
 #: classes/class-keyset.php:532
+#, php-format
 msgid "Key not found: %s"
 msgstr ""
 
@@ -128,6 +132,7 @@ msgstr ""
 
 #. translators: %s: Key ID
 #: classes/class-keyset.php:610
+#, php-format
 msgid "No key found for %s"
 msgstr ""
 
@@ -169,6 +174,7 @@ msgstr ""
 
 #. translators: %s: Key ID
 #: classes/class-options.php:731
+#, php-format
 msgid "Main key %s not found"
 msgstr ""
 
@@ -182,6 +188,7 @@ msgstr ""
 
 #. translators: %s: Swift region
 #: classes/class-options.php:769
+#, php-format
 msgid "Swift region %s is not available."
 msgstr ""
 
@@ -191,6 +198,7 @@ msgstr ""
 
 #. translators: %s: Swift account URL from the catalog
 #: classes/class-options.php:796
+#, php-format
 msgid "Swift account URL does not match the catalog URL. The catalog URL is %s."
 msgstr ""
 
@@ -200,6 +208,7 @@ msgstr ""
 
 #. translators: %s: Error message
 #: classes/class-options.php:817
+#, php-format
 msgid "Invalid container configuration: %s"
 msgstr ""
 
@@ -209,6 +218,7 @@ msgstr ""
 
 #. translators: %1$s: selected algorithm, %2$s: supported algorithms list.
 #: classes/class-options.php:843
+#, php-format
 msgid "Algorithm %1$s is not supported. The only supported algorithm is: %2$s."
 msgid_plural "Algorithm %1$s is not supported. The supported algorithms are: %2$s."
 msgstr[0] ""
@@ -220,6 +230,7 @@ msgid ", "
 msgstr ""
 
 #: classes/class-settings-page.php:124
+#: build/admin-settings/editor.js:10
 msgid "Settings"
 msgstr ""
 
@@ -393,6 +404,7 @@ msgstr ""
 
 #. translators: %s: Container name
 #: classes/class-temp-keys.php:59
+#, php-format
 msgid "Container %s does not exist."
 msgstr ""
 
@@ -474,6 +486,7 @@ msgid "VCard file"
 msgstr ""
 
 #: classes/class-tool-create-token.php:350
+#: build/admin-settings/editor.js:10
 msgid "Email"
 msgstr ""
 
@@ -486,10 +499,12 @@ msgid "Never expires"
 msgstr ""
 
 #: classes/class-tool-create-token.php:375
+#: build/admin-settings/editor.js:1
 msgid "Expires at"
 msgstr ""
 
 #: classes/class-tool-create-token.php:387
+#: build/admin-settings/editor.js:10
 msgid "Scope"
 msgstr ""
 
@@ -506,10 +521,12 @@ msgid "Write"
 msgstr ""
 
 #: classes/class-tool-create-token.php:418
+#: build/admin-settings/editor.js:10
 msgid "Display name"
 msgstr ""
 
 #: classes/class-tool-create-token.php:430
+#: build/admin-settings/editor.js:1
 msgid "User ID"
 msgstr ""
 
@@ -525,10 +542,12 @@ msgstr ""
 
 #. translators: %s is the user ID.
 #: classes/class-tool-create-token.php:501
+#, php-format
 msgid "The token for <i>%s</i> has been created successfully."
 msgstr ""
 
 #: classes/class-tool-create-token.php:503
+#: build/admin-settings/tool-create-token.js:1
 msgid "Copy"
 msgstr ""
 
@@ -545,6 +564,7 @@ msgid "Inspect"
 msgstr ""
 
 #: classes/class-tool-inspect-token.php:227
+#: build/admin-settings/editor.js:1
 msgid "Version"
 msgstr ""
 
@@ -565,9 +585,9 @@ msgid "Methods:"
 msgstr ""
 
 #. translators: %s is the error message.
-#. translators: %s is the error message
 #: classes/class-tool-inspect-token.php:299
 #: build/admin-settings/tool-inspect-token-interactivity.js:4
+#, php-format,js-format
 msgid "Invalid token: %s"
 msgstr ""
 
@@ -585,12 +605,253 @@ msgstr ""
 
 #. translators: %s is the action name.
 #: classes/class-users-page.php:91
+#, php-format
 msgid "Invalid nonce for action <i>%s</i>"
 msgstr ""
 
 #. translators: %1$s: URL to create a read token, %2$s: URL to create a write token, %3$s: URL to create a full token.
 #: classes/class-users-page.php:181
+#, php-format
 msgid "New <a href=\"%1$s\">read</a>, <a href=\"%2$s\">write</a> or <a href=\"%3$s\">full token</a>"
+msgstr ""
+
+#: build/admin-settings/editor.js:1
+msgid "Page space"
+msgstr ""
+
+#: build/admin-settings/editor.js:1
+msgid "Signatures"
+msgstr ""
+
+#: build/admin-settings/editor.js:1
+msgid "JSON Web Key Set list"
+msgstr ""
+
+#: build/admin-settings/editor.js:1
+msgid "Generate a key"
+msgstr ""
+
+#. translators: %1$s is the key ID, %2$s is the error message.
+#: build/admin-settings/editor.js:4
+#, js-format
+msgid "Failed to delete key %1$s: %2$s"
+msgstr ""
+
+#: build/admin-settings/editor.js:4
+msgid "Are you sure you want to delete this key?"
+msgstr ""
+
+#: build/admin-settings/editor.js:4
+msgid "This action cannot be undone."
+msgstr ""
+
+#: build/admin-settings/editor.js:4
+msgid "This action will delete the key from the server and invalidate all tokens signed with it."
+msgstr ""
+
+#. translators: %s is the error message
+#: build/admin-settings/editor.js:7
+#, js-format
+msgid "Failed to zip files: %s"
+msgstr ""
+
+#. translators: %d is the number of files
+#: build/admin-settings/editor.js:10
+#, js-format
+msgid "Download %d file"
+msgid_plural "Download %d files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/admin-settings/editor.js:10
+#: build/blocks/file-upload-download/admin.js:1
+msgid "Download"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Users spaces"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Accessibility"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Block visibility helper"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Files"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Create a new space"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Temporary URL"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Failed to generate temporary URL"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Go back"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Identifier"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Generate temporary URL"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Generated URL"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Copy to clipboard"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Inspect a token"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "ID"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "User"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Browse"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "User files"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Visibility settings"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Display if the token is valid"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Display if the token is invalid"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Display if the token is loading"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "File type"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Upload destination folder"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Enter destination"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Icon"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Name"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Remote path"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+#: build/blocks/token-input/admin.js:1
+msgid "Type"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Size"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Date"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Create a token"
+msgstr ""
+
+#: build/admin-settings/editor.js:10
+msgid "Generate a token"
+msgstr ""
+
+#. translators: %s is the error message
+#: build/admin-settings/editor.js:73
+#, js-format
+msgid "An unknown error occurred: %s"
+msgstr ""
+
+#: build/admin-settings/editor.js:73
+msgid "Token to inspect"
+msgstr ""
+
+#: build/admin-settings/editor.js:73
+msgctxt "Token placeholder"
+msgid "xxxxxheaderxxxxx.yyyyypayloadyyyyyy.zzzzzsignaturezzzzz"
+msgstr ""
+
+#: build/admin-settings/editor.js:73
+msgid "Enter the token to inspect."
+msgstr ""
+
+#: build/admin-settings/editor.js:73
+msgid "Token details will appear here."
+msgstr ""
+
+#: build/admin-settings/editor.js:73
+msgid "Untrusted token, did you delete the key?"
+msgstr ""
+
+#: build/admin-settings/editor.js:73
+msgid "Invalid token format"
+msgstr ""
+
+#. translators: %s is the error code.
+#: build/admin-settings/editor.js:76
+#, js-format
+msgid "Invalid token: code %s"
+msgstr ""
+
+#: build/admin-settings/editor.js:76
+msgid "No CustomerData blocks found, please insert a CustomerData block"
+msgstr ""
+
+#. translators: %d is the number of blocks
+#: build/admin-settings/editor.js:79
+#, js-format
+msgid "%d block found"
+msgid_plural "%d blocks found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/admin-settings/editor.js:79
+msgid "Select the next block"
+msgstr ""
+
+#: build/admin-settings/editor.js:79
+msgid "Validating token…"
 msgstr ""
 
 #: build/admin-settings/tool-create-token-interactivity.js:1
@@ -601,16 +862,365 @@ msgstr ""
 msgid "Creating…"
 msgstr ""
 
+#: build/admin-settings/tool-create-token.js:1
+msgid "Copying…"
+msgstr ""
+
+#: build/admin-settings/tool-create-token.js:1
+msgid "Copied!"
+msgstr ""
+
+#: build/blocks/file-upload-date/admin.js:1
+msgid "File upload date"
+msgstr ""
+
+#: build/blocks/file-upload-date/admin.js:1
+msgid "Relative date"
+msgstr ""
+
+#: build/blocks/file-upload-date/admin.js:1
+msgid "Display the date relative to the current time"
+msgstr ""
+
+#: build/blocks/file-upload-delete/admin.js:1
+#: build/blocks/file-upload-download/admin.js:1
+#: build/blocks/file-upload-fileinfo/admin.js:1
+#: build/blocks/file-upload-preview/admin.js:1
+#: build/blocks/file-upload/admin.js:13
+msgid "File upload settings"
+msgid_plural "Files upload settings"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/blocks/file-upload-delete/admin.js:1
+#: build/blocks/file-upload-download/admin.js:1
+msgid "Use Icon"
+msgstr ""
+
+#: build/blocks/file-upload-delete/admin.js:1
+#: build/blocks/file-upload-download/admin.js:1
+msgid "If checked, the button will display an icon."
+msgstr ""
+
+#: build/blocks/file-upload-delete/admin.js:1
+#: build/blocks/file-upload-download/admin.js:1
+msgid "Link Style"
+msgstr ""
+
+#: build/blocks/file-upload-delete/admin.js:1
+#: build/blocks/file-upload-download/admin.js:1
+msgid "If checked, the button will be styled as a link."
+msgstr ""
+
+#: build/blocks/file-upload-delete/admin.js:1
+msgid "Confirmation Dialog"
+msgstr ""
+
+#: build/blocks/file-upload-delete/admin.js:1
+msgid "If checked, the button will display a confirmation dialog."
+msgstr ""
+
+#. translators: %s is the name of the file.
 #: build/blocks/file-upload-delete/frontend-interactivity.js:1
+#: build/blocks/file-upload-delete/frontend.js:3
+#, js-format
 msgid "Delete %s"
 msgstr ""
 
+#. translators: %s is the name of the file.
 #: build/blocks/file-upload-delete/frontend-interactivity.js:1
+#: build/blocks/file-upload-delete/frontend.js:5
+#, js-format
 msgid "Are you sure you want to delete %s?"
+msgstr ""
+
+#: build/blocks/file-upload-download/admin.js:1
+msgid "Use JavaScript download"
+msgstr ""
+
+#: build/blocks/file-upload-download/admin.js:1
+#: build/blocks/file-upload-filename/admin.js:1
+msgid "Download the file"
 msgstr ""
 
 #. translators: %s is the name of the file.
 #: build/blocks/file-upload-download/frontend-interactivity.js:4
 #: build/blocks/file-upload-filename/frontend-interactivity.js:4
+#, js-format
 msgid "Download %s"
+msgstr ""
+
+#: build/blocks/file-upload-fileinfo/admin.js:1
+msgid "Destination"
+msgstr ""
+
+#: build/blocks/file-upload-fileinfo/admin.js:1
+msgid "Enter the name where the file(s) are saved."
+msgstr ""
+
+#: build/blocks/file-upload-filename/admin.js:1
+msgctxt "Default file name"
+msgid "filename.png"
+msgstr ""
+
+#: build/blocks/file-upload-filename/admin.js:1
+msgctxt "Default file name without extension"
+msgid "filename"
+msgstr ""
+
+#: build/blocks/file-upload-filename/admin.js:1
+msgctxt "File upload filename block"
+msgid "File upload settings"
+msgstr ""
+
+#: build/blocks/file-upload-filename/admin.js:1
+msgid "Show file(s) extension"
+msgstr ""
+
+#: build/blocks/file-upload-filename/admin.js:1
+msgid "Link to download the file"
+msgstr ""
+
+#: build/blocks/file-upload-filename/admin.js:1
+msgid "If enabled, the name of the file will be a link to download the file."
+msgstr ""
+
+#: build/blocks/file-upload-preview/admin.js:1
+msgid "Preview"
+msgstr ""
+
+#: build/blocks/file-upload-preview/admin.js:1
+msgid "Error"
+msgstr ""
+
+#: build/blocks/file-upload-preview/admin.js:1
+msgid "In progress"
+msgstr ""
+
+#: build/blocks/file-upload-preview/admin.js:1
+msgid "Use image preview (if possible)"
+msgid_plural "Use image previews (if possible)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/blocks/file-upload-preview/admin.js:1
+msgid "Image preview"
+msgstr ""
+
+#: build/blocks/file-upload-preview/admin.js:1
+msgid "image/preview"
+msgstr ""
+
+#: build/blocks/file-upload/admin.js:1
+msgid "Unlimited uploads"
+msgstr ""
+
+#: build/blocks/file-upload/admin.js:1
+msgid "Single upload"
+msgstr ""
+
+#. translators: %s is the number of files
+#: build/blocks/file-upload/admin.js:4
+#, js-format
+msgid "%s uploads"
+msgstr ""
+
+#. translators: %s is the destination
+#: build/blocks/file-upload/admin.js:7
+#, js-format
+msgid "Unlimited uploads to %s"
+msgstr ""
+
+#. translators: %s is the destination
+#: build/blocks/file-upload/admin.js:10
+#, js-format
+msgid "Single upload to %s"
+msgstr ""
+
+#. translators: %1$s is the number of files, %2$s is the destination
+#: build/blocks/file-upload/admin.js:13
+#, js-format
+msgid "%1$s uploads to %2$s"
+msgstr ""
+
+#: build/blocks/file-upload/admin.js:13
+msgid "Number of files to upload"
+msgstr ""
+
+#: build/blocks/file-upload/admin.js:13
+msgid "The number of files that can be uploaded."
+msgstr ""
+
+#: build/blocks/file-upload/admin.js:13
+msgid "0 means unlimited."
+msgstr ""
+
+#: build/blocks/file-upload/admin.js:13
+msgid "Link style"
+msgstr ""
+
+#: build/blocks/file-upload/admin.js:13
+msgid "Destination directory"
+msgstr ""
+
+#: build/blocks/file-upload/admin.js:13
+msgid "Destination File Name"
+msgid_plural "Destination directory"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/blocks/file-upload/admin.js:13
+msgid "Enter the name of the file where the uploaded file will be saved."
+msgid_plural "Enter the name of the directory where the uploaded files will be saved."
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/blocks/file-upload/admin.js:13
+msgid "Allowed file types"
+msgstr ""
+
+#: build/blocks/file-upload/admin.js:13
+msgid "Automatically extract archive"
+msgstr ""
+
+#: build/blocks/file-upload/admin.js:13
+msgid "Add files"
+msgstr ""
+
+#: build/blocks/file-upload/admin.js:13
+msgid "Select file"
+msgid_plural "Select files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/blocks/token-input/admin.js:1
+msgid "Token input settings"
+msgstr ""
+
+#: build/blocks/token-input/admin.js:1
+msgid "Placeholder"
+msgstr ""
+
+#: build/blocks/token-input/admin.js:1
+msgid "The placeholder text for the input."
+msgstr ""
+
+#: build/blocks/token-input/admin.js:1
+msgid "Autopopulate"
+msgstr ""
+
+#: build/blocks/token-input/admin.js:1
+msgid "Text"
+msgstr ""
+
+#: build/blocks/token-input/admin.js:1
+msgid "Password"
+msgstr ""
+
+#: build/blocks/token-input/admin.js:1
+msgid "The token from the query"
+msgstr ""
+
+#: build/blocks/token-input/admin.js:1
+msgid "Paste your token here"
+msgstr ""
+
+#: build/blocks/file-upload-date/block.json
+msgctxt "block title"
+msgid "File Upload Date"
+msgstr ""
+
+#: build/blocks/file-upload-date/block.json
+msgctxt "block description"
+msgid "Date of the uploaded file"
+msgstr ""
+
+#: build/blocks/file-upload-delete/block.json
+msgctxt "block title"
+msgid "Delete uploaded file"
+msgstr ""
+
+#: build/blocks/file-upload-delete/block.json
+msgctxt "block description"
+msgid "Button to delete the uploaded file"
+msgstr ""
+
+#: build/blocks/file-upload-download/block.json
+msgctxt "block title"
+msgid "Download uploaded file"
+msgstr ""
+
+#: build/blocks/file-upload-download/block.json
+msgctxt "block description"
+msgid "Button to download the uploaded file"
+msgstr ""
+
+#: build/blocks/file-upload-fileinfo/block.json
+msgctxt "block title"
+msgid "Block representing a single uploaded file"
+msgstr ""
+
+#: build/blocks/file-upload-fileinfo/block.json
+msgctxt "block description"
+msgid "Display file information"
+msgstr ""
+
+#: build/blocks/file-upload-filename/block.json
+msgctxt "block title"
+msgid "File Upload Filename"
+msgstr ""
+
+#: build/blocks/file-upload-filename/block.json
+msgctxt "block description"
+msgid "Filename of the uploaded file"
+msgstr ""
+
+#: build/blocks/file-upload-preview/block.json
+msgctxt "block title"
+msgid "File Upload Preview"
+msgstr ""
+
+#: build/blocks/file-upload-preview/block.json
+msgctxt "block description"
+msgid "Preview of the uploaded file"
+msgstr ""
+
+#: build/blocks/file-upload-size/block.json
+msgctxt "block title"
+msgid "File Upload Size"
+msgstr ""
+
+#: build/blocks/file-upload-size/block.json
+msgctxt "block description"
+msgid "Size of the uploaded file"
+msgstr ""
+
+#: build/blocks/file-upload-type/block.json
+msgctxt "block title"
+msgid "File Type"
+msgstr ""
+
+#: build/blocks/file-upload-type/block.json
+msgctxt "block description"
+msgid "Type of the uploaded file"
+msgstr ""
+
+#: build/blocks/file-upload/block.json
+msgctxt "block title"
+msgid "File Upload"
+msgstr ""
+
+#: build/blocks/file-upload/block.json
+msgctxt "block description"
+msgid "Upload a file or multiple files"
+msgstr ""
+
+#: build/blocks/token-input/block.json
+msgctxt "block title"
+msgid "Token Input"
+msgstr ""
+
+#: build/blocks/token-input/block.json
+msgctxt "block description"
+msgid "Input a token"
 msgstr ""

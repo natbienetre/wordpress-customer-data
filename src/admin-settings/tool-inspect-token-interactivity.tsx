@@ -117,7 +117,7 @@ const { state } = store( 'customer-data-admin-tools-token-inspection', {
 						valid: false,
 						notices: [
 							sprintf(
-								// translators: %s is the error message
+								// translators: %s is the error message.
 								__( 'Invalid token: %s', 'customer-data' ),
 								error.message
 							),
