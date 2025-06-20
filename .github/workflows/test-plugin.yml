@@ -1,0 +1,116 @@
+name: Test WordPress plugin
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  yaml-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ibiqlik/action-yamllint@v3
+        with:
+          config_data: |-
+            extends: default
+            rules:
+              document-start:
+                present: false
+              truthy:
+                check-keys: false
+            ignore:
+              - node_modules
+              - vendor
+
+  php-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: overtrue/phplint@9.1.2
+
+  composer-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: test ! -f composer.json || composer validate --strict
+
+  wordpress-phpunit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: :opcache
+
+      - name: Enabled Corepack
+        run: corepack enable
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'yarn'
+
+      - name: Install node dependencies
+        run: yarn install --immutable
+
+      - name: Compile assets
+        run: yarn build
+
+      - name: Run tests
+        id: test
+        uses: holyhope/test-wordpress-plugin-github-action@v2.0.2
+        with:
+          plugin_slug: customer-data
+
+      - uses: mikepenz/action-junit-report@v3
+        if: always()
+        with:
+          report_paths: ${{ steps.test.outputs.junit_report }}
+
+  language-files-up-to-date:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Enabled Corepack
+        run: corepack enable
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'yarn'
+
+      - name: Install node dependencies
+        run: yarn install --immutable
+
+      - name: Compile assets
+        run: yarn build
+
+      - uses: holyhope/test-wordpress-languages-github-action@v4.0.2
+        id: languages
+        with:
+          slug: customer-data
+          exclude: |-
+            .git
+            .github
+            .yarn
+            node_modules
+            src
+            tests
+            vendor
+
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.languages.outputs.patch_path != ''
+        with:
+          name: language-patch
+          path: ${{ steps.languages.outputs.patch_path }}
