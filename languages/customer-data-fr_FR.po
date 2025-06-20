@@ -126,7 +126,7 @@ msgctxt "The openstack identity API version"
 msgid "v2"
 msgstr "v2"
 
-#: classes/class-keyset.php:328
+#: classes/class-keyset.php:336
 #: build/admin-settings/editor.js:4
 #: build/admin-settings/editor.js:10
 #: build/blocks/file-upload-delete/admin.js:1
@@ -151,34 +151,34 @@ msgstr "URL JWKS"
 msgid "This section allows you to manage the key management."
 msgstr "Cette section vous permet de gérer la gestion des clés."
 
-#: classes/class-keyset.php:161
-#: classes/class-keyset.php:213
-#: classes/class-keyset.php:520
+#: classes/class-keyset.php:169
+#: classes/class-keyset.php:221
+#: classes/class-keyset.php:528
 msgid "No key provided"
 msgstr "Aucune clé fournie"
 
 #. translators: %s: Key ID
-#: classes/class-keyset.php:532
+#: classes/class-keyset.php:540
 #, php-format
 msgid "Key not found: %s"
 msgstr "Clé non trouvée : %s"
 
-#: classes/class-keyset.php:563
-#: classes/class-keyset.php:589
+#: classes/class-keyset.php:571
+#: classes/class-keyset.php:597
 msgid "No keys found"
 msgstr "Aucune clé trouvée"
 
-#: classes/class-keyset.php:600
+#: classes/class-keyset.php:608
 msgid "No valid key found"
 msgstr "Aucune clé valide trouvée"
 
 #. translators: %s: Key ID
-#: classes/class-keyset.php:610
+#: classes/class-keyset.php:618
 #, php-format
 msgid "No key found for %s"
 msgstr "Aucune clé trouvée pour %s"
 
-#: classes/class-keyset.php:621
+#: classes/class-keyset.php:629
 msgid "No payload provided"
 msgstr "Aucune charge utile fournie"
 
@@ -336,43 +336,43 @@ msgstr "Cette section vous permet de gérer les paramètres généraux."
 msgid "Failed to get signature keys from Swift."
 msgstr "Échec de la récupération des clés de signature depuis Swift."
 
-#: classes/class-temp-keys.php:39
-#: classes/class-temp-keys.php:81
+#: classes/class-temp-keys.php:47
+#: classes/class-temp-keys.php:89
 msgctxt "temp keys table header"
 msgid "Key"
 msgstr "Clé"
 
-#: classes/class-temp-keys.php:40
+#: classes/class-temp-keys.php:48
 msgctxt "temp keys table header"
 msgid "Keys"
 msgstr "Clés"
 
-#: classes/class-temp-keys.php:79
+#: classes/class-temp-keys.php:87
 msgctxt "temp keys table header"
 msgid "Context"
 msgstr "Contexte"
 
-#: classes/class-temp-keys.php:80
+#: classes/class-temp-keys.php:88
 msgctxt "temp keys table header"
 msgid "Metadata Key"
 msgstr "Clé de métadonnées"
 
-#: classes/class-temp-keys.php:179
+#: classes/class-temp-keys.php:187
 msgctxt "temp keys table cell"
 msgid "Container"
 msgstr "Conteneur"
 
-#: classes/class-temp-keys.php:179
+#: classes/class-temp-keys.php:187
 msgctxt "temp keys table cell"
 msgid "Account"
 msgstr "Compte"
 
-#: classes/class-temp-keys.php:180
+#: classes/class-temp-keys.php:188
 msgctxt "temp keys table cell"
 msgid "Key 1"
 msgstr "Clé 1"
 
-#: classes/class-temp-keys.php:180
+#: classes/class-temp-keys.php:188
 msgctxt "temp keys table cell"
 msgid "Key 2"
 msgstr "Clé 2"
@@ -395,72 +395,72 @@ msgstr[1] "Clés de signature"
 msgid "Keys set"
 msgstr "Jeu de clés"
 
-#: classes/class-keyset.php:101
+#: classes/class-keyset.php:109
 msgctxt "keyset table header"
 msgid "Key"
 msgstr "Clé"
 
-#: classes/class-keyset.php:102
+#: classes/class-keyset.php:110
 msgctxt "keyset table header"
 msgid "Keys"
 msgstr "Clés"
 
-#: classes/class-keyset.php:111
+#: classes/class-keyset.php:119
 msgctxt "keyset table header"
 msgid "Key ID"
 msgstr "ID de clé"
 
-#: classes/class-keyset.php:112
+#: classes/class-keyset.php:120
 msgctxt "keyset table header"
 msgid "Public Key"
 msgstr "Clé publique"
 
-#: classes/class-keyset.php:113
+#: classes/class-keyset.php:121
 msgctxt "keyset table header"
 msgid "Algorithm"
 msgstr "Algorithme"
 
-#: classes/class-keyset.php:114
+#: classes/class-keyset.php:122
 msgctxt "keyset table header"
 msgid "Curve"
 msgstr "Courbe"
 
-#: classes/class-keyset.php:115
+#: classes/class-keyset.php:123
 msgctxt "keyset table header"
 msgid "Key Type"
 msgstr "Type de clé"
 
-#: classes/class-keyset.php:156
-#: classes/class-keyset.php:183
-#: classes/class-keyset.php:203
-#: classes/class-temp-keys.php:109
+#: classes/class-keyset.php:164
+#: classes/class-keyset.php:191
+#: classes/class-keyset.php:211
+#: classes/class-temp-keys.php:117
 msgid "Invalid nonce"
 msgstr "Nonce invalide"
 
-#: classes/class-keyset.php:253
+#: classes/class-keyset.php:261
 msgid "No keys found. Please create your first key."
 msgstr "Aucune clé trouvée. Veuillez créer votre première clé."
 
-#: classes/class-keyset.php:313
-#: classes/class-temp-keys.php:214
+#: classes/class-keyset.php:321
+#: classes/class-temp-keys.php:222
 msgid "Set Main"
 msgstr "Définir comme principale"
 
-#: classes/class-temp-keys.php:78
+#: classes/class-temp-keys.php:86
 msgctxt "temp keys table header"
 msgid "Location"
 msgstr "Emplacement"
 
-#: classes/class-temp-keys.php:114
+#: classes/class-temp-keys.php:122
 msgid "Invalid key location"
 msgstr "Emplacement de clé invalide"
 
-#: classes/class-temp-keys.php:156
+#: classes/class-temp-keys.php:164
 msgctxt "placeholder for temp key value"
 msgid "********"
 msgstr "********"
 
-#: classes/class-temp-keys.php:239
+#: classes/class-temp-keys.php:247
 msgid "No keys found. Please add a key to the container or account and refresh the page."
 msgstr "Aucune clé trouvée. Veuillez ajouter une clé au conteneur ou au compte et actualiser la page."
 
@@ -579,12 +579,12 @@ msgstr "Outils du système de fichiers visiteur"
 msgid "New <a href=\"%1$s\">read</a>, <a href=\"%2$s\">write</a> or <a href=\"%3$s\">full token</a>"
 msgstr "Nouveau <a href=\"%1$s\">jeton de lecture</a>, <a href=\"%2$s\">jeton d'écriture</a> ou <a href=\"%3$s\">jeton complet</a>"
 
-#: classes/class-keyset.php:366
+#: classes/class-keyset.php:374
 msgid "Create a new key"
 msgstr "Créer une nouvelle clé"
 
 #. translators: %s: Container name
-#: classes/class-temp-keys.php:59
+#: classes/class-temp-keys.php:67
 #, php-format
 msgid "Container %s does not exist."
 msgstr "Le conteneur %s n'existe pas."

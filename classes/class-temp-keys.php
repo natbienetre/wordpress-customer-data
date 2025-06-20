@@ -7,8 +7,16 @@
 
 namespace CustomerData;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use OpenStack\ObjectStore\v1\Service;
 use WP_Error;
+
+if ( ! class_exists( '\WP_List_Table' ) ) {
+	require_once ABSPATH . 'wp-admin/includes/admin.php';
+}
 
 /**
  * Class Temp_Keys

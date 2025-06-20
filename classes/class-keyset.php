@@ -10,6 +10,10 @@
 
 namespace CustomerData;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use Exception;
 use WP_REST_Server;
 use WP_REST_Request;
@@ -21,6 +25,10 @@ use Jose\Component\Signature\JWSBuilder;
 use Jose\Component\Signature\Serializer\CompactSerializer;
 use Jose\Component\Core\JWKSet;
 use Jose\Component\KeyManagement\JWKFactory;
+
+if ( ! class_exists( '\WP_List_Table' ) ) {
+	require_once ABSPATH . 'wp-admin/includes/admin.php';
+}
 
 /**
  * Class Keyset
