@@ -114,5 +114,5 @@
 		"test:unit": "wp-scripts test-unit-js",
 		"test:unit:watch": "wp-scripts test-unit-js --watch"
 	},
-	"packageManager": "yarn@4.0.2"
+	"packageManager": "yarn@4.9.2"
 }
