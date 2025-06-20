@@ -2,11 +2,11 @@ name: Build WordPress Plugin
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths-ignore:
       - 'scripts/automator.workflow/**'
   pull_request:
-    branches: [ main ]
+    branches: [main]
     paths-ignore:
       - 'scripts/automator.workflow/**'
   workflow_dispatch:
@@ -86,19 +86,23 @@ jobs:
       - name: Create plugin archive
         run: |
           cd build
-          tar -czvf "visitor-filesystem-${{ steps.version.outputs.version }}.tar.gz" visitor-filesystem/
+          tar -czv \
+            -f "visitor-filesystem.tar.gz" \
+            visitor-filesystem/
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: visitor-filesystem-${{ steps.version.outputs.version }}
-          path: 'build/visitor-filesystem-${{ steps.version.outputs.version }}.tar.gz'
+          path: >-
+            build/visitor-filesystem.tar.gz
 
-      - name: Create release (on push to main/master)
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      - name: Create release (on push to main)
+        if: github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v2
         with:
-          files: build/visitor-filesystem-${{ steps.version.outputs.version }}.tar.gz
+          files: >-
+            build/visitor-filesystem.tar.gz
           tag_name: v${{ steps.version.outputs.version }}
           name: Visitor FileSystem v${{ steps.version.outputs.version }}
           body: |
@@ -106,7 +110,8 @@ jobs:
 
             ## Installation
             1. Download the `.tar.gz` file and extract it
-            2. Upload the `visitor-filesystem` folder to your WordPress `/wp-content/plugins/` directory
+            2. Upload the `visitor-filesystem` folder to your WordPress
+               `/wp-content/plugins/` directory
             3. Activate the plugin from the WordPress admin panel
 
             ## Features
