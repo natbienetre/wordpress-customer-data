@@ -149,14 +149,14 @@ class Users_Page {
 	public static function user_row_actions( $actions, $user_object ) {
 		$query              = add_query_arg(
 			array(
-				'action'                          => self::CREATE_TOKEN_ACTION,
-				'customer-data-token-creation-user-id'      => $user_object->user_login,
-				'customer-data-token-creation-expires-at'   => gmdate( 'Y-m-d', time() + 3600 * 24 * 365 ),
+				'action'                                  => self::CREATE_TOKEN_ACTION,
+				'customer-data-token-creation-user-id'    => $user_object->user_login,
+				'customer-data-token-creation-expires-at' => gmdate( 'Y-m-d', time() + 3600 * 24 * 365 ),
 				'customer-data-token-creation-display-name' => $user_object->display_name,
-				'customer-data-token-creation-email'        => $user_object->user_email,
-				'customer-data-token-creation-scope'        => '',
-				'_wpnonce'                        => wp_create_nonce( self::CREATE_TOKEN_ACTION ),
-				'_wp_http_referer'                => remove_query_arg(
+				'customer-data-token-creation-email'      => $user_object->user_email,
+				'customer-data-token-creation-scope'      => '',
+				'_wpnonce'                                => wp_create_nonce( self::CREATE_TOKEN_ACTION ),
+				'_wp_http_referer'                        => remove_query_arg(
 					array(
 						'action',
 						'result',
