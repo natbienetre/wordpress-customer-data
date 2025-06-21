@@ -75,7 +75,7 @@ jobs:
       - name: Compile assets
         run: yarn build
 
-      - uses: holyhope/test-wordpress-languages-github-action@v4.0.1
+      - uses: holyhope/test-wordpress-languages-github-action@214be660dff9381d2d9ff17f8cc620d8d66fcd19
         id: languages
         with:
           slug: customer-data
