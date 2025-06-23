@@ -44,12 +44,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.4'
-          extensions: :opcache
-
       - name: Enabled Corepack
         run: corepack enable
 
@@ -70,6 +64,7 @@ jobs:
         uses: holyhope/test-wordpress-plugin-github-action@v2.0.2
         with:
           plugin_slug: customer-data
+          php_version: '8.3'
 
       - uses: mikepenz/action-junit-report@v3
         if: always()
