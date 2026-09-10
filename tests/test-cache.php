@@ -254,15 +254,20 @@ class TestCache extends WP_UnitTestCase {
 		$key = '';
 		$value = 'empty_key_value';
 
-		// Set value with empty key
+		// Since WordPress 6.1, WP_Object_Cache rejects empty-string keys
+		// (triggers _doing_it_wrong() and returns false without storing
+		// anything). Verify Cache::set()/Cache::get() surface that behavior
+		// rather than silently caching under an empty key.
+		$this->setExpectedIncorrectUsage( 'WP_Object_Cache::set' );
+		$this->setExpectedIncorrectUsage( 'WP_Object_Cache::get' );
 		CustomerData\Cache::set( $key, $value );
 
 		// Get value from cache
 		$found = false;
 		$cached_value = CustomerData\Cache::get( $key, false, $found );
 
-		$this->assertEquals( $value, $cached_value );
-		$this->assertTrue( $found );
+		$this->assertFalse( $cached_value );
+		$this->assertFalse( $found );
 	}
 
 	/**
