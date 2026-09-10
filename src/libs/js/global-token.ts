@@ -25,7 +25,7 @@ export const localKeySet = async (
 		return window.customerDataKeys;
 	}
 
-	return apiFetch( { path: '/customerData/v1/jwks' } ).then( ( keys ) => {
+	return apiFetch( { path: '/customer-data/v1/jwks' } ).then( ( keys ) => {
 		window.customerDataKeys = keys as JSONWebKeySet;
 		return window.customerDataKeys;
 	} );
