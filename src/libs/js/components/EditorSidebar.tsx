@@ -33,6 +33,13 @@ import { UsersList } from './UsersList';
 import { UploadDestinationSelector } from './UploadDestinationSelector';
 import { CustomerDataBlockSelector } from './CustomerDataBlockSelector';
 
+// Plain CSS packages from node_modules -- imported here (as JS) rather
+// than via SCSS `@import "~pkg/..."`, since that legacy webpack-tilde
+// resolution is only honored by Sass for `.scss` partials pulled in via
+// `@use`; plain `.css` files pulled in via `@import` are passed through
+// untouched to postcss, which does not understand the `~` prefix.
+import '@wordpress/dataviews/build-style/style.css';
+import '@wordpress/base-styles/build-style/admin-schemes.css';
 import './EditorSidebar.scss';
 import {
 	useDispatchVisibilityHelperPreference,

@@ -128,7 +128,7 @@ msgstr "v2"
 
 #: classes/class-keyset.php:336
 #: build/admin-settings/editor.js:4
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 #: build/blocks/file-upload-delete/admin.js:1
 msgid "Delete"
 msgstr "Supprimer"
@@ -183,7 +183,7 @@ msgid "No payload provided"
 msgstr "Aucune charge utile fournie"
 
 #: classes/class-tool-create-token.php:350
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Email"
 msgstr "E-mail"
 
@@ -312,7 +312,7 @@ msgid "Expires at"
 msgstr "Expire le"
 
 #: classes/class-tool-create-token.php:387
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Scope"
 msgstr "Portée"
 
@@ -501,7 +501,7 @@ msgid "Write"
 msgstr "Écriture"
 
 #: classes/class-tool-create-token.php:418
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Display name"
 msgstr "Nom d'affichage"
 
@@ -699,6 +699,7 @@ msgstr[0] "Télécharger %d fichier"
 msgstr[1] "Télécharger %d fichiers"
 
 #: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 #: build/blocks/file-upload-download/admin.js:1
 msgid "Download"
 msgstr "Télécharger"
@@ -724,111 +725,113 @@ msgid "Create a new space"
 msgstr "Créer un nouvel espace"
 
 #: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Temporary URL"
 msgstr "URL temporaire"
 
-#: build/admin-settings/editor.js:10
+#. translators: %s: Field name.
+#: build/admin-settings/editor.js:71
 msgid "Failed to generate temporary URL"
 msgstr "Échec de la génération de l'URL temporaire"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Go back"
 msgstr "Retour"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Identifier"
 msgstr "Identifiant"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Generate temporary URL"
 msgstr "Générer une URL temporaire"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Generated URL"
 msgstr "URL générée"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papiers"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Inspect a token"
 msgstr "Inspecter un jeton"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "ID"
 msgstr "ID"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "User"
 msgstr "Utilisateur"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Browse"
 msgstr "Parcourir"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "User files"
 msgstr "Fichiers utilisateur"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Visibility settings"
 msgstr "Paramètres de visibilité"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Display if the token is valid"
 msgstr "Afficher si le jeton est valide"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Display if the token is invalid"
 msgstr "Afficher si le jeton est invalide"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Display if the token is loading"
 msgstr "Afficher si le jeton est en cours de chargement"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "File type"
 msgstr "Type de fichier"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Upload destination folder"
 msgstr "Dossier de destination d'upload"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Enter destination"
 msgstr "Saisir la destination"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Icon"
 msgstr "Icône"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Name"
 msgstr "Nom"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Remote path"
 msgstr "Chemin distant"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 #: build/blocks/token-input/admin.js:1
 msgid "Type"
 msgstr "Type"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Size"
 msgstr "Taille"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Date"
 msgstr "Date"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Create a token"
 msgstr "Créer un jeton"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Generate a token"
 msgstr "Générer un jeton"
 
