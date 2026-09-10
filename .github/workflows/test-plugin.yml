@@ -86,6 +86,7 @@ jobs:
         with:
           plugin_slug: customer-data
           php_version: '8.3'
+          wordpress_version: 'trunk'
 
       - uses: mikepenz/action-junit-report@v3
         if: always()
