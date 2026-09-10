@@ -1,4 +1,4 @@
-# Copyright (C) 2025 @holyhope
+# Copyright (C) 2026 @holyhope
 # This file is distributed under the same license as the Customer Data plugin.
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-23T13:42:36+00:00\n"
+"POT-Creation-Date: 2026-09-10T20:38:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: customer-data\n"
@@ -106,7 +106,7 @@ msgstr ""
 
 #: classes/class-keyset.php:336
 #: build/admin-settings/editor.js:4
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 #: build/blocks/file-upload-delete/admin.js:1
 msgid "Delete"
 msgstr ""
@@ -486,7 +486,7 @@ msgid "VCard file"
 msgstr ""
 
 #: classes/class-tool-create-token.php:350
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Email"
 msgstr ""
 
@@ -504,7 +504,7 @@ msgid "Expires at"
 msgstr ""
 
 #: classes/class-tool-create-token.php:387
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Scope"
 msgstr ""
 
@@ -521,7 +521,7 @@ msgid "Write"
 msgstr ""
 
 #: classes/class-tool-create-token.php:418
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Display name"
 msgstr ""
 
@@ -664,6 +664,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 #: build/blocks/file-upload-download/admin.js:1
 msgid "Download"
 msgstr ""
@@ -689,111 +690,113 @@ msgid "Create a new space"
 msgstr ""
 
 #: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Temporary URL"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#. translators: %s: Field name.
+#: build/admin-settings/editor.js:71
 msgid "Failed to generate temporary URL"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Go back"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Identifier"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Generate temporary URL"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Generated URL"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Copy to clipboard"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Inspect a token"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "ID"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "User"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Browse"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "User files"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Visibility settings"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Display if the token is valid"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Display if the token is invalid"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Display if the token is loading"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "File type"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Upload destination folder"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Enter destination"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Icon"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Name"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Remote path"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 #: build/blocks/token-input/admin.js:1
 msgid "Type"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Size"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Date"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Create a token"
 msgstr ""
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:71
 msgid "Generate a token"
 msgstr ""
 
