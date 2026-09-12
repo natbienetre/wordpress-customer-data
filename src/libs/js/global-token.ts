@@ -17,6 +17,8 @@ import {
 import { TokenQueryParams } from './const';
 import type ApiFetch from 'wordpress/api-fetch';
 
+const tokenVerificationOptions = { algorithms: [ 'EdDSA' ] };
+
 export const localKeySet = async (
 	window: Window & globalThis.Window,
 	apiFetch: ApiFetch< JSONWebKeySet >
@@ -38,7 +40,11 @@ export const verifyToken = async (
 		token?: FlattenedJWSInput
 	) => Promise< CryptoKey >
 ): Promise< JWTVerifyResult< VersionnedTokenData > > => {
-	return jwtVerify< VersionnedTokenData >( token, jwks ).catch(
+	return jwtVerify< VersionnedTokenData >(
+		token,
+		jwks,
+		tokenVerificationOptions
+	).catch(
 		async ( error ) => {
 			if ( 'ERR_JWKS_MULTIPLE_MATCHING_KEYS' !== error?.code ) {
 				throw error;
@@ -48,7 +54,8 @@ export const verifyToken = async (
 				try {
 					return await jwtVerify< VersionnedTokenData >(
 						token,
-						publicKey
+						publicKey,
+						tokenVerificationOptions
 					);
 				} catch ( innerError: any ) {
 					if (

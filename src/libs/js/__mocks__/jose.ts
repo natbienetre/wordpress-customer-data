@@ -42,7 +42,8 @@ async function jwtVerify< T extends JWTPayload = JWTPayload >(
 		| ( (
 				protectedHeader?: JWSHeaderParameters,
 				token?: string
-		  ) => Promise< CryptoKey > )
+		  ) => Promise< CryptoKey > ),
+	options?: { algorithms?: string[] }
 ): Promise< JWTVerifyResult< T > > {
 	const [ headerB64, payloadB64 ] = token.split( '.' );
 
@@ -52,6 +53,13 @@ async function jwtVerify< T extends JWTPayload = JWTPayload >(
 
 	const header = JSON.parse( atob( headerB64 ) );
 	const payload = JSON.parse( atob( payloadB64 ) );
+
+	if (
+		options?.algorithms &&
+		! options.algorithms.includes( header.alg as string )
+	) {
+		throw new Error( 'Unsupported algorithm' );
+	}
 
 	// Check expiration
 	if ( payload.exp && payload.exp < Math.floor( Date.now() / 1000 ) ) {
