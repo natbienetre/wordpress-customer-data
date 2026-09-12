@@ -25,7 +25,7 @@ describe( 'getToken', () => {
 		};
 
 		// Create a mock JWT token
-		const header = btoa( JSON.stringify( { alg: 'HS256', typ: 'JWT' } ) );
+		const header = btoa( JSON.stringify( { alg: 'EdDSA', typ: 'JWT' } ) );
 		const payload = btoa( JSON.stringify( mockTokenData ) );
 		const signature = btoa( 'mock-signature' );
 		const serializedToken = `${ header }.${ payload }.${ signature }`;
@@ -60,6 +60,21 @@ describe( 'getToken', () => {
 		} as unknown as Window & globalThis.Window;
 
 		expect( getToken( mockWindow, apiFetch ) ).rejects.toThrow(
+			'Invalid token'
+		);
+	} );
+
+	it( 'should reject tokens using an unsupported algorithm', async () => {
+		const header = btoa( JSON.stringify( { alg: 'HS256', typ: 'JWT' } ) );
+		const payload = btoa( JSON.stringify( { version: '1' } ) );
+		const signature = btoa( 'mock-signature' );
+		const mockWindow = {
+			location: {
+				search: `?customer_data_token=${ header }.${ payload }.${ signature }`,
+			},
+		} as unknown as Window & globalThis.Window;
+
+		await expect( getToken( mockWindow, apiFetch ) ).rejects.toThrow(
 			'Invalid token'
 		);
 	} );
