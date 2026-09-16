@@ -65,18 +65,22 @@ jobs:
 
       - name: Create release (on push to main)
         if: github.ref == 'refs/heads/main'
-        uses: softprops/action-gh-release@v2
-        with:
-          files: >-
-            build/automator-workflow.tar.gz
-          tag_name: >-
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: >-
             automator-workflow-${{ steps.version.outputs.version }}
-          name: Automator Workflow v${{ steps.version.outputs.version }}
-          body: |
+          RELEASE_NAME: >-
+            Automator Workflow v${{ steps.version.outputs.version }}
+          RELEASE_BODY: |
             Automator workflow built from commit ${{ github.sha }}
 
             ## Installation
             1. Download the `.tar.gz` file and extract it
             2. Move the `.workflow` file to the `~/Library/Services` folder
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$RELEASE_TAG" \
+            'build/automator-workflow.tar.gz' \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "$RELEASE_NAME" \
+            --notes "$RELEASE_BODY"
