@@ -21,6 +21,7 @@ permissions:
 
 jobs:
   build-automator-workflow:
+    name: Build Automator workflow archive
     runs-on: ubuntu-latest
 
     steps:
