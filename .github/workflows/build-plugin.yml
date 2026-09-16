@@ -126,7 +126,9 @@ jobs:
           path: build
 
       - name: Create release (on push to main)
-        uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
+        # yamllint disable rule:line-length
+        uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631  # v2.2.2
+        # yamllint enable rule:line-length
         with:
           files: >-
             build/visitor-filesystem.tar.gz
