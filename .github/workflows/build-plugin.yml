@@ -16,9 +16,14 @@ on:
         required: false
         default: 'latest'
 
+permissions:
+  contents: read
+
 jobs:
   build-plugin:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
 
     steps:
       - name: Checkout code
@@ -50,14 +55,23 @@ jobs:
 
       - name: Generate version info
         id: version
+        env:
+          INPUT_VERSION: ${{ github.event.inputs.version }}
         run: |
-          if [ "${{ github.event.inputs.version }}" != "" ]; then
-            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          if [ -n "$INPUT_VERSION" ]; then
+            VERSION="$INPUT_VERSION"
           else
             # Extract version from package.json
             VERSION=$(node -p "require('./package.json').version")
-            echo "version=$VERSION" >> $GITHUB_OUTPUT
           fi
+
+          if [[ ! "$VERSION" =~ ^[0-9A-Za-z][0-9A-Za-z._-]*$ ]]; then
+            echo "Version must contain only letters, numbers, dots," \
+              "underscores, and hyphens" >&2
+            exit 1
+          fi
+
+          printf 'version=%s\n' "$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Compile
         run: composer run-script build
@@ -97,14 +111,27 @@ jobs:
           path: >-
             build/visitor-filesystem.tar.gz
 
+  release:
+    if: github.ref == 'refs/heads/main'
+    needs: build-plugin
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: visitor-filesystem-${{ needs.build-plugin.outputs.version }}
+          path: build
+
       - name: Create release (on push to main)
-        if: github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
         with:
           files: >-
             build/visitor-filesystem.tar.gz
-          tag_name: v${{ steps.version.outputs.version }}
-          name: Visitor FileSystem v${{ steps.version.outputs.version }}
+          tag_name: v${{ needs.build-plugin.outputs.version }}
+          name: Visitor FileSystem v${{ needs.build-plugin.outputs.version }}
           body: |
             WordPress plugin built from commit ${{ github.sha }}
 

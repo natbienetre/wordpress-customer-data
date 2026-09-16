@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: classes/class-settings-page.php:124
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:65
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -127,8 +127,8 @@ msgid "v2"
 msgstr "v2"
 
 #: classes/class-keyset.php:336
-#: build/admin-settings/editor.js:4
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:65
+#: build/admin-settings/editor.js:68
 #: build/blocks/file-upload-delete/admin.js:1
 msgid "Delete"
 msgstr "Supprimer"
@@ -188,12 +188,12 @@ msgid "Email"
 msgstr "E-mail"
 
 #: classes/class-tool-inspect-token.php:227
-#: build/admin-settings/editor.js:1
+#: build/admin-settings/editor.js:68
 msgid "Version"
 msgstr "Version"
 
 #: classes/class-tool-create-token.php:430
-#: build/admin-settings/editor.js:1
+#: build/admin-settings/editor.js:68
 msgid "User ID"
 msgstr "ID utilisateur"
 
@@ -307,7 +307,7 @@ msgid "Invalid token"
 msgstr "Jeton invalide"
 
 #: classes/class-tool-create-token.php:375
-#: build/admin-settings/editor.js:1
+#: build/admin-settings/editor.js:68
 msgid "Expires at"
 msgstr "Expire le"
 
@@ -650,86 +650,86 @@ msgstr "Êtes-vous sûr de vouloir supprimer %s ?"
 msgid "Download %s"
 msgstr "Télécharger %s"
 
-#: build/admin-settings/editor.js:1
+#: build/admin-settings/editor.js:68
 msgid "Page space"
 msgstr "Espace de page"
 
-#: build/admin-settings/editor.js:1
+#: build/admin-settings/editor.js:68
 msgid "Signatures"
 msgstr "Signatures"
 
-#: build/admin-settings/editor.js:1
+#. translators: %s: Field name.
+#: build/admin-settings/editor.js:62
 msgid "JSON Web Key Set list"
 msgstr "Liste des ensembles de clés JSON Web"
 
-#: build/admin-settings/editor.js:1
+#: build/admin-settings/editor.js:62
 msgid "Generate a key"
 msgstr "Générer une clé"
 
 #. translators: %1$s is the key ID, %2$s is the error message.
-#: build/admin-settings/editor.js:4
+#: build/admin-settings/editor.js:68
 #, js-format
 msgid "Failed to delete key %1$s: %2$s"
 msgstr "Échec de la suppression de la clé %1$s : %2$s"
 
-#: build/admin-settings/editor.js:4
+#: build/admin-settings/editor.js:68
 msgid "Are you sure you want to delete this key?"
 msgstr "Êtes-vous sûr de vouloir supprimer cette clé ?"
 
-#: build/admin-settings/editor.js:4
+#: build/admin-settings/editor.js:68
 msgid "This action cannot be undone."
 msgstr "Cette action ne peut pas être annulée."
 
-#: build/admin-settings/editor.js:4
+#: build/admin-settings/editor.js:68
 msgid "This action will delete the key from the server and invalidate all tokens signed with it."
 msgstr "Cette action supprimera la clé du serveur et invalidera tous les jetons signés avec elle."
 
 #. translators: %s is the error message
-#: build/admin-settings/editor.js:7
+#: build/admin-settings/editor.js:74
 #, js-format
 msgid "Failed to zip files: %s"
 msgstr "Échec de la compression des fichiers : %s"
 
 #. translators: %d is the number of files
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:77
 #, js-format
 msgid "Download %d file"
 msgid_plural "Download %d files"
 msgstr[0] "Télécharger %d fichier"
 msgstr[1] "Télécharger %d fichiers"
 
-#: build/admin-settings/editor.js:10
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:65
+#: build/admin-settings/editor.js:77
 #: build/blocks/file-upload-download/admin.js:1
 msgid "Download"
 msgstr "Télécharger"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:65
 msgid "Users spaces"
 msgstr "Espaces utilisateurs"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:65
 msgid "Accessibility"
 msgstr "Accessibilité"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:65
 msgid "Block visibility helper"
 msgstr "Assistant de visibilité des blocs"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:65
 msgid "Files"
 msgstr "Fichiers"
 
-#: build/admin-settings/editor.js:10
+#: build/admin-settings/editor.js:65
 msgid "Create a new space"
 msgstr "Créer un nouvel espace"
 
-#: build/admin-settings/editor.js:10
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:62
+#: build/admin-settings/editor.js:65
 msgid "Temporary URL"
 msgstr "URL temporaire"
 
-#. translators: %s: Field name.
 #: build/admin-settings/editor.js:71
 msgid "Failed to generate temporary URL"
 msgstr "Échec de la génération de l'URL temporaire"
@@ -742,6 +742,7 @@ msgstr "Retour"
 msgid "Identifier"
 msgstr "Identifiant"
 
+#: build/admin-settings/editor.js:65
 #: build/admin-settings/editor.js:71
 msgid "Generate temporary URL"
 msgstr "Générer une URL temporaire"
@@ -754,7 +755,7 @@ msgstr "URL générée"
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papiers"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:62
 msgid "Inspect a token"
 msgstr "Inspecter un jeton"
 
@@ -774,23 +775,23 @@ msgstr "Parcourir"
 msgid "User files"
 msgstr "Fichiers utilisateur"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:62
 msgid "Visibility settings"
 msgstr "Paramètres de visibilité"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:62
 msgid "Display if the token is valid"
 msgstr "Afficher si le jeton est valide"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:62
 msgid "Display if the token is invalid"
 msgstr "Afficher si le jeton est invalide"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:62
 msgid "Display if the token is loading"
 msgstr "Afficher si le jeton est en cours de chargement"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:65
 msgid "File type"
 msgstr "Type de fichier"
 
@@ -802,93 +803,93 @@ msgstr "Dossier de destination d'upload"
 msgid "Enter destination"
 msgstr "Saisir la destination"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:65
 msgid "Icon"
 msgstr "Icône"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:65
 msgid "Name"
 msgstr "Nom"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:65
 msgid "Remote path"
 msgstr "Chemin distant"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:65
 #: build/blocks/token-input/admin.js:1
 msgid "Type"
 msgstr "Type"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:65
 msgid "Size"
 msgstr "Taille"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:65
 msgid "Date"
 msgstr "Date"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:62
 msgid "Create a token"
 msgstr "Créer un jeton"
 
-#: build/admin-settings/editor.js:71
+#: build/admin-settings/editor.js:62
 msgid "Generate a token"
 msgstr "Générer un jeton"
 
 #. translators: %s is the error message
-#: build/admin-settings/editor.js:73
+#: build/admin-settings/editor.js:79
 #, js-format
 msgid "An unknown error occurred: %s"
 msgstr "Une erreur inconnue s'est produite : %s"
 
-#: build/admin-settings/editor.js:73
+#: build/admin-settings/editor.js:68
 msgid "Token to inspect"
 msgstr "Jeton à inspecter"
 
-#: build/admin-settings/editor.js:73
+#: build/admin-settings/editor.js:68
 msgctxt "Token placeholder"
 msgid "xxxxxheaderxxxxx.yyyyypayloadyyyyyy.zzzzzsignaturezzzzz"
 msgstr "xxxxxheaderxxxxx.yyyyypayloadyyyyyy.zzzzzsignaturezzzzz"
 
-#: build/admin-settings/editor.js:73
+#: build/admin-settings/editor.js:68
 msgid "Enter the token to inspect."
 msgstr "Saisissez le jeton à inspecter."
 
-#: build/admin-settings/editor.js:73
+#: build/admin-settings/editor.js:68
 msgid "Token details will appear here."
 msgstr "Les détails du jeton apparaîtront ici."
 
-#: build/admin-settings/editor.js:73
+#: build/admin-settings/editor.js:68
 msgid "Untrusted token, did you delete the key?"
 msgstr "Jeton non fiable, avez-vous supprimé la clé ?"
 
-#: build/admin-settings/editor.js:73
+#: build/admin-settings/editor.js:68
 msgid "Invalid token format"
 msgstr "Format de jeton invalide"
 
 #. translators: %s is the error code.
-#: build/admin-settings/editor.js:76
+#: build/admin-settings/editor.js:71
 #, js-format
 msgid "Invalid token: code %s"
 msgstr "Jeton invalide : code %s"
 
-#: build/admin-settings/editor.js:76
+#: build/admin-settings/editor.js:62
 msgid "No CustomerData blocks found, please insert a CustomerData block"
 msgstr "Aucun bloc CustomerData trouvé, veuillez insérer un bloc CustomerData"
 
 #. translators: %d is the number of blocks
-#: build/admin-settings/editor.js:79
+#: build/admin-settings/editor.js:65
 #, js-format
 msgid "%d block found"
 msgid_plural "%d blocks found"
 msgstr[0] "%d bloc trouvé"
 msgstr[1] "%d blocs trouvés"
 
-#: build/admin-settings/editor.js:79
+#: build/admin-settings/editor.js:65
 msgid "Select the next block"
 msgstr "Sélectionner le bloc suivant"
 
-#: build/admin-settings/editor.js:79
+#: build/admin-settings/editor.js:68
 msgid "Validating token…"
 msgstr "Validation du jeton…"
 
