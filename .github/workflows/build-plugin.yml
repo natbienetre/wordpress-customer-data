@@ -61,7 +61,8 @@ jobs:
           fi
 
           if [[ ! "$VERSION" =~ ^[0-9A-Za-z][0-9A-Za-z._-]*$ ]]; then
-            echo "Version must contain only letters, numbers, dots, underscores, and hyphens" >&2
+            echo "Version must contain only letters, numbers, dots," \
+              "underscores, and hyphens" >&2
             exit 1
           fi
 
