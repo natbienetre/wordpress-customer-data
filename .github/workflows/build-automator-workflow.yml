@@ -31,12 +31,19 @@ jobs:
 
       - name: Generate version info
         id: version
+        env:
+          INPUT_VERSION: ${{ github.event.inputs.version }}
         run: |
-          if [ "${{ github.event.inputs.version }}" != "" ]; then
-            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          if [ -n "$INPUT_VERSION" ]; then
+            if [[ ! "$INPUT_VERSION" =~ ^[A-Za-z0-9][A-Za-z0-9._-]*$ ]]; then
+              echo "Invalid version: use only letters, numbers, periods, underscores, and hyphens" >&2
+              exit 1
+            fi
+            version="$INPUT_VERSION"
           else
-            echo "version=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
+            version="$(date +'%Y%m%d-%H%M%S')"
           fi
+          printf 'version=%s\n' "$version" >> "$GITHUB_OUTPUT"
 
       - name: Create Automator workflow archive
         run: >-
