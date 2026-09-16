@@ -44,7 +44,7 @@
 		"react-dom": "18.3.1",
 		"remove": "^0.1.5",
 		"vcard-parser": "^1.0.0",
-		"webpack": "5.99.5"
+		"webpack": "5.111.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.29.7",
@@ -115,5 +115,8 @@
 		"test:unit": "wp-scripts test-unit-js",
 		"test:unit:watch": "wp-scripts test-unit-js --watch"
 	},
-	"packageManager": "yarn@4.9.2"
+	"packageManager": "yarn@4.9.2",
+	"resolutions": {
+		"webpack": "5.111.0"
+	}
 }
