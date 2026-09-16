@@ -126,7 +126,7 @@ jobs:
           path: build
 
       - name: Create release (on push to main)
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
         with:
           files: >-
             build/visitor-filesystem.tar.gz
