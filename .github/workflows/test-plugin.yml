@@ -63,6 +63,7 @@ jobs:
         run: yarn test:unit
 
   wordpress-phpunit:
+    name: WordPress PHPUnit
     runs-on: ubuntu-latest
     permissions:
       checks: write
