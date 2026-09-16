@@ -16,9 +16,14 @@ on:
         required: false
         default: 'latest'
 
+permissions:
+  contents: read
+
 jobs:
   build-plugin:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
 
     steps:
       - name: Checkout code
@@ -97,14 +102,27 @@ jobs:
           path: >-
             build/visitor-filesystem.tar.gz
 
+  release:
+    if: github.ref == 'refs/heads/main'
+    needs: build-plugin
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: visitor-filesystem-${{ needs.build-plugin.outputs.version }}
+          path: build
+
       - name: Create release (on push to main)
-        if: github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v2
         with:
           files: >-
             build/visitor-filesystem.tar.gz
-          tag_name: v${{ steps.version.outputs.version }}
-          name: Visitor FileSystem v${{ steps.version.outputs.version }}
+          tag_name: v${{ needs.build-plugin.outputs.version }}
+          name: Visitor FileSystem v${{ needs.build-plugin.outputs.version }}
           body: |
             WordPress plugin built from commit ${{ github.sha }}
 
