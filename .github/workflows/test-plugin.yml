@@ -12,6 +12,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   yaml-lint:
     runs-on: ubuntu-latest
@@ -65,6 +68,9 @@ jobs:
 
   wordpress-phpunit:
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
 
     steps:
       - uses: actions/checkout@v3
