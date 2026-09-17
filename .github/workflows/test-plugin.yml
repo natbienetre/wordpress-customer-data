@@ -101,7 +101,9 @@ jobs:
           plugin_slug: customer-data
           php_version: '8.3'
 
-      - uses: mikepenz/action-junit-report@v3
+      - name: JUnit Report
+        uses: >-  # v5.6.2
+          mikepenz/action-junit-report@cf701569b05ccdd861a76b8607a66d76f6fd4857
         if: always()
         with:
           report_paths: ${{ steps.test.outputs.junit_report }}
