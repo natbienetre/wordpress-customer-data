@@ -38,9 +38,11 @@ jobs:
   php-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Lint PHP files
-        uses: overtrue/phplint@9.1.2
+        uses: >-  # v9.7.2
+          overtrue/phplint@eb25f9555367e4ea6c2d1d3256b39f8155f0351e
 
   composer-validation:
     runs-on: ubuntu-latest
