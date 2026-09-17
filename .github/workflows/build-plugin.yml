@@ -112,6 +112,7 @@ jobs:
             build/visitor-filesystem.tar.gz
 
   release:
+    name: Release plugin
     if: github.ref == 'refs/heads/main'
     needs: build-plugin
     runs-on: ubuntu-latest

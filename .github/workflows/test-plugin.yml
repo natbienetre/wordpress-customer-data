@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Yaml Lint
+      - name: Lint YAML
         uses: >-  # v3.1.1
           ibiqlik/action-yamllint@f4a9bf78d5056be712ef0f10ad7cbe8cda8b63fa
         with:
@@ -39,12 +39,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: overtrue/phplint@9.1.2
+      - name: Lint PHP files
+        uses: overtrue/phplint@9.1.2
 
   composer-validation:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
       - run: test ! -f composer.json || composer validate --strict
 
   javascript-unit-tests:
@@ -69,6 +70,7 @@ jobs:
         run: yarn test:unit
 
   wordpress-phpunit:
+    name: WordPress PHPUnit
     runs-on: ubuntu-latest
     permissions:
       checks: write
@@ -94,7 +96,8 @@ jobs:
 
       - name: Run tests
         id: test
-        uses: holyhope/test-wordpress-plugin-github-action@v2.0.4
+        uses: >-  # v2.0.4
+          holyhope/test-wordpress-plugin-github-action@1e7895de5852603e93a8e92afe9d008b76521355
         with:
           plugin_slug: customer-data
           php_version: '8.3'
@@ -105,6 +108,7 @@ jobs:
           report_paths: ${{ steps.test.outputs.junit_report }}
 
   language-files-up-to-date:
+    name: Ensure language files are up to date
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -124,7 +128,8 @@ jobs:
       - name: Compile assets
         run: yarn build
 
-      - uses: holyhope/test-wordpress-languages-github-action@v4.0.2
+      - uses: >-  # v4.0.2
+          holyhope/test-wordpress-languages-github-action@8ed87ecf3a8eb1824d3f62b450d0cb9e28890ec9
         id: languages
         with:
           slug: customer-data
