@@ -16,11 +16,16 @@ on:
         required: false
         default: 'latest'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
 jobs:
   build-automator-workflow:
+    name: Build Automator workflow archive
     runs-on: ubuntu-latest
 
     steps:
