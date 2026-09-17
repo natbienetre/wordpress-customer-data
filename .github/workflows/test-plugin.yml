@@ -20,7 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ibiqlik/action-yamllint@f4a9bf78d5056be712ef0f10ad7cbe8cda8b63fa # v3.1.1
+      - name: Yaml Lint
+        uses: >-  # v3.1.1
+          ibiqlik/action-yamllint@f4a9bf78d5056be712ef0f10ad7cbe8cda8b63fa
         with:
           config_data: |-
             extends: default
