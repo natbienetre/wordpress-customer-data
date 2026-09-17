@@ -16,11 +16,16 @@ on:
         required: false
         default: 'latest'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
   build-plugin:
+    name: Build plugin
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.version }}
@@ -112,6 +117,7 @@ jobs:
             build/visitor-filesystem.tar.gz
 
   release:
+    name: Release plugin
     if: github.ref == 'refs/heads/main'
     needs: build-plugin
     runs-on: ubuntu-latest
@@ -126,14 +132,12 @@ jobs:
           path: build
 
       - name: Create release (on push to main)
-        uses: >-  # v2.2.2
-          softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631
-        with:
-          files: >-
-            build/visitor-filesystem.tar.gz
-          tag_name: v${{ needs.build-plugin.outputs.version }}
-          name: Visitor FileSystem v${{ needs.build-plugin.outputs.version }}
-          body: |
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: v${{ needs.build-plugin.outputs.version }}
+          RELEASE_NAME: >-
+            Visitor FileSystem v${{ needs.build-plugin.outputs.version }}
+          RELEASE_BODY: |
             WordPress plugin built from commit ${{ github.sha }}
 
             ## Installation
@@ -148,5 +152,22 @@ jobs:
             - OpenStack Swift integration
             - Custom Gutenberg blocks
             - Admin settings and tools
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh release view "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            gh release edit "$RELEASE_TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "$RELEASE_NAME" \
+              --notes "$RELEASE_BODY"
+            gh release upload "$RELEASE_TAG" \
+              'build/visitor-filesystem.tar.gz' \
+              --repo "$GITHUB_REPOSITORY" \
+              --clobber
+          else
+            gh release create "$RELEASE_TAG" \
+              'build/visitor-filesystem.tar.gz' \
+              --repo "$GITHUB_REPOSITORY" \
+              --target "$GITHUB_SHA" \
+              --title "$RELEASE_NAME" \
+              --notes "$RELEASE_BODY"
+          fi
