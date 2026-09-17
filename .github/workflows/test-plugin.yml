@@ -42,8 +42,11 @@ jobs:
   composer-validation:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: test ! -f composer.json || composer validate --strict
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Validate Composer configuration
+        run: test ! -f composer.json || composer validate --strict
 
   javascript-unit-tests:
     runs-on: ubuntu-latest
