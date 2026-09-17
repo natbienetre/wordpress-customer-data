@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: overtrue/phplint@9.1.2
+      - run: find . \( -path ./vendor -o -path ./node_modules \) -prune -o -type f -name '*.php' -exec php -l {} \;
 
   composer-validation:
     runs-on: ubuntu-latest
