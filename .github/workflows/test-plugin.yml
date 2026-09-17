@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Lint YAML
         uses: >-  # v3.1.1
-          ibiqlik/action-yamllint@f4a9bf78d5056be712ef0f10ad7cbe8cda8b63fa
+          ibiqlik/action-yamllint@0ab8a19201be2a46e56c8b45d8cd5c58e36eae5d
         with:
           config_data: |-
             extends: default
