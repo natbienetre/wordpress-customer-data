@@ -98,7 +98,7 @@ jobs:
           php_version: '8.3'
 
       - name: JUnit Report
-        uses:  >- # v5.6.2
+        uses: >- # v5.6.2
           mikepenz/action-junit-report@cf701569b05ccdd861a76b8607a66d76f6fd4857
         if: always()
         with:
