@@ -98,8 +98,8 @@ jobs:
           php_version: '8.3'
 
       - name: JUnit Report
-        # v5.6.2
-        uses: mikepenz/action-junit-report@cf701569b05ccdd861a76b8607a66d76f6fd4857
+        uses:  >- # v5.6.2
+          mikepenz/action-junit-report@cf701569b05ccdd861a76b8607a66d76f6fd4857
         if: always()
         with:
           report_paths: ${{ steps.test.outputs.junit_report }}
